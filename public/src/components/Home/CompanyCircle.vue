@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="company_logo_div">
-    <div class="company_logo"></div>
+    <div class="company_logo">Hiring Companies</div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style>
 .company_logo_div {
   display: flex;
   justify-content: center;
@@ -20,9 +20,14 @@ export default {
   /*margin: 50px auto;*/
 }
 .company_logo {
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
+  display: flex;
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  background: gray;
+  background: linear-gradient(45deg,#87e2f2,#4473ff);
 }
 </style>

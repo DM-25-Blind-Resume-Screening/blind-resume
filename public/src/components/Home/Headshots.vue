@@ -1,8 +1,9 @@
 <template>
 
 
-    <div class="headshots" :style="{background: circleColor}"></div>
-    <!-- <div class='dot'></div> -->
+  <div class="headshots">
+  </div>
+
 
 </template>
 
