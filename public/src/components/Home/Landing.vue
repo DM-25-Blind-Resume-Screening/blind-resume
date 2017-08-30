@@ -8,7 +8,7 @@
 	import HomeBanner from './LandingElements/HomeBanner.vue';
 	export default {
 	    components: {
-	      appHomebanner: HomeBanner
+	      appHomeBanner: HomeBanner
 	    }
 	}
 </script>
