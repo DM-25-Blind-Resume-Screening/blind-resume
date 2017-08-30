@@ -6,7 +6,11 @@
 </template>
 
 <script>
+import { VueTyper } from 'vue-typer';
 export default {
+  components: {
+    VueTyper
+  }
 }
 </script>
 
@@ -23,5 +27,9 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.vue-typer {
+  font-size: 60px;
 }
 </style>
