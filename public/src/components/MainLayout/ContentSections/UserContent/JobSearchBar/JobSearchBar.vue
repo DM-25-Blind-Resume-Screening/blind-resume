@@ -25,7 +25,6 @@
         font-family: 'Avenir', Arial, Helvetica, sans-serif;
         font-weight: bold;
         padding-left: 5px;
-
     }
 
     .jsb-input::placeholder {
@@ -34,7 +33,6 @@
         font-size: 15px;
         font-weight: bold;
         padding-left: 5px;
-        
     }
 
     .jsb-location {
