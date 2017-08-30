@@ -16,6 +16,7 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <quill-editor v-model="content" class="app-editor"></quill-editor>
   </div>
 </template>
 
@@ -42,6 +43,10 @@ export default {
 
 h1, h2 {
   font-weight: normal;
+}
+
+.app-editor li {
+  display: block;
 }
 
 ul {
