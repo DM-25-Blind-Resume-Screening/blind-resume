@@ -33,8 +33,6 @@ export default {
 .main {
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
 }
 
 .job-listing {
@@ -42,6 +40,7 @@ export default {
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
     width: 700px;
     height: auto;
+    margin: 50px 100px;
 }
 
 .job-listing-content {

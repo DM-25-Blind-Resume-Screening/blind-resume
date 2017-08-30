@@ -4,7 +4,6 @@
 			<h1>1,274 Jobs Found</h1>
 		</app-content-header>
 		<app-job-search-bar></app-job-search-bar>
-		<h1>Job Listings</h1>
 
 		<app-job-list></app-job-list>
 	</div>
