@@ -1,6 +1,7 @@
 <template>
 <div class="wrapper">
   <div class="navbar_div"></div>
+  <div class="logo"><img src="../../../assets/graylogo.png"></div>
   <button class="login">LOGIN</button>
 </div>
 </template>
@@ -26,6 +27,16 @@ export default {
   top: 0;
   opacity: 0.9;
   z-index: 9;
+}
+.logo {
+  height: 60px;
+  width: 120px;
+  position: fixed;
+  z-index: 999;
+}
+img{
+  height: 60px;
+  width: 120px;
 }
 .login {
   border: none;
