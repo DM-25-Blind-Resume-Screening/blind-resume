@@ -1,10 +1,6 @@
 <template>
-
-
   <div class="headshots">
   </div>
-
-
 </template>
 
 <script >
