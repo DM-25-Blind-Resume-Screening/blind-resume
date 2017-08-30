@@ -2,6 +2,7 @@ import CompanySidebar from '../components/MainLayout/Sidebars/CompanySidebar/Com
 import CompanyJobList from '../components/MainLayout/ContentSections/CompanyContent/CompanyJobListing/CompanyJobList.vue'
 import LongCompanyJobPost from '../components/MainLayout/ContentSections/CompanyContent/CompanyJobListing/LongCompanyJobPost.vue'
 import NewJobPost from '../components/MainLayout/ContentSections/CompanyContent/JobPost/NewJobPost.vue'
+import ResumeViewer from '../components/MainLayout/ContentSections/CompanyContent/ResumeViewer/ResumeViewer.vue'
 
 export const companyMainRoute = 
 	{
@@ -27,5 +28,14 @@ export const companyJobPostRoute =
 	components: {
 		sidebar: CompanySidebar,
 		content: LongCompanyJobPost
+	}
+}
+
+export const companyResumeViewerRoute = 
+{
+	path: 'company/:company_id/:job_post_id/resumes',
+	components: {
+		sidebar: CompanySidebar,
+		content: ResumeViewer
 	}
 }
