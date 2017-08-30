@@ -1,13 +1,31 @@
 <template>
   <div class="landing-picture-div">
     <div class="picture">
-
+      <div>
+        <vue-typer
+        :text='["hired.","better.","driven."]'
+        :repeat='Infinity'
+        :shuffle='false'
+        initial-action='typing'
+        :pre-type-delay='200'
+        :type-delay='150'
+        :pre-erase-delay='1500'
+        :erase-delay='100'
+        erase-style='backspace'
+        :erase-on-complete='false'
+        caret-animation='blink'>
+        </vue-typer>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { VueTyper } from 'vue-typer';
 export default {
+  components: {
+    VueTyper
+  }
 }
 </script>
 
@@ -24,5 +42,9 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.vue-typer {
+  font-size: 60px;
 }
 </style>
