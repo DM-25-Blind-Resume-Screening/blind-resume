@@ -50,12 +50,12 @@ height:400px;
   width: 50px;
   height: 50px;
   margin-top: 260px;
-  background-image: url('../../assets/Head1.png');
+  background-image: url('../../../assets/Head1.png');
   background-size: cover;
   left: 180px;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
-.display_headshots .blue1 {
+/*.display_headshots .blue1 {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -106,6 +106,6 @@ height:400px;
   left: 80px;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
-
+*/
 
 </style>

@@ -20,7 +20,7 @@ export default {
 .picture {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(211,211,211,0.3),rgba(211,211,211,0.3)), url('../../assets/landing-picture.jpg');
+  background: linear-gradient(rgba(211,211,211,0.3),rgba(211,211,211,0.3)), url('../../../assets/landing-picture.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
