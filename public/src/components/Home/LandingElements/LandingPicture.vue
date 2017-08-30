@@ -2,6 +2,21 @@
   <div class="landing-picture-div">
     <div class="picture">
     </div>
+    <div>
+      <vue-typer
+      :text='["hired.","better.","driven."]'
+      :repeat='Infinity'
+      :shuffle='false'
+      initial-action='typing'
+      :pre-type-delay='200'
+      :type-delay='150'
+      :pre-erase-delay='1500'
+      :erase-delay='100'
+      erase-style='backspace'
+      :erase-on-complete='false'
+      caret-animation='blink'>
+      </vue-typer>
+    </div>
   </div>
 </template>
 
