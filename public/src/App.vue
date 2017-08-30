@@ -5,14 +5,7 @@
 </template>
 
 <script>
-import HomeBanner from './components/Home/HomeBanner.vue';
-export default {
-    components: {
-      appHomebanner: HomeBanner
-    }
 
-
-}
 </script>
 
 <style>
