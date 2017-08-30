@@ -1,7 +1,6 @@
 <template>
   <div class="landing-picture-div">
     <div class="picture">
-
     </div>
   </div>
 </template>
@@ -20,7 +19,7 @@ export default {
 .picture {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(211,211,211,0.3),rgba(211,211,211,0.3)), url('../../../assets/landing-picture.jpg');
+  background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('../../../assets/landing-picture.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
