@@ -1,18 +1,11 @@
 <template>
   <div id="app">
-    <app-homebanner></app-homebanner>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HomeBanner from './components/Home/HomeBanner.vue';
-export default {
-    components: {
-      appHomebanner: HomeBanner
-    }
 
-
-}
 </script>
 
 <style>
