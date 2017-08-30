@@ -55,13 +55,13 @@ height:400px;
   left: 180px;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
-/*.display_headshots .blue1 {
+.display_headshots .blue1 {
   position: absolute;
   width: 50px;
   height: 50px;
   margin: 50px;
   left: 500px;
-  background-image: url('../../assets/head2.png');
+  background-image: url('../../../assets/head2.png');
   background-size: cover;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
@@ -71,7 +71,7 @@ height:400px;
   height: 50px;
   margin-top: 40px;
   left: 180px;
-  background-image: url('../../assets/head3.png');
+  background-image: url('../../../assets/head3.png');
   border: 0.2px solid black;
   background-size: cover;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
@@ -82,7 +82,7 @@ height:400px;
   height: 50px;
   margin-top: 180px;
   right: 120px;
-  background-image: url('../../assets/head4.png');
+  background-image: url('../../../assets/head4.png');
   background-size: cover;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
@@ -92,7 +92,7 @@ height:400px;
   height: 50px;
   margin-top: 110px;
   right: 15px;
-  background-image: url('../../assets/head5.png');
+  background-image: url('../../../assets/head5.png');
   background-size: cover;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
@@ -101,11 +101,11 @@ height:400px;
   width: 50px;
   height: 50px;
   margin-top: 120px;
-  background-image: url('../../assets/head6.png');
+  background-image: url('../../../assets/head6.png');
   background-size: cover;
   left: 80px;
   box-shadow: -20px 20px 120px 7px rgba(0,0,0,0.3);
 }
-*/
+
 
 </style>
