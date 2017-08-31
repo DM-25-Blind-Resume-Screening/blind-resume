@@ -73,15 +73,17 @@ export default {
   height:60px;
   width: 220px;
   font-size: 60px;
-  left: 50px;
+}
+.left{
+  line-height: 1;
 }
 .vue-typer .custom.char.typed {
   color: white;
-
 }
 .vue-typer .custom.caret {
   width: 3px;
   height: 50px;
   background-color: white;
+  line-height: 1;
 }
 </style>
