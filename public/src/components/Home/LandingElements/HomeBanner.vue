@@ -47,8 +47,8 @@ height:400px;
 }
 .display_headshots .red0 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin-top: 260px;
   background-image: url('../../../assets/Head1.png');
   background-size: cover;
@@ -57,8 +57,8 @@ height:400px;
 }
 .display_headshots .blue1 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin: 50px;
   left: 500px;
   background-image: url('../../../assets/head2.png');
@@ -67,8 +67,8 @@ height:400px;
 }
 .display_headshots .green2 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin-top: 40px;
   left: 180px;
   background-image: url('../../../assets/head3.png');
@@ -78,8 +78,8 @@ height:400px;
 }
 .display_headshots .orange3 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin-top: 180px;
   right: 120px;
   background-image: url('../../../assets/head4.png');
@@ -88,8 +88,8 @@ height:400px;
 }
 .display_headshots .brown4 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin-top: 110px;
   right: 15px;
   background-image: url('../../../assets/head5.png');
@@ -98,8 +98,8 @@ height:400px;
 }
 .display_headshots .black5 {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin-top: 120px;
   background-image: url('../../../assets/head6.png');
   background-size: cover;

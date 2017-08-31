@@ -12,6 +12,7 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "massive": "^3.2.2",
     "vue-material": "^0.7.4"
   }
 }
