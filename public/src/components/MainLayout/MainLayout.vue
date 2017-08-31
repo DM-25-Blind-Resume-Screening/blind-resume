@@ -23,7 +23,7 @@
 		top: 0;
 		bottom: 0;
 		z-index: 999;
-		width: 150px;
+		width: 250px;
 		background: linear-gradient(to bottom, #34aebe, #23809b);
 		color: #fff;
 	}
@@ -35,8 +35,8 @@
 
 	.layout_content {
 		position: relative;
-		margin-left: 150px;
-
+		margin-left: 250px;
+		width: 100%;
     	letter-spacing: normal;
     	word-spacing: normal;
     	vertical-align: top;
