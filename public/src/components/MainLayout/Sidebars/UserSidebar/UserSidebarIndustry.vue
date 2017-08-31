@@ -1,11 +1,12 @@
 <template>
-  <div>
+<div>
       <h1 class="usi-h1">Job Industry</h1>
-      <input class="usi-checkbox" type="checkbox">
-  </div>
+    
+</div>
 </template>
 
 <script>
+
 export default {
   
 }
@@ -19,9 +20,9 @@ export default {
         margin: 80px 0 0 20px;
     }
 
-    .usi-checkbox {
-        
-    }
+
 </style>
+
+
 
 
