@@ -1,5 +1,20 @@
 <template>
 	<div>
-		<h1>JOB POST DESCRIPTION</h1>
+		<quill-editor class="nj-editor" v-model="internalJobDescription"></quill-editor>
 	</div>
 </template>
+
+<script>
+	export default {
+		data() {
+			return {
+				internalJobDescription: ''
+			}
+		},
+		watch: {
+			internalJobDescription() {
+				this.$emit('input', this.internalJobDescription)
+			}
+		}
+	}
+</script>
