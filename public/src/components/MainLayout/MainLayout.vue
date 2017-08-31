@@ -23,8 +23,7 @@
 		top: 0;
 		bottom: 0;
 		z-index: 999;
-		width: 260px;
-		height: 100%;
+		width: 150px;
 		background: linear-gradient(to bottom, #34aebe, #23809b);
 		color: #fff;
 	}
@@ -35,26 +34,13 @@
 	}
 
 	.layout_content {
-		position: fixed;
-		padding: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 260px;
+		position: relative;
+		margin-left: 150px;
 
-		display: inline-block;
-    	zoom: 1;
     	letter-spacing: normal;
     	word-spacing: normal;
     	vertical-align: top;
     	text-rendering: auto;
-
 	}
 
-	@media(max-width: 1100px) {
-		.layout_content {
-			overflow-x: auto;
-			overflow-y: hidden;
-		}
-	}
 </style>
