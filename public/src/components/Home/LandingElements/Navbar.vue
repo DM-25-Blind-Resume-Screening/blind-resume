@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   <div class="navbar_div"></div>
-  <div class="logo-div"><img class="logo" src="../../../assets/graylogo.png"></div>
+  <div class="logo-div"><img class="logo" src="../../../assets/BElogo.png"></div>
   <button class="login">LOGIN</button>
 </div>
 </template>
