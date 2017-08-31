@@ -9,7 +9,7 @@
 
 <script>
 	import HomeBanner from './LandingElements/HomeBanner.vue';
-	import NavBar from './LandingElements/NavBar.vue';
+	import NavBar from './LandingElements/Navbar.vue';
 	import LandingPicture from './LandingElements/LandingPicture.vue'
 	export default {
 	    components: {
