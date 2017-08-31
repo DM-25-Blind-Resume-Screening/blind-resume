@@ -21,17 +21,15 @@
         border: 1px solid #95989A;
         outline: none;
         font-size: 15px;
-        color: #00BFE2;
+        color: black;
         font-family: 'Avenir', Arial, Helvetica, sans-serif;
-        font-weight: bold;
         padding-left: 5px;
     }
 
     .jsb-input::placeholder {
-        color: #00BFE2;
+        color: #6fc4e2;
         font-family: 'Avenir', Arial, Helvetica, sans-serif;
         font-size: 15px;
-        font-weight: bold;
         padding-left: 5px;
     }
 
