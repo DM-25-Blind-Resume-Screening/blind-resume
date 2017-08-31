@@ -12,6 +12,16 @@ app.use(cors());
 app.use(express.static(`${__dirname}/../public/dist`))
 
 
+massive(connectionString)
+	.then(db => {
+		app.set('db', db);
+
+		db.init_tables.schema_create_seed().then(res => {
+			console.log('schema create tables')
+		}).catch(err => console.log(err))
+	}).catch(err => console.log(err))
+
+
 
 const PORT = 3000
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
