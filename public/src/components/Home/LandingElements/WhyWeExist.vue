@@ -26,7 +26,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background: pink;
+
 }
 .header-div {
   height: 50px;
@@ -48,6 +48,11 @@ export default {
 .article {
   height:400px;
   width:500px;
-  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  /*box-shadow: 5px 5px  rgba(100, 167, 249, 0.5),10px 10px  rgba(100, 167, 249, 0.5), 15px 15px rgba(100, 167, 249, 0.5);*/
+  box-shadow: 5px 5px  rgba(0, 0, 0, 0.1), 10px 10px  rgba(0, 0, 0, 0.1), 15px 15px rgba(0, 0, 0, 0.1);
+
 }
+
+
 </style>
