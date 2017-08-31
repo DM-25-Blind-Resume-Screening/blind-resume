@@ -3,7 +3,7 @@ import CompanyJobList from '../components/MainLayout/ContentSections/CompanyCont
 import LongCompanyJobPost from '../components/MainLayout/ContentSections/CompanyContent/CompanyJobListing/LongCompanyJobPost.vue'
 import NewJobPost from '../components/MainLayout/ContentSections/CompanyContent/JobPost/NewJobPost.vue'
 import ResumeViewer from '../components/MainLayout/ContentSections/CompanyContent/ResumeViewer/ResumeViewer.vue'
-import CandidateList from '../components/MainLayout/ContentSections/CompanyContent/SelectedCandidates/CandidateList.vue'
+import SelectedCandidates from '../components/MainLayout/ContentSections/CompanyContent/SelectedCandidates/SelectedCandidates.vue'
 
 export const companyMainRoute = 
 	{
@@ -55,6 +55,6 @@ export const companySelectedCandidatesRoute =
 	path: 'company/:company_id/:job_post_id/candidates',
 	components: {
 		sidebar: CompanySidebar,
-		content: CandidateList
+		content: SelectedCandidates
 	}
 }
