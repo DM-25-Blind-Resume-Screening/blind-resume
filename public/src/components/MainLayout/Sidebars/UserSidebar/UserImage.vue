@@ -1,5 +1,6 @@
 <template>
   <div>
+      
       <div class="ui-profile-pic">
           <img width="110px" src="../../../../assets/head3.png">
       </div>
@@ -22,9 +23,14 @@ export default {
 
 
 <style>
+
+
     .ui-profile-pic {
         text-align: center;
         margin-top: 30px;
+        position: relative;
+        z-index: 2;
+        
     }
 
     .ui-user-name {

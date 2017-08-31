@@ -19,9 +19,13 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 Vue.use(VueMaterial)
 
-// // element ui
-// import Element from 'element-ui'
-// Vue.use(Element)
+Vue.material.registerTheme('about', {
+  primary: {
+    color: 'light-blue',
+    hue: 'A200',
+    textColor: 'white'
+  }
+})
 
 new Vue({
   el: '#app',

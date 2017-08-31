@@ -1,16 +1,12 @@
 <template>
 	<div>
 		<app-content-header>
-			<h1>1,274 Jobs Found</h1>
+			<div class="number-div">1,000</div>
+			<h1 class="jl-active-jobs">  Jobs Found</h1>
 		</app-content-header>
 		<app-job-search-bar></app-job-search-bar>
 
 		<app-job-list></app-job-list>
-
-		<md-checkbox id="my-test2" name="my-test2" v-model="checkbox" class="md-primary">Primary Color</md-checkbox>
-		<md-checkbox id="my-test3" name="my-test3" v-model="checkbox" class="md-warn">Warn Color</md-checkbox>
-
-	<md-checkbox id="my-test4" name="my-test4" v-model="checkbox" disabled>Disabled</md-checkbox>
 
 
 	</div>
@@ -28,3 +24,19 @@
 		}
 	}
 </script>
+
+<style>
+	.number-div {
+		color:white;
+		text-align: center;
+		height: 20px;
+		width: 50px;
+		border-radius:10px;
+		background: #003A98;
+	}
+	h1.jl-active-jobs {
+		color: #003A98;
+		padding-left: 5px;
+	}
+</style>
+
