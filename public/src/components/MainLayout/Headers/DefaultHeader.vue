@@ -16,6 +16,6 @@
 		width: 100%;
 		height: 50px;
 		display: flex;
-		/* background: linear-gradient(45deg, #003A98, #87e2f2); */
+		background: #99a5b6
 	}
 </style>

@@ -8,7 +8,7 @@
             <h1 class="sjp-h1">{{ positionTitle }}</h1>
             <h2 class="sjp-h2">{{ companyName }}</h2>
             <h3 class="sjp-h3">{{ location }}</h3>
-            <p>{{ positionDescription }}</p>
+            <p class="sjp-p">{{ positionDescription }}</p>
     </div>
   </div>
 </div>
@@ -63,10 +63,10 @@ export default {
 .sjp-h3 {
     font-size: 15px;
     margin-top: 6px;
-     margin-bottom: 0px; 
+    margin-bottom: 0px; 
 }
 
-p {
+.sjp-p {
     margin-top: 6px;
 }
 

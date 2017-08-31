@@ -1,13 +1,11 @@
 <template>
 	<div>
 		<app-content-header>
-			<div class="number-div">1,000</div>
-			<h1 class="jl-active-jobs">  Jobs Found</h1>
+			<h1 class="jl-active-jobs">1,465 Jobs Found</h1>
 		</app-content-header>
 		<app-job-search-bar></app-job-search-bar>
 
 		<app-job-list></app-job-list>
-
 
 	</div>
 </template>
@@ -26,17 +24,11 @@
 </script>
 
 <style>
-	.number-div {
-		color:white;
-		text-align: center;
-		height: 20px;
-		width: 50px;
-		border-radius:10px;
-		background: #003A98;
-	}
 	h1.jl-active-jobs {
-		color: #003A98;
+		color: #fff;
 		padding-left: 5px;
+		font-size: 23px;
+		margin-top: 5px;
 	}
 </style>
 

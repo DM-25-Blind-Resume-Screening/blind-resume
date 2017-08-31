@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		
+
 		<div class="layout_sidebar">
 			<div class="weird-box"></div>
 			<router-view name="sidebar"></router-view>
@@ -12,46 +12,48 @@
 </template>
 
 <script>
-	
+
 </script>
 
 <style>
-	.layout {
-		display: flex;
-	}
+.layout {
+	display: flex;
+}
 
 
-    .weird-box {
-        width: 100px;
-        height: 100px;
-        background: gray;
-		position: absolute;
-		z-index: 1;
-    }
+.weird-box {
+	width: 250px;
+	height: 350px;
+	background: rgba(188, 188, 188, 0.8);
+	position: absolute;
+	z-index: 1;
+	margin-top: -175px;
 
-	.layout_sidebar {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		/* z-index: 999; */
-		width: 250px;
-		background:linear-gradient(45deg,#87e2f2,#003A98);
-		color: #fff;
-	}
+	transform: rotate(45deg);
+}
 
-	.layout_sidebar a {
-		text-decoration: none;
-		color: #fff;
-	}
+.layout_sidebar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	background: linear-gradient(45deg, #87e2f2, #003A98);
+	color: #fff;
+	overflow: hidden;
+}
 
-	.layout_content {
-		position: relative;
-		margin-left: 250px;
-		width: 100%;
-    	letter-spacing: normal;
-    	word-spacing: normal;
-    	vertical-align: top;
-    	text-rendering: auto;
-	}
+.layout_sidebar a {
+	text-decoration: none;
+	color: #fff;
+}
 
+.layout_content {
+	position: relative;
+	margin-left: 250px;
+	width: 100%;
+	letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align: top;
+	text-rendering: auto;
+}
 </style>
