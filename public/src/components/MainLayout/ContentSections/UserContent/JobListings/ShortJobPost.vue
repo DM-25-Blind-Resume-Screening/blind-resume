@@ -1,5 +1,5 @@
 <template>
-<div class="main">
+<div>
   <div class="job-listing">
         <div>
             <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
@@ -30,18 +30,13 @@ export default {
 
 <style>
 
-.main {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-}
 
 .job-listing {
     display: flex;
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
     width: 700px;
     height: auto;
+    margin: 50px 100px;
 }
 
 .job-listing-content {

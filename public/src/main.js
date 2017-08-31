@@ -14,6 +14,14 @@ const router = new VueRouter({
 import VueQuillEditor from 'vue-quill-editor'
 Vue.use(VueQuillEditor)
 
+// Vue Material
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+Vue.use(VueMaterial)
+
+// // element ui
+// import Element from 'element-ui'
+// Vue.use(Element)
 
 new Vue({
   el: '#app',
