@@ -1,16 +1,25 @@
 <template>
+<div>
   <div class="why-wrapper">
     <div class="header-div">
       <div class="line"></div>
-      <h1>Why we exist</h1>
+      <h1>What we do</h1>
       <div class="line"></div>
     </div>
-    <p>Studies did something </p>
-    <div class="article-div">
-      <img class="article" src="../../../assets/article.png" alt="article">
+    <div class="explanation-div">
+      <p class="paragraph">Studies did something</br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
+      <img class="picture1" src="../../../assets/choosing.jpg" alt="explanation">
     </div>
-
+    <div class="explanation-div">
+      <img class="picture1" src="../../../assets/ReadResume.jpg" alt="explanation">
+      <p class="paragraph">We will help sensor applicant's demographic info to help eliminate bias in hiring process </br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    </div>
+    <div class="explanation-div">
+      <p class="paragraph">Get hired!!!</br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+      <img class="picture1" src="../../../assets/Interview.jpg" alt="explanation">
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -20,7 +29,7 @@ export default {
 
 <style>
 .why-wrapper {
-  height: 700px;
+  height: 1000px;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -29,30 +38,36 @@ export default {
 
 }
 .header-div {
-  height: 50px;
+  height: 300px;
   width: 90%;
   font-size: 25px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+
 }
 .line{
   height:1px;
   width: 40%;
   background: black;
 }
-.article-div {
-  height: 400px;
-  width: 500px;
+.explanation-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 800px;
+  width: 75vw;
 }
-.article {
-  height:400px;
-  width:500px;
-  border: 1px solid black;
-  /*box-shadow: 5px 5px  rgba(100, 167, 249, 0.5),10px 10px  rgba(100, 167, 249, 0.5), 15px 15px rgba(100, 167, 249, 0.5);*/
-  box-shadow: 5px 5px  rgba(0, 0, 0, 0.1), 10px 10px  rgba(0, 0, 0, 0.1), 15px 15px rgba(0, 0, 0, 0.1);
+.paragraph {
+  height: 150px;
+  width: 700px;
+}
+.picture1 {
+  height: 300px;
+  width: 300px;
+}
 
-}
 
 
 </style>
