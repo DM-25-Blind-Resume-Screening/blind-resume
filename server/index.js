@@ -5,7 +5,7 @@ const bodyParser = require('body-parser'),
 	  app		 = express(),
 		session = require('express-session'),
 		passport = require('passport'),
-		Auth0strategy = require('passport-auth0'),
+		Auth0Strategy = require('passport-auth0'),
 		config = require('../config'),
 		port = 3000
 
@@ -76,4 +76,4 @@ app.get('/api/main', function(req,res){
 
 
 //PORT
-app.listen(PORT, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`))
