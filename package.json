@@ -12,7 +12,10 @@
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "express-session": "^1.15.5",
     "massive": "^3.2.2",
+    "passport": "^0.4.0",
+    "passport-auth0": "^0.6.0",
     "vue-material": "^0.7.4"
   }
 }
