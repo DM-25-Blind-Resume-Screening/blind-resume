@@ -3,6 +3,7 @@
 		<app-candidate></app-candidate>
 		<app-candidate></app-candidate>
 		<app-candidate></app-candidate>
+		<app-candidate></app-candidate>
 	</div>
 </template>
 
@@ -14,3 +15,13 @@
 		}
 	}
 </script>
+
+<style>
+	.candidate-list {
+		margin: 30px 30px;
+		width: 90%;
+		height: 600px;
+		/*background: pink;*/
+	}
+
+</style>
