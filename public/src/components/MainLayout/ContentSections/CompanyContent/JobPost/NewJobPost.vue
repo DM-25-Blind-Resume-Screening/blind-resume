@@ -3,13 +3,8 @@
 		<app-content-header>
 			<h1>New Job Post</h1>
 		</app-content-header>
-		<h1>Job Description</h1>
-		<app-job-description v-model="newJobPost.jobDescription"></app-job-description>
-		<hr>
-		<h1>Responsibilities</h1>
-		<app-responsibilities v-model="newJobPost.jobResponsibilities"></app-responsibilities>
-		<hr>
-		<h1>Keywords</h1>
+		<app-job-description class="nj-editor" v-model="newJobPost.jobDescription"></app-job-description>
+		<app-responsibilities class="nj-editor" v-model="newJobPost.jobResponsibilities"></app-responsibilities>
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
 	</div>
 </template>
