@@ -46,7 +46,6 @@ export default {
 	font-weight: 500;
 	letter-spacing: 1px;
 	margin-left: 20px;
-	
 }
 
 .nj-editor {
