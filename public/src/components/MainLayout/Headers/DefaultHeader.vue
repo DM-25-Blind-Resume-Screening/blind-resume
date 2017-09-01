@@ -1,8 +1,8 @@
 <template>
 	<div class="content_header">
-		<slot>
-			Default Header Content
-		</slot>
+		 <slot>
+			 Default Header Content
+		</slot> 
 	</div>
 </template>
 

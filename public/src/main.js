@@ -29,6 +29,14 @@ Vue.material.registerTheme('about', {
   }
 })
 
+Vue.material.registerTheme('add', {
+  primary: {
+    color: 'light-blue',
+    hue: '900',
+    textColor: 'white'
+  }
+})
+
 new Vue({
   el: '#app',
   router: router,

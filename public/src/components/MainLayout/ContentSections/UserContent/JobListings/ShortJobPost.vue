@@ -50,7 +50,7 @@ export default {
 }
 
 .sjp-h1:hover {
-    color: #00BFE2;
+    color: #3f51b5;
     cursor: pointer;
 }
 
