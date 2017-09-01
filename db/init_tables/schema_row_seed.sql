@@ -158,7 +158,7 @@ with facebook_post1 as (
 		(id, company_id, industry_id, job_type_id, title, job_description, responsibilities, qualifications, date_posted)
 	values
 		(
-			DEFAULT, 2, 21, 1, 'CEO', 
+			DEFAULT, 3, 21, 1, 'CEO', 
 			'Our CEO is spending too much time touring the country to run for president.  We need a new one.',
 			'<ul><li>Be CEO</li><li>Attend Meetings</li><li>Don''t be NOT CEO</li></ul>',
 			'<ul><li>Harvard drop out preferred</li><li>Another Qualification</li></ul>',

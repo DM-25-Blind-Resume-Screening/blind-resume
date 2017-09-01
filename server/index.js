@@ -1,14 +1,23 @@
-const bodyParser = require('body-parser'),
-	  express 	 = require('express'),
-	  massive	 = require('massive'),
-	  cors		 = require('cors'),
-	  app		 = express(),
-		session = require('express-session'),
-		passport = require('passport'),
-		Auth0Strategy = require('passport-auth0'),
-		config = require('../config'),
-		port = 3000
+//////////////////////////////////////////////////////////
+// 					INITIAL IMPORTS					   //
+////////////////////////////////////////////////////////
+const 	Auth0Strategy 	= require('passport-auth0'),
+		bodyParser 		= require('body-parser'),
+		passport 		= require('passport'),
+		session 		= require('express-session'),
+		massive	 		= require('massive'),
+		express 	 	= require('express'),
+		config 			= require('../config')
+		cors		 	= require('cors'),
+		port 			= 3000,
+		app		 		= express();
 
+// Controllers
+const typeIndustryController = require('./controllers/typeIndustryController');
+const jobPostingsController = require('./controllers/jobPostingsController');
+
+
+// APP SETUP
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(`${__dirname}/../public/dist`));
@@ -19,7 +28,6 @@ app.use(session({
 }));
 
 //INITIALIZE POSTGRES TABLES
-
 massive(config.massiveUrl)
 	.then(db => {
 		app.set('db', db);
@@ -33,9 +41,9 @@ massive(config.massiveUrl)
 	}).catch(err => console.log(err));
 
 
-
-
-//SET UP PASSPORT
+///////////////////////////////////////////////////////////
+// 						PASSPORT 						//
+///////////////////////////////////////////////////////// 
 passport.use(new Auth0Strategy({
   domain: config.domain,
   clientID: config.clientId,
@@ -74,6 +82,14 @@ app.get('/api/main', function(req,res){
     res.send(req.user)
 })
 
+
+///////////////////////////////////////////////////////////
+//				APPLICATION ENDPOINTS                   //
+/////////////////////////////////////////////////////////
+app.get('/api/industries', typeIndustryController.getAllIndustries)
+app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);
+app.get('/api/job_postings', jobPostingsController.getAllJobPostings);
+app.get('/api/:company_id/job_postings', jobPostingsController.getAllCompanyJobPostings);
 
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))
