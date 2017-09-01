@@ -12,6 +12,9 @@
 
 <style>
 	.content_header {
+		display: flex;
+		align-items: center;
+		padding: 10px 5px;
 		width: 100%;
 		height: 52px;
 		display: flex;
