@@ -18,8 +18,11 @@ massive(connectionString)
 
 		db.init_tables.schema_create_seed().then(res => {
 			console.log('schema create tables')
-		}).catch(err => console.log(err))
-	}).catch(err => console.log(err))
+			db.init_tables.schema_row_seed().then(res => {
+				console.log('schema insert dummy rows');
+			}).catch(err => console.log(err));
+		}).catch(err => console.log(err));
+	}).catch(err => console.log(err));
 
 
 
