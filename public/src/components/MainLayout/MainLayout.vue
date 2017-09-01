@@ -24,7 +24,8 @@
 .weird-box {
 	width: 250px;
 	height: 350px;
-	background: rgba(188, 188, 188, 0.8);
+	background: white;
+	box-shadow: 2px 2px 50px 4px rgba(0,0,0,0.7);
 	position: absolute;
 	z-index: 1;
 	margin-top: -175px;
