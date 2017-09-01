@@ -25,7 +25,7 @@ export default {
 
     
     .usi-h1 {
-        font-size: 20px;
+        font-size: 19px;
         font-weight: bold;
         color: #fff;
         margin: 80px 0 5px 20px;

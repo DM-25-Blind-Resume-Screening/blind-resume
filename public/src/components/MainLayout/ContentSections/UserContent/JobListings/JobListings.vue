@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<app-content-header>
-			<h1 class="jl-active-jobs">1,465 Jobs Found</h1>
+			<h1>1,465 Jobs Found</h1>
 		</app-content-header>
 		<app-job-search-bar></app-job-search-bar>
 
@@ -22,13 +22,3 @@
 		}
 	}
 </script>
-
-<style>
-	h1.jl-active-jobs {
-		color: #fff;
-		padding-left: 5px;
-		font-size: 23px;
-		margin-top: 5px;
-	}
-</style>
-
