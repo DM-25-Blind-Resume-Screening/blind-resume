@@ -14,6 +14,8 @@ const router = new VueRouter({
 import VueQuillEditor from 'vue-quill-editor'
 Vue.use(VueQuillEditor)
 
+
+
 // Vue Material
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
@@ -23,6 +25,14 @@ Vue.material.registerTheme('about', {
   primary: {
     color: 'light-blue',
     hue: 'A200',
+    textColor: 'white'
+  }
+})
+
+Vue.material.registerTheme('add', {
+  primary: {
+    color: 'light-blue',
+    hue: '900',
     textColor: 'white'
   }
 })

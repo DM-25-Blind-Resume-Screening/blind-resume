@@ -10,7 +10,7 @@
 		<ul>
 			<li>DevMountain</li>
 			<li>University of Florida</li>
-			<li>NASA Clown College</li>
+			<li>NASA Clown College</li>    //ahh my school!!!
 		</ul>
 		<h1>Skills</h1>
 		<ul>
