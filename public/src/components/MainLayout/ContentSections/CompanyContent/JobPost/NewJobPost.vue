@@ -1,12 +1,15 @@
 <template>
 	<div>
 		<app-content-header>
-			<h1>Create New Job Post</h1>
+			<h1 class="nj-h1">Create New Job Post</h1>
 		</app-content-header>
 		<app-job-description class="nj-editor" v-model="newJobPost.jobDescription"></app-job-description>
 		<app-responsibilities class="nj-editor" v-model="newJobPost.jobResponsibilities"></app-responsibilities>
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
+
+		<div class="nj-post-btn-container">
 		<button class="nj-post-btn">Post job</button>
+		</div>
 	</div>
 </template>
 
@@ -35,9 +38,27 @@ export default {
 </script>
 
 <style>
+
+.nj-h1 {
+	font-size: 20px;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+	margin-left: 20px;
+	
+}
+
 .nj-editor {
 	width: 75%;
 	margin: 20px auto;
+}
+
+.nj-post-btn-container {
+	width: 75%;
+	margin: 20px auto;
+	display: flex;
+	justify-content: flex-end;
 }
 
 .nj-post-btn {
@@ -47,6 +68,7 @@ export default {
 	border: 1px solid #3f51b5;
 	font-size: 15px;
 	color: #3f51b5;
+	
 }
 
 .nj-post-btn:hover {
