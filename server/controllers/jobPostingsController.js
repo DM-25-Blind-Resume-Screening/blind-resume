@@ -14,6 +14,13 @@ module.exports = {
 			}).catch(err => console.log(err));
 		}
 	},
+	getJobPostById(req, res, next) {
+		const db = req.app.get('db');
+
+		db.getJobPostById([req.params.job_post_id]).then(response => {
+			res.status(200).send(response);
+		}).catch(err => console.log(err));
+	},
 	getAllCompanyJobPostings(req, res, next) {
 		const db = req.app.get('db');
 
@@ -26,6 +33,13 @@ module.exports = {
 
 		db.getSavedJobPostingsByUser([req.params.user_id]).then(response =>  {
 			res.status(200).send(response)
+		}).catch(err => console.log(err));
+	},
+	getSubmittedResumesByJobPost(req, res, next) {
+		const db = req.app.get('db');
+
+		db.getSubmittedResumesByJobPost([req.params.job_post_id]).then(response => {
+			res.status(200).send(response);
 		}).catch(err => console.log(err));
 	}
 }
