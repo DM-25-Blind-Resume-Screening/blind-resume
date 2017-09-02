@@ -21,4 +21,11 @@ module.exports = {
 			res.status(200).send(response)
 		}).catch(err => console.log(err));
 	},
+	getSavedJobPostingsByUser(req, res, next) {
+		const db = req.app.get('db');
+
+		db.getSavedJobPostingsByUser([req.params.user_id]).then(response =>  {
+			res.status(200).send(response)
+		}).catch(err => console.log(err));
+	}
 }

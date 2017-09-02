@@ -90,6 +90,7 @@ app.get('/api/industries', typeIndustryController.getAllIndustries)
 app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);
 app.get('/api/job_postings', jobPostingsController.getAllJobPostings);
 app.get('/api/:company_id/job_postings', jobPostingsController.getAllCompanyJobPostings);
+app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
 
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))
