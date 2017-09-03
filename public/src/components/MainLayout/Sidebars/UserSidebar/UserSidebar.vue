@@ -10,12 +10,29 @@
 import UserImage from './UserImage.vue';
 import UserSidebarIndustry from './UserSidebarIndustry.vue';
 import UserSidebarJobType from './UserSidebarJobType.vue';
+import axios from 'axios';
+import {mapActions} from 'vuex';
 
 export default {
-  components: {
+	computed: {
+		industries() {
+			return this.$store.state.industries
+		},
+		jobTypes() {
+			return this.$store.state.jobTypes
+		}
+	},
+	components: {
 	  appUserImage: UserImage,
 		appUserSidebarIndustry: UserSidebarIndustry,
 		appUserSidebarJobType: UserSidebarJobType
-  }
+	},
+	methods: {
+		...mapActions(['getIndustries', 'getJobTypes'])
+	},
+	created() {
+		this.getIndustries();
+		this.getJobTypes();
+	}
 }
 </script>
