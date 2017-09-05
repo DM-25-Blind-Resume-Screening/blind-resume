@@ -8,9 +8,14 @@
 import ShortJobPost from './ShortJobPost.vue';
 
 export default {
-  components: {
-      appShortJobPost: ShortJobPost
-  }
+	computed: {
+		jobPostings() {
+			return this.$store.state.jobPostings
+		}
+	},
+	components: {
+	  appShortJobPost: ShortJobPost
+	}
 }
 </script>
 

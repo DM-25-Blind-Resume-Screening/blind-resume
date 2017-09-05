@@ -1,16 +1,16 @@
 //////////////////////////////////////////////////////////
 // 					INITIAL IMPORTS					   //
 ////////////////////////////////////////////////////////
-const 	Auth0Strategy 	= require('passport-auth0'),
-		bodyParser 		= require('body-parser'),
-		passport 		= require('passport'),
-		session 		= require('express-session'),
-		massive	 		= require('massive'),
-		express 	 	= require('express'),
-		config 			= require('../config')
-		cors		 	= require('cors'),
-		port 			= 3000,
-		app		 		= express();
+const Auth0Strategy 	= require('passport-auth0'),
+		  bodyParser 	  	= require('body-parser'),
+  		passport 	    	= require('passport'),
+  		session 	     	= require('express-session'),
+  		massive	    		= require('massive'),
+  		express     	 	= require('express'),
+  		config 	    		= require('../config')
+  		cors		       	= require('cors'),
+  		port 		       	= 3000,
+  		app		 	       	= express();
 
 // Controllers
 const typeIndustryController = require('./controllers/typeIndustryController');
@@ -42,7 +42,7 @@ massive(config.massiveUrl)
 
 
 ///////////////////////////////////////////////////////////
-// 						PASSPORT 						//
+// 						PASSPORT 					                       	//
 ///////////////////////////////////////////////////////// 
 passport.use(new Auth0Strategy({
   domain: config.domain,
@@ -84,7 +84,7 @@ app.get('/api/main', function(req,res){
 
 
 ///////////////////////////////////////////////////////////
-//				APPLICATION ENDPOINTS                   //
+//				APPLICATION ENDPOINTS                         //
 /////////////////////////////////////////////////////////
 app.get('/api/industries', typeIndustryController.getAllIndustries)
 app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);

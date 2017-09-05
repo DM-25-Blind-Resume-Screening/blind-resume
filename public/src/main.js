@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import store from './vuex/store';
 
 // VueRouter
 import VueRouter from 'vue-router'
@@ -40,5 +41,6 @@ Vue.material.registerTheme('add', {
 new Vue({
   el: '#app',
   router: router,
+  store,
   render: h => h(App)
 })
