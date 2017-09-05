@@ -1,44 +1,23 @@
 <template>
-<div>
-    
-      <h1 class="usi-h1">Job Industry</h1>
-    <div class="checkbox-container">
-      <md-checkbox md-theme="about" id="my-test2" name="my-test2" class="md-primary">{{ jobIndustries }}</md-checkbox>
-    </div>
-</div>
+
+    <md-checkbox md-theme="about" class="md-primary sidebar_option">
+        <span class="sidebar_option_text">
+            {{ industry.name }}    
+        </span>
+    </md-checkbox>
 </template>
 
 <script>
 
 
 export default {
-    data() {
-        return {
-            jobIndustries: 'Web Devlopement'
-        }
-    }
-  
+    props: ['industry']
 }
 </script>
 
 <style>
 
     
-    .usi-h1 {
-        font-size: 19px;
-        font-weight: bold;
-        color: #fff;
-        margin: 80px 0 5px 20px;
-    }
-
-    .checkbox-container {
-        background: #2062ae;
-        width: 90%;
-        height: 40px;
-        display: flex;
-        align-items: center;
-    }
-
 </style>
 
 
