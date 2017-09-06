@@ -24,7 +24,9 @@
 				<p class="ljp-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro veniam sequi sint iure architecto omnis, incidunt natus est temporibus quibusdam! Doloribus magnam vero suscipit quam provident consequuntur, nam totam cumque?</p>
 			</div>
 			<div class="ljp-btns-container">
-				<button class="ljp-apply-btn">Edit post</button>
+				<router-link to="/app/company/1/newJob">
+					<button class="ljp-apply-btn">Edit post</button>
+				</router-link>
 			</div>
 		</div>
 	</div>

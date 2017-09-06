@@ -9,7 +9,9 @@
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
 
 		<div class="nj-post-btn-container">
-		<button class="nj-post-btn">Post job</button>
+			<router-link to="/app/company/1">
+				<button class="nj-post-btn">Post job</button>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -42,7 +44,6 @@ export default {
 </script>
 
 <style>
-
 .nj-h1 {
 	font-size: 20px;
 	color: #fff;
@@ -71,7 +72,6 @@ export default {
 	border: 1px solid #3f51b5;
 	font-size: 15px;
 	color: #3f51b5;
-	
 }
 
 .nj-post-btn:hover {
@@ -79,5 +79,4 @@ export default {
 	color: #fff;
 	cursor: pointer;
 }
-
 </style>

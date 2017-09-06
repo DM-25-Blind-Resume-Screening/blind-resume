@@ -1,18 +1,24 @@
 <template>
     <div>
         <div class="company-job-post">
-             <!-- <div>
-                <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
-            </div>  -->
+            <!-- <div>
+                        <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
+                    </div>  -->
             <div class="company-job-post-content">
-                <h1 class="sjp-h1">{{ positionTitle }}</h1>
+                <router-link to="/app/company/1/1">
+                    <h1 class="sjp-h1">{{ positionTitle }}</h1>
+                </router-link>
                 <h2 class="sjp-h2">{{ companyName }}</h2>
                 <h3 class="sjp-h3">{{ location }}</h3>
                 <p class="sjp-p">{{ positionDescription }}</p>
                 <div class="scjp-review-container">
-                    <p class="sjp-p review-applicants">Review Applicants (30)</p>
-                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (2)</p>  
-                </div>              
+                    <router-link to="/app/company/1/1/resumes">
+                        <p class="sjp-p review-applicants">Review Applicants (30)</p>
+                    </router-link>
+                    <router-link to="/app/company/1/1/resumes">
+                        <p class="sjp-p  shortlist review-applicants">Review Shortlist (2)</p>
+                    </router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -20,7 +26,7 @@
 
 <script>
 export default {
-  data() {
+    data() {
         return {
             companyLogo: 'http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png',
             positionTitle: 'Senior Front End Developer',
@@ -50,6 +56,8 @@ export default {
     font-size: 20px;
     text-decoration: underline;
     margin: 0;
+    outline: none;
+    color: #323232;
 }
 
 .sjp-h1:hover {
@@ -66,7 +74,7 @@ export default {
 .sjp-h3 {
     font-size: 15px;
     margin-top: 6px;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
 }
 
 .sjp-p {
@@ -85,6 +93,5 @@ export default {
 .shortlist {
     margin-left: 30px;
 }
-
 </style>
 
