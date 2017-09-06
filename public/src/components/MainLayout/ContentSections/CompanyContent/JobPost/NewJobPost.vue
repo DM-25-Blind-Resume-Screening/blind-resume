@@ -5,6 +5,7 @@
 		</app-content-header>
 		<app-job-description class="nj-editor" v-model="newJobPost.jobDescription"></app-job-description>
 		<app-responsibilities class="nj-editor" v-model="newJobPost.jobResponsibilities"></app-responsibilities>
+		<app-key-qualifications class="nj-editor" v-model="newJobPost.jobKeyQualifications"></app-key-qualifications>
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
 
 		<div class="nj-post-btn-container">
@@ -17,6 +18,7 @@
 import DefaultHeader from '../../../Headers/DefaultHeader.vue'
 import JobDescription from './JobPostElements/JobDescription.vue'
 import Responsibilities from './JobPostElements/Responsibilities.vue'
+import KeyQualifications from './JobPostElements/KeyQualifications.vue'
 import KeywordList from './JobPostElements/KeywordList.vue'
 export default {
 	data() {
@@ -24,6 +26,7 @@ export default {
 			newJobPost: {
 				jobDescription: '',
 				jobResponsibilities: '',
+				jobKeyQualifications: '',
 				jobKeywords: []
 			}
 		}
@@ -32,7 +35,8 @@ export default {
 		appContentHeader: DefaultHeader,
 		appJobDescription: JobDescription,
 		appResponsibilities: Responsibilities,
-		appKeywordList: KeywordList
+		appKeywordList: KeywordList,
+		appKeyQualifications: KeyQualifications
 	}
 }
 </script>
