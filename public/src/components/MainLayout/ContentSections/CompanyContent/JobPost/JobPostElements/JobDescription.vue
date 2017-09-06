@@ -121,7 +121,6 @@ export default {
 .jd-textarea-desciption:focus {
 	outline: none;
 	border: 2px solid #3f51b5;
-
 }
 
 .jd-h2 {

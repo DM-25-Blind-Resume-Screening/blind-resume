@@ -11,7 +11,11 @@ const state = {
 	allJobPostings: []
 };
 
-
+const getters = {
+	displayIndustries(state) {
+		return state.industries
+	}
+};
 
 const mutations = {
 	GET_INDUSTRIES(state, payload) {
@@ -45,6 +49,7 @@ const actions = {
 
 export default new Vuex.Store({
 	state,
+	getters,
 	mutations,
 	actions
 })
