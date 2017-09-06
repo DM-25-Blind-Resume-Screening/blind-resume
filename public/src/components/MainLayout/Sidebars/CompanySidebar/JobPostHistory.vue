@@ -22,7 +22,7 @@ export default {
     font-size: 19px;
     font-weight: bold;
     color: #fff;
-    margin: 110px 0 5px 20px;
+    margin: 80px 0 5px 20px;
 }
 
 .jph-h3 {

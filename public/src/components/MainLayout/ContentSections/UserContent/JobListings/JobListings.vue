@@ -14,11 +14,19 @@
 	import DefaultHeader from '../../../Headers/DefaultHeader.vue'
 	import JobList from './JobList.vue';
 	import JobSearchBar from '../JobSearchBar/JobSearchBar.vue';
+	import {mapActions} from 'vuex'
 	export default {
+
 		components: {
 			appContentHeader: DefaultHeader,
 			appJobList: JobList,
 			appJobSearchBar: JobSearchBar
+		},
+		methods: {
+			...mapActions(['getAllJobPostings'])
+		},
+		created() {
+			this.getAllJobPostings();
 		}
 	}
 </script>
