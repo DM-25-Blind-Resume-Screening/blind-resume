@@ -2,7 +2,6 @@
     <div>
         <div class="new-resume-header">
             <div class="new-resume-h1">Skills</div>
-            <img class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
         </div>
 
     <div class="si-content-container">

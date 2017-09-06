@@ -2,7 +2,6 @@
     <div>
         <div class="new-resume-header">
             <h1 class="new-resume-h1">Education</h1>
-            <img class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
         </div>
 
         <div class="ei-content-container">
@@ -45,35 +44,12 @@
             
             </div>
         </div>
-
-        <div>
-            <quill-editor :options="editorOptions" v-model="userEducation"></quill-editor>
-        </div>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            userEducation: '',
-            editorOptions: {
-                modules: {
-                    toolbar: [
-                        ['bold', 'italic', 'underline'],
-                        [{ 'header': 1 }, { 'header': 2 }],
-                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                        [{ 'align': [] }]
-                    ],
-                    history: {
-                        delay: 1000,
-                        maxStack: 50,
-                        userOnly: false
-                    }
-                }
-            }
-        }
-    }
+ 
 }
 </script>
 

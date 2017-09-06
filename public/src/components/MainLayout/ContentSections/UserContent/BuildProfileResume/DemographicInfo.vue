@@ -28,15 +28,15 @@ export default {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	background-color: lightcoral; 
 	margin-left: 100px;
 	margin-top: 30px;
-	overflow: hidden;  
+	overflow: hidden;
 }  
 
 .user-image {
 	width: 150px !important;
 	height: 150px !important;
+	object-fit: cover;
 }
 
 .di-container {

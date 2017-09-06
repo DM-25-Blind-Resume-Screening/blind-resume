@@ -21,7 +21,7 @@
 }
 
 
-.weird-box {
+/* .weird-box {
 	width: 250px;
 	height: 350px;
 	background: white;
@@ -31,7 +31,7 @@
 	margin-top: -175px;
 
 	transform: rotate(45deg);
-}
+} */
 
 .layout_sidebar {
 	position: fixed;
