@@ -2,7 +2,7 @@
 <div class="wrapper">
   <div class="navbar_div">
     <div class="logo-div">
-      <img class="logo" src="../../../assets/BElogo.png"/>
+      <img class="logo" src="../../../assets/BE.png"/>
     </div>
   </div>
   <div class="login-button-div">
@@ -44,17 +44,17 @@ export default {
   box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.5);
   position:fixed;
   top: 0;
-  opacity: 0.9;
+  opacity: 1;
   z-index: 499;
 }
 .logo-div {
   height: 60px;
-  width: 120px;
+  width: 115px;
   z-index: 501;
 }
 .logo{
   height: 60px;
-  width: 120px;
+  width: 115px;
 }
 .login-button-div {
   position: fixed;

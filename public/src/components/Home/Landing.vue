@@ -5,6 +5,7 @@
 		<app-home-banner></app-home-banner>
 		<app-why-we-exist></app-why-we-exist>
 		<app-footer></app-footer>
+
 	</div>
 </template>
 
@@ -22,9 +23,9 @@
 				appWhyWeExist: WhyWeExist,
 				appFooter: Footer
 	    }
-	}
+}
+
 </script>
 
 <style>
-
 </style>

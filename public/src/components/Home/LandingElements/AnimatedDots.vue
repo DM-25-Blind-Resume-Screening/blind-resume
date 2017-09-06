@@ -18,7 +18,6 @@ export default {
   width:15px;
   background: url('../../../assets/cv.svg');
   position: absolute;
-  animation-delay: 2s;
 }
 
 
