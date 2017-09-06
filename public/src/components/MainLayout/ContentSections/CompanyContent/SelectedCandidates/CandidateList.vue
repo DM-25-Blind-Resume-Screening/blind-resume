@@ -1,9 +1,6 @@
 <template>
 	<div class="candidate-list">
 		<app-candidate></app-candidate>
-		<app-candidate></app-candidate>
-		<app-candidate></app-candidate>
-		<app-candidate></app-candidate>
 	</div>
 </template>
 
@@ -20,7 +17,7 @@
 	.candidate-list {
 		margin: 30px 30px;
 		width: 90%;
-		height: 600px;
+		height: 100px;
 		/*background: pink;*/
 	}
 
