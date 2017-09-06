@@ -94,5 +94,7 @@ app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByU
 app.get('/api/:user_id/resume', resumesController.getResumeByUser)
 app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmittedResumesByJobPost);
 
+// app.post('/api/:user_id/resume/new', resumesController.createResume);
+
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))
