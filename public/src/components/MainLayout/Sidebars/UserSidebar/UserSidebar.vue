@@ -1,17 +1,17 @@
 <template>
 	<div>
 		<app-user-image></app-user-image>
-		<h1 class="usi-h1">Job Industry</h1>
+		<h1 class="usi-h1">Industry</h1>
     	<div class="checkbox-container-industry">
 			<app-user-sidebar-industry
-				v-for="industry in industries"
+				v-for="industry in displayIndustries"
 				:key="industry.id"
 				:industry="industry"
 			>
 				
 			</app-user-sidebar-industry>
 		</div>
-		<h1 class="usjt-h1">Job Type</h1>
+		<h1 class="usjt-h1">Type</h1>
     	<div class="checkbox-container-job-type">
 			<app-user-sidebar-job-type 
 				v-for="jobtype in jobTypes"
@@ -27,10 +27,11 @@
 import UserImage from './UserImage.vue';
 import UserSidebarIndustry from './UserSidebarIndustry.vue';
 import UserSidebarJobType from './UserSidebarJobType.vue';
-import {mapActions} from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 
 export default {
 	computed: {
+		...mapGetters(['displayIndustries']),
 		industries() {
 			return this.$store.state.industries
 		},
@@ -58,30 +59,34 @@ export default {
 	  font-size: 19px;
 	  font-weight: bold;
 	  color: #fff;
-	  margin: 80px 0 5px 20px;
+	  margin: 20px 0 5px 20px;
 	}
 
 	.usi-h1 {
         font-size: 19px;
         font-weight: bold;
         color: #fff;
-        margin: 80px 0 5px 20px;
+        margin: 30px 0 5px 20px;
     }
 
     .checkbox-container-industry {
-        background: #2062ae;
+        /* background: #2062ae; */
         width: 90%;
         height: 250px;
         display: flex;
         flex-direction: column;
-        overflow-y: scroll;
+		overflow-y: scroll;
         overflow-x: hidden;
-    }
+	}
+	
+	/* .checkbox-container-industry::-webkit-scrollbar {
+		display: block;
+	} */
 
 	.checkbox-container-job-type {
-	  background: #3b83bf;
+	  /* background: #3b83bf; */
 	  width: 90%;
-	  height: 150px;
+	  height: 190px;
 	  overflow-y: scroll;
 	  display: flex;
 	  flex-direction: column;
@@ -98,6 +103,7 @@ export default {
 	.sidebar_option .md-checkbox-label {
 		overflow: hidden;
 		white-space: nowrap;
-		text-overflow: ellipsis
+		text-overflow: ellipsis;
+		color: #fff;
 	}
 </style>
