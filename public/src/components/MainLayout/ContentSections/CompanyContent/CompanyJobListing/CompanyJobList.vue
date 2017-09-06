@@ -15,7 +15,6 @@
 <script>
 import DefaultHeader from '../../../Headers/DefaultHeader.vue';
 import ShortCompanyJobPost from './ShortCompanyJobPost.vue';
-
 export default {
 	components: {
 		appDefaultHeader: DefaultHeader,
