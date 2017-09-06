@@ -34,7 +34,6 @@ export default {
   },
   methods: {
       scroll: function () {
-          console.log(document.body.scrollTop)
           this.scrollPosition = document.body.scrollTop
       }
   },
