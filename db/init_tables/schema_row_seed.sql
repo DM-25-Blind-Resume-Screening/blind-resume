@@ -49,8 +49,6 @@ values
 	('Temporary');
 
 
-
-
 -- DevMountain Job Posting 1
 with devmtn_job1 as (
 	insert into job_postings
@@ -196,15 +194,61 @@ values
 	(1, 2),
 	(1, 4);
 
-insert into resumes
-	(user_id, linkedin_url, portfolio_url, experience, education, skills)
-values
-	(
-		1, 'https://www.linkedin.com/in/christopher_wilson88', 'https://www.google.com', 
-		'<h1>Experience</h1><br><ul><li>DevMountain - Web Developer</li><li>Putnam County School Board - School Psychologist</li></ul><br><hr><br>',
-		'<h1>Education</h1><br><ul><li>DevMountain - Web Development Bootcamp</li><li>University of Florida - Ed.S. in School Psychology</li><li>Florida Gulf Coast University - B.S. in Psychology</li></ul><br><hr><br>',
-		'<h1>Skills</h1><br><ul><li>VueJS</li><li>ReactJS</li><li>NodeJS</li><li>PostgreSQL</li></ul>'
-	);
+
+with resume1 as (
+	insert into resumes
+		(id, user_id, linkedin_url, portfolio_url)
+	values
+		(default, 1, 'https://www.linkedin.com/in/christopher_wilson88', 'https://www.google.com') 
+	returning id
+),
+resume1_exp as (
+	insert into work_experiences
+		(title, company, from_date, to_date, description, resume_id)
+	values
+		(
+			'Web Developer', 'DevMountain', '6/2017', 'Present',
+			'Utilized the newest technologies to create amazing web applications.  Specialities include ReactJS, VueJS, NodeJS, PostgreSQL, and MongoDB.  Worked on several projects relating to the curriculum at DevMountain and worked with students to help their growth',
+			(select id from resume1)
+		),
+		(
+			'School Psychologist', 'Putnam County School Board', '8/2015', '6/2017',
+			'Small group and individual counseling.  Academic, intellectual, and social-emotional assessments',
+			(select id from resume1)
+		)
+),
+resume1_edu1 as (
+	insert into education
+		(school, degree, study_field, from_date, to_date, description, resume_id)
+	values
+		(
+			'DevMountain', 'Junior Web Developer', 'Web Development', '6/2017', '9/2017',
+			'Studied Full Stack development focusing on ReactJS, NodeJS, Express, and PostgreSQL',
+			(select id from resume1)
+		),
+		(
+			'University of Florida', 'Education Specialist (Ed.S.)', 'School Psychology', '8/2012', '5/2015',
+			'Graduate studies focusing on psychoeducational assessments, small group and individual counseling, and crisis intervention',
+			(select id from resume1)
+		),
+		(
+			'Florida Gulf Coast University', 'Bachelor of Arts', 'Psychology', '8/2008', '4/2012',
+			'Undergraduate studies focusing on clinical psychology, health psychology, and pediatric psychology',
+			(select id from resume1)
+		)
+),
+resume1_skills as (
+	insert into skills
+		(name, resume_id)
+	values 
+		('ReactJS', (select id from resume1)),
+		('VueJS', (select id from resume1)),
+		('NodeJS', (select id from resume1)),
+		('Organization', (select id from resume1)),
+		('Time Management', (select id from resume1)),
+		('Communication', (select id from resume1)),
+		('Leadership', (select id from resume1))
+)
 
 insert into submitted_resumes
 	(resume_id, job_post_id)

@@ -1,12 +1,15 @@
-DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS companies CASCADE;
-DROP TABLE IF EXISTS job_postings CASCADE;
-DROP TABLE IF EXISTS keywords CASCADE;
-DROP TABLE IF EXISTS industries CASCADE;
-DROP TABLE IF EXISTS job_types CASCADE;
-DROP TABLE IF EXISTS resumes CASCADE;
-DROP TABLE IF EXISTS saved_jobs CASCADE;
-DROP TABLE IF EXISTS submitted_resumes CASCADE;
+-- DROP TABLE IF EXISTS users CASCADE;
+-- DROP TABLE IF EXISTS companies CASCADE;
+-- DROP TABLE IF EXISTS job_postings CASCADE;
+-- DROP TABLE IF EXISTS keywords CASCADE;
+-- DROP TABLE IF EXISTS industries CASCADE;
+-- DROP TABLE IF EXISTS job_types CASCADE;
+-- DROP TABLE IF EXISTS resumes CASCADE;
+-- DROP TABLE IF EXISTS saved_jobs CASCADE;
+-- DROP TABLE IF EXISTS submitted_resumes CASCADE;
+-- DROP TABLE IF EXISTS work_experiences CASCADE;
+-- DROP TABLE IF EXISTS education CASCADE;
+-- DROP TABLE IF EXISTS skills CASCADE;
 
 -- Users
 CREATE TABLE IF NOT EXISTS users (
@@ -76,12 +79,42 @@ CREATE TABLE IF NOT EXISTS resumes (
 	foreign key (user_id) references users(id),
 	linkedin_url text default null,
 	portfolio_url text default null,
-	experience text default null,
-	education text default null,
-	skills text default null,
 	shortlist boolean default false,
 	accepted boolean default false
 ); 
+
+-- work_experiences
+CREATE TABLE IF NOT EXISTS work_experiences (
+	id serial primary key,
+	title text not null,
+	company text not null,
+	from_date text not null,
+	to_date text not null,
+	description text not null,
+	resume_id integer not null,
+	foreign key (resume_id) references resumes(id)
+);
+
+-- education
+CREATE TABLE IF NOT EXISTS education (
+	id serial primary key,
+	school text not null,
+	degree text not null,
+	study_field text not null,
+	from_date text not null,
+	to_date text not null,
+	description text not null,
+	resume_id integer not null,
+	foreign key (resume_id) references resumes(id)
+);
+
+-- skills
+CREATE TABLE IF NOT EXISTS skills (
+	id serial primary key,
+	name text not null,
+	resume_id integer not null,
+	foreign key (resume_id) references resumes(id)
+);
 
 -- submitted resumes
 CREATE TABLE IF NOT EXISTS submitted_resumes (
