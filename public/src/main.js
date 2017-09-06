@@ -15,6 +15,9 @@ const router = new VueRouter({
 import VueQuillEditor from 'vue-quill-editor'
 Vue.use(VueQuillEditor)
 
+// Vue Paginate
+import VuePaginate from 'vue-paginate'
+Vue.use(VuePaginate)
 
 
 // Vue Material
