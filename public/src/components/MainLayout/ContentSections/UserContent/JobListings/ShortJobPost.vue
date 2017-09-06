@@ -47,6 +47,7 @@ export default {
     font-size: 20px;
     text-decoration: underline;
     margin: 0;
+    color: #323232;
 }
 
 .sjp-h1:hover {
