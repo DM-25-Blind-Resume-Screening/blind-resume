@@ -15,12 +15,29 @@
 <script>
 import DefaultHeader from '../../../Headers/DefaultHeader.vue';
 import ShortCompanyJobPost from './ShortCompanyJobPost.vue';
+import axios from 'axios';
 export default {
+	data(){
+		return {
+			jobposts: null
+		}
+	},
+	methods: {
+		getJobposts() {
+			return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/job_postings`)
+									.then(res => {
+										this.jobposts = res.data
+									})
+									.catch(err => console.log(err))
+		}
+	},
 	components: {
 		appDefaultHeader: DefaultHeader,
 		appShortCompanyJobPost: ShortCompanyJobPost
+	},
+	created() {
+		this.getJobposts();
 	}
-
 }
 </script>
 
@@ -32,4 +49,3 @@ export default {
 	bottom: 0;
 }
 </style>
-
