@@ -2,7 +2,7 @@
 	<div class="selected-candidates-display">
 		<app-default-header>Selected Candidates</app-default-header>
 		<app-candidate-list></app-candidate-list>
-		<app-pagination></app-pagination>
+		<!-- <app-pagination></app-pagination> -->
 	</div>
 </template>
 
