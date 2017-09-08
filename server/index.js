@@ -90,11 +90,12 @@ app.get('/api/industries', typeIndustryController.getAllIndustries)
 app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);
 app.get('/api/job_postings', jobPostingsController.getAllJobPostings);
 app.get('/api/:company_id/job_postings', jobPostingsController.getAllCompanyJobPostings);
+app.get('/api/:company_id/:job_post_id', jobPostingsController.getCompanyJobPostById);
 app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
 app.get('/api/:user_id/resume', resumesController.getResumeByUser)
 app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmittedResumesByJobPost);
 
-// app.post('/api/:user_id/resume/new', resumesController.createResume);
+app.post('/api/:user_id/resume/new', resumesController.createResume);
 
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))
