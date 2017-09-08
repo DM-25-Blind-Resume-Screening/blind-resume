@@ -24,18 +24,8 @@ import EducationList from './ResumeInfo/Education/EducationList.vue'
 import EducationInputs from './ResumeInfo/Education/EducationInputs.vue'
 import SkillList from './ResumeInfo/Skills/SkillList.vue'
 import SkillsInput from './ResumeInfo/Skills/SkillsInput.vue'
-import axios from 'axios'
 export default {
-	data() {
-		return {
-			work_exp: [{"title": "Web Developer", "company": "Adobe", "from_date": "6/2017", "to_date": "present", "description": "Worked on adding features to photoshop and illustrator.  Collaborate with other professionals"},
-			{"title": "School Psychologist", "company": "Putnam County School Board", "from_date": "8/2015", "to_date": "present", "description": "Small group and individual counseling.  Psychoeducational assessment"},
-			{"title": "Sales Associate", "company": "Best Buy", "from_date": "11/2008", "to_date": "8/2012", "description": "Sell stuff, hate life"}],
-			education: [{"school": "University of Florida", "degree": "Education Specialist(Ed.S.)", "study_field": "School Psychology", "from_date": "8/2012", "to_date": "5/2015", "description": "Graduate studies"},
-			{"school": "NASA Clown College", "degree": "Doctor of Philosophy (Ph.D.)", "study_field": "Clown Aerodynamics", "from_date": "8/2008", "to_date": "5/2011", "description": "Space Clown School"},
-			{"school": "DevMountain", "degree": "Full Stack Developer", "study_field": "Web Development", "from_date": "8/2012", "to_date": "5/2015", "description": "Coding Bootcamp"}],
-		}
-	},
+
 	components: {
 		appContentHeader: DefaultHeader,
 		appDemographicInfo: DemographicInfo,
@@ -46,22 +36,7 @@ export default {
 		appSkillList: SkillList,
 		appSkillsInput: SkillsInput
 	},
-	methods: {
-		createResume() {
-			return axios.post('http://localhost:3000/api/1/resume/new', 
-				{
-					linkedin: 'stuff',
-					portfolio: 'stuff',
-					work_exp: JSON.stringify(this.work_exp),
-					education: JSON.stringify(this.education)
-				}
-			).then(() => console.log('resume created'))
-			.catch(err => console.log(err));
-		}
-	},
-	created() {
-		this.createResume()
-	}
+
 }
 </script>
 
@@ -80,3 +55,32 @@ export default {
 	margin: 20px auto;
 }
 </style>
+
+
+<!-- 	data() {
+		return {
+			work_exp: [{"title": "Web Developer", "company": "Adobe", "from_date": "6/2017", "to_date": "present", "description": "Worked on adding features to photoshop and illustrator.  Collaborate with other professionals"},
+			{"title": "School Psychologist", "company": "Putnam County School Board", "from_date": "8/2015", "to_date": "present", "description": "Small group and individual counseling.  Psychoeducational assessment"},
+			{"title": "Sales Associate", "company": "Best Buy", "from_date": "11/2008", "to_date": "8/2012", "description": "Sell stuff, hate life"}],
+			education: [{"school": "University of Florida", "degree": "Education Specialist(Ed.S.)", "study_field": "School Psychology", "from_date": "8/2012", "to_date": "5/2015", "description": "Graduate studies"},
+			{"school": "NASA Clown College", "degree": "Doctor of Philosophy (Ph.D.)", "study_field": "Clown Aerodynamics", "from_date": "8/2008", "to_date": "5/2011", "description": "Space Clown School"},
+			{"school": "DevMountain", "degree": "Full Stack Developer", "study_field": "Web Development", "from_date": "8/2012", "to_date": "5/2015", "description": "Coding Bootcamp"}],
+		}
+	}, -->
+
+	<!-- 	methods: {
+		createResume() {
+			return axios.post('http://localhost:3000/api/1/resume/new', 
+				{
+					linkedin: 'stuff',
+					portfolio: 'stuff',
+					work_exp: JSON.stringify(this.work_exp),
+					education: JSON.stringify(this.education)
+				}
+			).then(() => console.log('resume created'))
+			.catch(err => console.log(err));
+		}
+	},
+	created() {
+		this.createResume()
+	} -->

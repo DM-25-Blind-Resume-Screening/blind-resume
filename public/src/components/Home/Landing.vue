@@ -4,8 +4,8 @@
 		<app-landing-picture></app-landing-picture>
 		<app-home-banner></app-home-banner>
 		<app-why-we-exist></app-why-we-exist>
-		<!-- <app-what-we-do></app-what-we-do> -->
 		<app-footer></app-footer>
+
 	</div>
 </template>
 
@@ -23,9 +23,9 @@
 				appWhyWeExist: WhyWeExist,
 				appFooter: Footer
 	    }
-	}
+}
+
 </script>
 
 <style>
-
 </style>
