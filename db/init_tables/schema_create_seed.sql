@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS resumes (
 	linkedin_url text default null,
 	portfolio_url text default null,
 	shortlist boolean default false,
+	interview_candidate boolean default false,
 	accepted boolean default false
 ); 
 
