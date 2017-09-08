@@ -1,6 +1,8 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS companies CASCADE;
 DROP TABLE IF EXISTS job_postings CASCADE;
+DROP TABLE IF EXISTS responsibilities CASCADE;
+DROP TABLE IF EXISTS qualifications CASCADE;
 DROP TABLE IF EXISTS keywords CASCADE;
 DROP TABLE IF EXISTS industries CASCADE;
 DROP TABLE IF EXISTS job_types CASCADE;
@@ -50,9 +52,23 @@ CREATE TABLE IF NOT EXISTS job_postings (
 	foreign key (job_type_id) references job_types(id),
 	title text not null,
 	job_description text,
-	responsibilities text,
-	qualifications text,
 	date_posted date
+);
+
+-- qualifications
+CREATE TABLE IF NOT EXISTS qualifications (
+	id serial primary key,
+	qual_text text,
+	job_post_id integer not null,
+	foreign key (job_post_id) references job_postings(id)
+);
+
+-- responsibilities
+CREATE TABLE IF NOT EXISTS responsibilities (
+	id serial primary key,
+	resp_text text,
+	job_post_id integer not null,
+	foreign key (job_post_id) references job_postings(id)
 );
 
 -- keywords
