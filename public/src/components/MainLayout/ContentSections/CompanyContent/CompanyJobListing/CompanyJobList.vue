@@ -3,7 +3,10 @@
 		<app-default-header>
 			<h1>Current Job Postings</h1>
 		</app-default-header>
-		<app-short-company-job-post></app-short-company-job-post>
+		<app-short-company-job-post
+			v-for="job in shortjobposts"
+			:job="job"
+		></app-short-company-job-post>
 		<div class="add-btn">
 			<md-button md-theme="add" class="md-fab md-fab-bottom-right md-primary">
 				<md-icon>add</md-icon>
@@ -19,14 +22,14 @@ import axios from 'axios';
 export default {
 	data(){
 		return {
-			jobposts: null
+			shortjobposts: null
 		}
 	},
 	methods: {
 		getJobposts() {
 			return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/job_postings`)
 									.then(res => {
-										this.jobposts = res.data
+										this.shortjobposts = res.data
 									})
 									.catch(err => console.log(err))
 		}

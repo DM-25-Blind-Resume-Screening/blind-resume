@@ -12,8 +12,23 @@
 </template>
 
 <script>
-	import DefaultHeader from '../../../Headers/DefaultHeader.vue'
+	import DefaultHeader from '../../../Headers/DefaultHeader.vue';
+	import axios from 'axios';
 	export default {
+		data(){
+			return {
+				longjobpost: null
+			}
+		},
+		methods: {
+			// getLongJobpost() {
+			// 	return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/job_postings`)
+			// 							.then(res => {
+			// 								this.longjobpost = res.data.
+			// 							})
+			// 							.catch(err => console.log(err))
+			// }
+		},
 		components: {
 			appContentHeader: DefaultHeader
 		}
