@@ -5,10 +5,10 @@
             <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
         </div>
     <div class="job-listing-content">
-            <h1 class="sjp-h1">{{ positionTitle }}</h1>
-            <h2 class="sjp-h2">{{ companyName }}</h2>
-            <h3 class="sjp-h3">{{ location }}</h3>
-            <p class="sjp-p">{{ positionDescription }}</p>
+            <h1 class="sjp-h1">{{ jobListing.title }}</h1>
+            <h2 class="sjp-h2">{{ jobListing.company }}</h2>
+            <h3 class="sjp-h3">{{jobListing.city}}, {{ jobListing.state }}</h3>
+            <p class="sjp-p">{{ jobListing.job_description }}</p>
     </div>
   </div>
 </div>
@@ -16,15 +16,7 @@
 
 <script>
 export default {
-    data() {
-        return {
-            companyLogo: 'http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png',
-            positionTitle: 'Senior Front End Developer',
-            companyName: 'BMW',
-            location: 'Seattle, WA',
-            positionDescription: 'Searching for a talented senior front end developer to join our team. The devloper will not only be responsible for defining strategies for front end technologies, including…'
-        }
-    }
+    props: ['jobListing']
 }
 </script>
 
@@ -47,6 +39,7 @@ export default {
     font-size: 20px;
     text-decoration: underline;
     margin: 0;
+    color: #323232;
 }
 
 .sjp-h1:hover {

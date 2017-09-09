@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="skills-section">
         <div class="new-resume-header">
             <div class="new-resume-h1">Skills</div>
         </div>
@@ -28,6 +28,10 @@ export default {
 </script>
 
 <style>
+.skills-section {
+	margin-top: 20px;
+}
+
 .new-resume-header {
     height: 50px;
     background: linear-gradient(45deg, #3f51b5, #2e73b6);
