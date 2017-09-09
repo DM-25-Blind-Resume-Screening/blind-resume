@@ -9,7 +9,8 @@
 			<app-experience-item 
 				v-for="experienceItem in experienceList" 
 				:key="experienceItem.id" 
-				:propExperience="experienceItem">
+				:propExperience="experienceItem"
+				@deletedExp="deleteExperience">
 			</app-experience-item>
 
 			<app-experience-inputs 
@@ -47,6 +48,10 @@ export default {
             this.newExperience.from_date = '';
             this.newExperience.to_date = '';
             this.newExperience.description = '';
+		},
+		deleteExperience(val) {
+			let itemToRemove = this.experienceList.find(item => item.id == val);
+			this.experienceList.splice(this.experienceList.indexOf(itemToRemove), 1);
 		}
 	},
 

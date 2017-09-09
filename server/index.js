@@ -98,7 +98,15 @@ app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmi
 app.post('/api/:user_id/resume/new', resumesController.createResume);
 app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
 
+app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
+app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);
 
+
+app.delete('/api/education/:education_id', resumesController.deleteResumeEducation);
+app.delete('/api/experience/:experience_id', resumesController.deleteResumeExperience);
 app.delete('/api/skill/:skill_id', resumesController.deleteResumeSkill);
+
+
+
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))
