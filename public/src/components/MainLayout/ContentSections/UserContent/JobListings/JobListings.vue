@@ -1,11 +1,13 @@
 <template>
 	<div>
 		<app-content-header>
-			<h1>1,465 Jobs Found</h1>
+			<h1>{{allJobPostings.length}} Jobs Found</h1>
 		</app-content-header>
 		<app-job-search-bar></app-job-search-bar>
 
-		<app-job-list></app-job-list>
+		<app-job-list
+			:allJobPostings="allJobPostings">
+		</app-job-list>
 
 	</div>
 </template>
@@ -16,7 +18,11 @@
 	import JobSearchBar from '../JobSearchBar/JobSearchBar.vue';
 	import {mapActions} from 'vuex'
 	export default {
-
+		computed: {
+			allJobPostings() {
+				return this.$store.state.allJobPostings
+			}
+		},
 		components: {
 			appContentHeader: DefaultHeader,
 			appJobList: JobList,

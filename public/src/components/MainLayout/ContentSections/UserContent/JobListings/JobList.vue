@@ -1,6 +1,10 @@
 <template>
   <div>
-      <app-short-job-post></app-short-job-post>
+      <app-short-job-post
+				v-for="jobListing in allJobPostings"
+				:key="jobListing.id"
+				:jobListing="jobListing">
+			</app-short-job-post>
   </div>
 </template>
 
@@ -8,11 +12,8 @@
 import ShortJobPost from './ShortJobPost.vue';
 
 export default {
-	computed: {
-		jobPostings() {
-			return this.$store.state.jobPostings
-		}
-	},
+	props: ['allJobPostings'],
+	
 	components: {
 	  appShortJobPost: ShortJobPost
 	}
