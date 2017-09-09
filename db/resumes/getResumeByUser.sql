@@ -18,7 +18,7 @@ select *,
     (
         select array_to_json(array_agg(d))
         from (
-            select s.name from skills s
+            select * from skills s
             where s.resume_id = r.id
             order by s.name
         ) d

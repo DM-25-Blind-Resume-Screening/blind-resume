@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="new-resume-header">
-            <h1 class="new-resume-h1">Experience</h1>
+            <h1 class="new-resume-h1">Add New Experience</h1>
         </div>
         <div class="ei-container">
             <div class="ei-flex">
@@ -13,37 +13,49 @@
             <div class="ei-inputs-container">
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Enter job title here</label>
-                    <md-input></md-input>
+                    <md-input v-model="newExperience.title"></md-input>
                 </md-input-container>
 
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Enter company here</label>
-                    <md-input></md-input>
+                    <md-input v-model="newExperience.company"></md-input>
                 </md-input-container>
 
             <div class="ei-date-inputs">
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Start date</label>
-                    <md-input></md-input>
+                    <md-input v-model="newExperience.from_date"></md-input>
                 </md-input-container>
 
                 <md-input-container class="ei-end-date jd-input-job-title" md-inline>
                     <label>End Date</label>
-                    <md-input></md-input>
+                    <md-input v-model="newExperience.to_date"></md-input>
                 </md-input-container>
             </div>
 
-              <textarea class="ei-textarea-desciption"></textarea> 
+              <textarea v-model="newExperience.description" class="ei-textarea-desciption"></textarea> 
+
+            <div class="add-exp-btn-container">
+              <button class="resume-save-btn" @click="addNewExp">
+                Save</button>
+            </div>
 
             </div>
+            
+
         </div>
     </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        props: ['newExperience'],
+        methods: {
+            addNewExp() {
+                this.$emit('addedExp');
+            }
+        }
+    }
 </script>
 
 <style>
@@ -59,6 +71,7 @@ export default {
     border-left: 1px solid #cccccc;
     border-bottom: 1px solid #cccccc;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .ei-inputs-container {
@@ -76,6 +89,11 @@ export default {
 .ei-end-date.md-input-container {
     margin-left: 20px;
 }
+
+.add-exp-btn-container {
+    margin-top: 40px;
+}
+
 </style>
 
 

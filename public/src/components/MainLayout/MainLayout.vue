@@ -1,8 +1,6 @@
 <template>
 	<div class="layout">
-
 		<div class="layout_sidebar">
-			<div class="weird-box"></div>
 			<router-view name="sidebar"></router-view>
 		</div>
 		<div class="layout_content">

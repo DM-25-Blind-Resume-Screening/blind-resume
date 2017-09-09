@@ -1,18 +1,18 @@
 <template>
     <div>
         <div class="company-job-post">
-             <!-- <div>
+             <div>
                 <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
-            </div>  -->
+            </div>
             <div class="company-job-post-content">
-                <h1 class="sjp-h1">{{ positionTitle }}</h1>
-                <h2 class="sjp-h2">{{ companyName }}</h2>
-                <h3 class="sjp-h3">{{ location }}</h3>
-                <p class="sjp-p">{{ positionDescription }}</p>
+                <h1 class="sjp-h1">{{ job.title }}</h1>
+                <h2 class="sjp-h2">{{ job.company }}</h2>
+                <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
+                <p class="sjp-p">{{ job.job_description }}</p>
                 <div class="scjp-review-container">
                     <p class="sjp-p review-applicants">Review Applicants (30)</p>
-                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (2)</p>  
-                </div>              
+                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (2)</p>
+                </div>
             </div>
         </div>
     </div>
@@ -20,15 +20,7 @@
 
 <script>
 export default {
-  data() {
-        return {
-            companyLogo: 'http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png',
-            positionTitle: 'Senior Front End Developer',
-            companyName: 'BMW',
-            location: 'Seattle, WA',
-            positionDescription: 'Searching for a talented senior front end developer to join our team. The devloper will not only be responsible for defining strategies for front end technologies, including…'
-        }
-    }
+  props: ['job']
 }
 </script>
 
@@ -66,7 +58,7 @@ export default {
 .sjp-h3 {
     font-size: 15px;
     margin-top: 6px;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
 }
 
 .sjp-p {
@@ -87,4 +79,3 @@ export default {
 }
 
 </style>
-

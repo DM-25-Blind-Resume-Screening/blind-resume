@@ -7,3 +7,4 @@ set
 	to_date = $5,
 	description = $6
 where id = $1 
+returning *

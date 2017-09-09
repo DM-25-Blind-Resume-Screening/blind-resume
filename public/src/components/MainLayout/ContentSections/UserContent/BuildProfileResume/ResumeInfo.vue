@@ -5,12 +5,11 @@
 		</app-content-header>
 		<app-demographic-info></app-demographic-info>
 		<div class="ri-container">
-			<app-experience-list :experienceList="userResumeExperience"></app-experience-list>
-			<app-experience-inputs></app-experience-inputs>
-			<app-education-list :educationList="userResumeEducation"></app-education-list>
-			<app-education-inputs></app-education-inputs>
-			<app-skill-list :skillsList="userResumeSkills"></app-skill-list>
-			<app-skills-input></app-skills-input>
+			<app-experience-list @addedExp="pushToExp":experienceList="userResumeExperience"></app-experience-list>
+			<app-education-list @addedEdu="pushToEdu" :educationList="userResumeEducation"></app-education-list>
+			<app-skill-list :userResume="userResume" :skillsList="userResumeSkills" v-if="resumeExists"></app-skill-list>
+			<app-skills-input v-model="userResumeSkills" v-else></app-skills-input>
+			<button @click="saveResume" v-if="!resumeExists">Save Resume</button>
 		</div>
 	</div>
 </template>
@@ -19,19 +18,19 @@
 import DefaultHeader from '../../../Headers/DefaultHeader.vue';
 import DemographicInfo from './DemographicInfo.vue';
 import ExperienceList from './ResumeInfo/Experience/ExperienceList.vue'
-import ExperienceInputs from './ResumeInfo/Experience/ExperienceInputs.vue'
 import EducationList from './ResumeInfo/Education/EducationList.vue'
-import EducationInputs from './ResumeInfo/Education/EducationInputs.vue'
 import SkillList from './ResumeInfo/Skills/SkillList.vue'
 import SkillsInput from './ResumeInfo/Skills/SkillsInput.vue'
+import {EventBus} from '../../../../../main.js';
 import axios from 'axios'
 export default {
 	data() {
 		return {
-			userResume: null,
-			userResumeEducation: null,
-			userResumeExperience: null,
-			userResumeSkills: null
+			resumeExists: false,
+			userResume: [],
+			userResumeEducation: [],
+			userResumeExperience: [],
+			userResumeSkills: [],
 		}
 	},
 	methods: {
@@ -42,12 +41,32 @@ export default {
 					this.userResumeEducation = result.data[0].resume_education
 					this.userResumeExperience = result.data[0].resume_work_experience
 					this.userResumeSkills = result.data[0].resume_skills
+					this.resumeExists = true;
 					})
 				.catch(err => console.log(err))
+		},
+		pushToExp(val) {
+			this.userResumeExperience.push(val);
+		},
+		pushToEdu(val) {
+			this.userResumeEducation.push(val);
+		},
+		saveResume() {
+			return axios.post(`http://localhost:3000/api/${this.$route.params.user_id}/resume/new`, 
+					{
+						linkedin: null,
+						portfolio: null,
+						work_exp: JSON.stringify(this.userResumeExperience),
+						education: JSON.stringify(this.userResumeEducation),
+						skills: this.userResumeSkills
+					}
+				).then(() => {
+					this.getUserResume();
+				}).catch(err => console.log(err))
 		}
 	},
 
-	created() {
+	mounted() {
 		this.getUserResume()
 	},
 
@@ -55,9 +74,7 @@ export default {
 		appContentHeader: DefaultHeader,
 		appDemographicInfo: DemographicInfo,
 		appExperienceList: ExperienceList,
-		appExperienceInputs: ExperienceInputs,
 		appEducationList: EducationList,
-		appEducationInputs: EducationInputs,
 		appSkillList: SkillList,
 		appSkillsInput: SkillsInput
 	},

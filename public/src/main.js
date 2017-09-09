@@ -25,6 +25,9 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 Vue.use(VueMaterial)
 
+// EventBus
+export const EventBus = new Vue();
+
 Vue.material.registerTheme('about', {
   primary: {
     color: 'light-blue',

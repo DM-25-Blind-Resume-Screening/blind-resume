@@ -15,42 +15,51 @@
             <div class="ei-inputs-container">
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Enter school here</label>
-                    <md-input></md-input>
+                    <md-input v-model="newEducation.school"></md-input>
                 </md-input-container>
 
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Enter degree here</label>
-                    <md-input></md-input>
+                    <md-input v-model="newEducation.degree"></md-input>
                 </md-input-container>
 
                 <md-input-container class="jd-input-job-title" md-inline>
                     <label>Enter field of study here</label>
-                    <md-input></md-input>
+                    <md-input v-model="newEducation.study_field"></md-input>
                 </md-input-container>
 
                 <div class="ei-date-inputs">
                     <md-input-container class="jd-input-job-title" md-inline>
                         <label>Start date</label>
-                        <md-input></md-input>
+                        <md-input v-model="newEducation.from_date"></md-input>
                     </md-input-container>
 
                     <md-input-container class="ei-end-date jd-input-job-title" md-inline>
                         <label>End Date</label>
-                        <md-input></md-input>
+                        <md-input v-model="newEducation.to_date"></md-input>
                     </md-input-container>
                 </div>
             
-                <textarea class="ei-textarea-desciption"></textarea>
+                <textarea  v-model="newEducation.description" class="ei-textarea-desciption"></textarea>
             
+                <div class="add-edu-btn-container">
+                    <button class="resume-save-btn" @click="addNewEdu">
+                        Save</button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {
- 
-}
+    export default {
+        props: ['newEducation'],
+        methods: {
+            addNewEdu() {
+                this.$emit('addedEdu')
+            }
+        }
+    }
 </script>
 
 <style>
