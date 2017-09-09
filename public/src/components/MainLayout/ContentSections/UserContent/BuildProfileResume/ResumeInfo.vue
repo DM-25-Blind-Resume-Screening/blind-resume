@@ -5,11 +5,11 @@
 		</app-content-header>
 		<app-demographic-info></app-demographic-info>
 		<div class="ri-container">
-			<app-experience-list></app-experience-list>
+			<app-experience-list :experienceList="userResumeExperience"></app-experience-list>
 			<app-experience-inputs></app-experience-inputs>
-			<app-education-list></app-education-list>
+			<app-education-list :educationList="userResumeEducation"></app-education-list>
 			<app-education-inputs></app-education-inputs>
-			<app-skill-list></app-skill-list>
+			<app-skill-list :skillsList="userResumeSkills"></app-skill-list>
 			<app-skills-input></app-skills-input>
 		</div>
 	</div>
@@ -24,7 +24,34 @@ import EducationList from './ResumeInfo/Education/EducationList.vue'
 import EducationInputs from './ResumeInfo/Education/EducationInputs.vue'
 import SkillList from './ResumeInfo/Skills/SkillList.vue'
 import SkillsInput from './ResumeInfo/Skills/SkillsInput.vue'
+import axios from 'axios'
 export default {
+	data() {
+		return {
+			userResume: null,
+			userResumeEducation: null,
+			userResumeExperience: null,
+			userResumeSkills: null
+		}
+	},
+	methods: {
+		getUserResume() {
+			return axios.get(`http://localhost:3000/api/${this.$route.params.user_id}/resume`)
+				.then(result => {
+					console.log(result.data)
+					this.userResume = result.data[0]
+					this.userResumeEducation = result.data[0].resume_education
+					this.userResumeExperience = result.data[0].resume_work_experience
+					this.userResumeSkills = result.data[0].resume_skills
+					})
+				.catch(err => console.log(err))
+		}
+	},
+
+	created() {
+		this.getUserResume()
+	},
+
 	components: {
 		appContentHeader: DefaultHeader,
 		appDemographicInfo: DemographicInfo,
