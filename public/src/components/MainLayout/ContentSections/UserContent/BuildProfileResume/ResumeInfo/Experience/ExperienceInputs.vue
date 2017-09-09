@@ -3,7 +3,7 @@
         <div class="new-resume-header">
             <h1 class="new-resume-h1">Experience</h1>
         </div>
-        <div class="ei-content-container">
+        <div class="ei-container">
             <div class="ei-flex">
                 <h2 class="ei-h2">Position Title</h2>
                 <h2 class="ei-h2">Company</h2>
@@ -50,19 +50,15 @@ export default {
 
 .ei-h2 {
     font-size: 17px;
-	margin-top: 30px;
+    margin-top: 30px;
+    margin-bottom: 28px;
 }
-.ei-content-container {
+.ei-container {
+    display: flex;
     border-right: 1px solid #cccccc;
-    border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
-    display: flex;
-}
-
-.ei-flex {
-    display: flex;
-    flex-direction: column;
-    margin-left: 30px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
 }
 
 .ei-inputs-container {
@@ -73,24 +69,12 @@ export default {
 	margin-top: 5px;
 }
 
-.ei-textarea-desciption {
-    width: 100%;
-	margin: 35px 0;
-	height: 150px;
-	 outline: #3f51b5; 
-	font-size: 14px;
-}
-
 .ei-date-inputs {
     display: flex;
 }
 
 .ei-end-date.md-input-container {
     margin-left: 20px;
-}
-
-.md-input-container {
-	margin: 0;
 }
 </style>
 

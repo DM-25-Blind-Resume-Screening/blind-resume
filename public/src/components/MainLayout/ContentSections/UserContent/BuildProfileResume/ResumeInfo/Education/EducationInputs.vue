@@ -4,7 +4,7 @@
             <h1 class="new-resume-h1">Education</h1>
         </div>
 
-        <div class="ei-content-container">
+        <div class="ei-container">
             <div class="ei-flex">
                 <h2 class="ei-h2">School</h2>
                 <h2 class="ei-h2">Degree</h2>
