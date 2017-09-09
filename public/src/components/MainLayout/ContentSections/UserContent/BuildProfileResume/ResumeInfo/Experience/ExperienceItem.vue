@@ -49,8 +49,14 @@
 
 
             <div class="save-exp-container">
-              <button class="resume-save-btn" v-if="isEditingExperience" @click="isEditingExperience = false">
-                Save</button>
+            <button 
+              class="resume-save-btn"
+              @click="deleteResumeExperience">
+              Delete</button>
+            <button 
+              class="resume-save-btn" 
+              @click="updateResumeExperience">
+              Save</button>
             </div>
         </div>
       </div>
@@ -59,11 +65,34 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: ['propExperience'],
   data() {
     return {
       isEditingExperience: false
+    }
+  },
+  methods: {
+    updateResumeExperience() {
+       return axios.patch(`http://localhost:3000/api/experience/${this.propExperience.id}`,
+          {
+            title: this.propExperience.title,
+            company: this.propExperience.company,
+            from_date: this.propExperience.from_date,
+            to_date: this.propExperience.to_date,
+            description: this.propExperience.description
+          }
+        ).then(res => {
+          this.isEditingExperience = false;
+        }).catch(err => console.log(err))
+    },
+    deleteResumeExperience() {
+      return axios.delete(`http://localhost:3000/api/experience/${this.propExperience.id}`)
+              .then(res => {
+                this.isEditingExperience = false;
+                this.$emit('deletedExp', res.data[0].id)
+              }).catch(err => console.log(err))
     }
   }
 }

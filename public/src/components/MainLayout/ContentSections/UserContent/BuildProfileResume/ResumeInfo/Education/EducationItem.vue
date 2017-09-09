@@ -12,11 +12,6 @@
 
       <div v-if="!isEditingEducation" class="subheader-text">
         <h3 v-if="!isEditingEducation">{{propsEducationInfo.degree}}</h3>
-        <!-- <div class="ei-flex" v-else>
-            <h2 class="ei-h2">Degree</h2> -->
-        <!-- <md-input-container v-else class="jd-input-job-title" md-inline>
-              <md-input v-model="propsEducationInfo.degree"></md-input>
-            </md-input-container> -->
 
         <h3 v-if="!isEditingEducation">{{propsEducationInfo.study_field}}</h3>
 
@@ -58,33 +53,14 @@
          
         </div>
          <div class="save-exp-container">
-            <button class="resume-save-btn" v-if="isEditingEducation" @click="isEditingEducation = false">
+            <button @click="deleteResumeEducation" class="resume-save-btn">Delete</button>
+            <button 
+              class="resume-save-btn" 
+              @click="updateResumeEducation">
               Save</button>
           </div>
       </div>
 
-      <!-- <div class="ei-flex" v-else>
-            <h2 class="ei-h2">Field of Study</h2>
-            <md-input-container class="jd-input-job-title" md-inline>
-              <md-input v-model="propsEducationInfo.study_field"></md-input>
-            </md-input-container>
-          </div> -->
-
-      <!-- <div v-else class="ei-date-inputs">
-            <h2 class="ei-h2">From</h2>
-            <md-input-container class="ei-date jd-input-job-title" md-inline>
-              <md-input v-model="propsEducationInfo.from_date"></md-input>
-            </md-input-container> -->
-
-      <!-- <md-input-container class="ei-date jd-input-job-title" md-inline>
-              <md-input v-model="propsEducationInfo.to_date"></md-input>
-            </md-input-container>
-          </div> -->
-
-      <!-- <div v-else class="ei-flex">
-            <h2 class="ei-h2">Description</h2>
-            <textarea v-model="propsEducationInfo.description" class="ei-textarea-desciption"></textarea>
-          </div> -->
 
     </div>
   </div>
@@ -92,11 +68,37 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: ['propsEducationInfo'],
   data() {
     return {
       isEditingEducation: false
+    }
+  },
+  methods: {
+    updateResumeEducation() {
+      return axios.patch(`http://localhost:3000/api/education/${this.propsEducationInfo.id}`, 
+          {
+            school: this.propsEducationInfo.school,
+            degree: this.propsEducationInfo.degree,
+            study_field: this.propsEducationInfo.study_field,
+            from_date: this.propsEducationInfo.from_date,
+            to_date: this.propsEducationInfo.to_date,
+            description: this.propsEducationInfo.description
+          }
+        ).then(res => {
+          console.log(res)
+          this.isEditingEducation = false
+        })
+         .catch(err => console.log(err))
+    },
+    deleteResumeEducation() {
+      return axios.delete(`http://localhost:3000/api/education/${this.propsEducationInfo.id}`)
+              .then(res => {
+                this.$emit('deletedEdu', res.data[0].id)
+                this.isEditingEducation = false
+              }).catch(err => console.log(err))
     }
   }
 }

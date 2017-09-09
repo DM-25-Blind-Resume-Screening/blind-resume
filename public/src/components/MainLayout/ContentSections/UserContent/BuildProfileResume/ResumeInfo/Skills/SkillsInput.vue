@@ -20,7 +20,7 @@ export default {
         }
     },
     watch: {
-        userSkillsLost() {
+        userSkillsList() {
             this.$emit('input', this.userSkillsList)
         }
     }
