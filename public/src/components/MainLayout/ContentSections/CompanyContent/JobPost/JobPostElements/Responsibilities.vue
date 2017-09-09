@@ -2,19 +2,19 @@
     <div class="skills-section">
         <div class="new-resume-header">
             <div class="new-resume-h1">Responsibilities</div>
-						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/pencil-edit-button.svg" />
+						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
         </div>
+				<ul>
+					<li v-for="responsibility in jobResponsibilities">{{responsibility}}</li>
+				</ul>
     	<div class="content-container">
-        <!-- <md-chips type="text" v-model="jobResponsibilities" md-input-placeholder="Enter Job Responsibilities" class="md-input-invalid si-input-skills">
-            <span class="md-error">Enter responsibilities</span>
-        </md-chips> -->
 				<div class="edit-div">
 					<img class="edit-button" src="../../../../../../assets/edit.svg" />
 					<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
 				</div>
-				<md-input-container class="enter-input" md-inline>
+				<md-input-container  class="enter-input" md-inline>
             <label>Enter responsibility here</label>
-            <md-input class="input-line"></md-input>
+            <md-input v-model="newResponsibility" @keyup.enter.native="addNewResponsibility"></md-input>
         </md-input-container>
 		 	</div>
     </div>
@@ -23,14 +23,16 @@
 export default {
     data() {
         return {
-            jobResponsibilities: []
+            jobResponsibilities: [],
+						newResponsibility: ''
         }
     },
-    watch: {
-        jobResponsibilities() {
-            this.$emit('input', this.jobResponsibilities)
-        }
-    }
+		methods: {
+			addNewResponsibility(){
+				this.jobResponsibilities.push(this.newResponsibility);
+				this.newResponsibility= '';
+			}
+		}
 }
 </script>
 <style>
