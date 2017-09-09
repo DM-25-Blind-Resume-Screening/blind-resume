@@ -1,21 +1,23 @@
 <template>
     <div class="skills-section">
         <div class="new-resume-header">
-            <div class="new-resume-h1">Key qualifications</div>
-						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/pencil-edit-button.svg" />
+            <div class="new-resume-h1">Key Qualifications</div>
+						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
         </div>
     	<div class="content-container">
-        <!-- <md-chips type="text" v-model="jobResponsibilities" md-input-placeholder="Enter Job Responsibilities" class="md-input-invalid si-input-skills">
-            <span class="md-error">Enter responsibilities</span>
-        </md-chips> -->
-				<div class="edit-div">
-					<img class="edit-button" src="../../../../../../assets/edit.svg" />
-					<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
+				<ul class="list-div">
+					<li v-for="qualification in jobkeyQualifications">{{qualification}}</li>
+				</ul>
+				<div class="input-div">
+					<div class="edit-div">
+						<img class="edit-button" src="../../../../../../assets/edit.svg" />
+						<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
+					</div>
+					<md-input-container  class="enter-input" md-inline>
+	            <label>Enter responsibility here</label>
+	            <md-input v-model="newQualification" @keyup.enter.native="addNewQualification"></md-input>
+	        </md-input-container>
 				</div>
-				<md-input-container class="enter-input" md-inline>
-            <label>Enter qualifications here</label>
-            <md-input class="input-line"></md-input>
-        </md-input-container>
 		 	</div>
     </div>
 </template>
@@ -23,14 +25,16 @@
 export default {
     data() {
         return {
-            keyQualifications: []
+            jobkeyQualifications: [],
+						newQualification: ''
         }
     },
-    watch: {
-        keyQualifications() {
-            this.$emit('input', this.keyQualifications)
-        }
-    }
+		methods: {
+			addNewQualification(){
+				this.jobkeyQualifications.push(this.newQualification.charAt(0).toUpperCase()+ this.newQualification.slice(1));
+				this.newQualification= '';
+			}
+		}
 }
 </script>
 <style>
@@ -61,7 +65,7 @@ export default {
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
     display: flex;
-		flex-direction: row;
+		flex-direction: column !important;
 		padding-bottom: 20px;
 }
 .edit-div{
@@ -74,6 +78,28 @@ export default {
 .enter-input {
 	width: 85%;
 	height: 50px;
+}
+.list-div {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 27px;
+	padding-top: 15px;
+}
+.input-div {
+	display: flex;
+}
+li {
+  list-style-type: none;
+  position: relative;
+  margin-bottom:10px;
+}
+li:before {
+  content: '⭐️';
+  bottom: 0;
+  color:#1CB48B;
+	font-size: 14px;
+	margin-right: 20px;
 }
 
 </style>

@@ -4,18 +4,20 @@
             <div class="new-resume-h1">Responsibilities</div>
 						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
         </div>
-				<ul>
+    	<div class="content-container">
+				<ul class="list-div">
 					<li v-for="responsibility in jobResponsibilities">{{responsibility}}</li>
 				</ul>
-    	<div class="content-container">
-				<div class="edit-div">
-					<img class="edit-button" src="../../../../../../assets/edit.svg" />
-					<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
+				<div class="input-div">
+					<div class="edit-div">
+						<img class="edit-button" src="../../../../../../assets/edit.svg" />
+						<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
+					</div>
+					<md-input-container  class="enter-input" md-inline>
+	            <label>Enter responsibility here</label>
+	            <md-input v-model="newResponsibility" @keyup.enter.native="addNewResponsibility"></md-input>
+	        </md-input-container>
 				</div>
-				<md-input-container  class="enter-input" md-inline>
-            <label>Enter responsibility here</label>
-            <md-input v-model="newResponsibility" @keyup.enter.native="addNewResponsibility"></md-input>
-        </md-input-container>
 		 	</div>
     </div>
 </template>
@@ -29,7 +31,7 @@ export default {
     },
 		methods: {
 			addNewResponsibility(){
-				this.jobResponsibilities.push(this.newResponsibility);
+				this.jobResponsibilities.push(this.newResponsibility.charAt(0).toUpperCase()+ this.newResponsibility.slice(1));
 				this.newResponsibility= '';
 			}
 		}
@@ -63,7 +65,7 @@ export default {
     border-bottom: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
     display: flex;
-		flex-direction: row;
+		flex-direction: column !important;
 		padding-bottom: 20px;
 }
 .edit-div{
@@ -76,6 +78,28 @@ export default {
 .enter-input {
 	width: 85%;
 	height: 50px;
+}
+.list-div {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 27px;
+	padding-top: 15px;
+}
+.input-div {
+	display: flex;
+}
+li {
+  list-style-type: none;
+  position: relative;
+  margin-bottom:10px;
+}
+li:before {
+  content: '⭐️';
+  bottom: 0;
+  color:#1CB48B;
+	font-size: 14px;
+	margin-right: 20px;
 }
 
 </style>
