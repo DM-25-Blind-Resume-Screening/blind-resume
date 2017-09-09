@@ -1,7 +1,9 @@
 <template>
 <div class="skill-text-container">
-  
-      <md-chip md-deletable>{{propskill.name}}</md-chip>
+
+      <md-chip v-if="!isEditingSkills">{{propskill.name}}</md-chip>
+      <md-chip v-else md-deletable>{{propskill.name}}</md-chip>
+      
   </div>
 </template>
 
