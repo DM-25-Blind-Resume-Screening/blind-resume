@@ -1,4 +1,5 @@
-select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_type, jp.job_description, jp.responsibilities, jp.qualifications, 
+select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_type, 
+        jp.job_description, rs.resp_text, q.qual_text, 
     (
         select array_to_json(array_agg(d))
         from (
@@ -10,6 +11,8 @@ select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_t
     jp.date_posted
     from job_postings jp
     join companies c on c.id = jp.company_id
+    join responsibilities rs on rs.job_post_id = jp.id
+    join qualifications q on q.job_post_id = jp.id
     join industries i on i.id = jp.industry_id
     join job_types jt on jt.id = jp.job_type_id
     where c.id = $1;

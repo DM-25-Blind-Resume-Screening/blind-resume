@@ -25,3 +25,4 @@ select *,
     ) as resume_skills
     from resumes r
     where r.user_id = $1;
+
