@@ -2,7 +2,7 @@
 	<div class="content_header">
 		 <slot>
 			 Default Header Content
-		</slot> 
+		</slot>
 	</div>
 </template>
 
@@ -23,6 +23,6 @@
 		color: white;
 		font-size: 18px;
 		background: linear-gradient(45deg,#003A98,#3f89c2);
-		box-shadow:  3px 3px 6px 1px rgba(0,0,0,0.3);
+		box-shadow:  1px 3px 6px 1px rgba(0,0,0,0.3);
 	}
 </style>

@@ -1,21 +1,43 @@
 <template>
-	<div>
+	<div class="wrapper">
 		<app-content-header>
 			<h1>Job Post Info</h1>
 		</app-content-header>
-		<h1>Company</h1>
+		<h1>{{longjobpost.company}}</h1>
 		<h3>Description</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quia cumque consequatur voluptates necessitatibus? Odio vitae animi ipsam saepe, totam. Sequi voluptate beatae nihil nostrum. Molestiae quas veniam incidunt eum.</p>
+		<p>{{longjobpost.job_description}}</p>
 		<h3>Responsibilities</h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro veniam sequi sint iure architecto omnis, incidunt natus est temporibus quibusdam! Doloribus magnam vero suscipit quam provident consequuntur, nam totam cumque?</p>
+		<div>{{longjobpost.responsibilities}}</div>
 	</div>
 </template>
 
 <script>
-	import DefaultHeader from '../../../Headers/DefaultHeader.vue'
+	import DefaultHeader from '../../../Headers/DefaultHeader.vue';
+	import axios from 'axios';
 	export default {
+		data(){
+			return {
+				longjobpost: null
+			}
+		},
+		methods: {
+			getLongJobpost() {
+				return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/${this.$route.params.job_post_id}`)
+										.then(res => {
+											this.longjobpost = res.data[0]
+										})
+										.catch(err => console.log(err))
+			}
+		},
 		components: {
 			appContentHeader: DefaultHeader
+		},
+		created() {
+			this.getLongJobpost();
 		}
 	}
 </script>
+
+<style>
+
+</style>

@@ -26,7 +26,13 @@ export default {
   font-size: 20px;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 0 60px;
+  width: 80%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  background: gray;
+  justify-content: space-between;
 }
 
 h1,
@@ -34,59 +40,45 @@ h2 {
   font-weight: normal;
 }
 
-.paginate-list ul {
-  list-style-type: none;
-  padding: 0;
-  background: pink;
-
-}
 
 li {
   display: inline-block;
   margin: 0 10px;
 }
 .buttons {
-  width: 30%;
-  
-  background: pink;
+  width: 100%;
+  /*background: pink;*/
 }
 
 .paginate-list {
-  width: 159px;
-  margin: 0 auto;
-  text-align: left;
-
-}
-.paginate-list li {
+  height: 100%;
+  margin: 20px;
+  background: lightgreen;
   display: flex;
-  /*&:before {
-    content: '⚬ ';
-    font-weight: bold;
-    color: slategray;
-  }*/
+  flex-direction: column;
 }
 
+.buttons {
+  width: 100%;
+}
 .paginate-links.items {
   user-select: none;
-  a {
+}
+.paginate-links.items a {
     cursor: pointer;
   }
-  li.active a {
+.paginate-links.items li.active a {
     font-weight: bold;
   }
-  li.next:before {
-    content: ' | ';
-    margin-right: 13px;
-    color: #ddd;
-  }
-  li.disabled a {
-    color: #ccc;
+.paginate-links.items li .disabled a {
+    color: red;
     cursor: no-drop;
   }
-}
 
-a {
-  color: blue;
+.paginate-links.items a {
+  color: black;
+  font-size: 30px;
+  /*background: red;*/
 }
 
 </style>
