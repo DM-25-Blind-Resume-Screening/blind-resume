@@ -12,11 +12,6 @@
 
       <div v-if="!isEditingEducation" class="subheader-text">
         <h3 v-if="!isEditingEducation">{{propsEducationInfo.degree}}</h3>
-        <!-- <div class="ei-flex" v-else>
-            <h2 class="ei-h2">Degree</h2> -->
-        <!-- <md-input-container v-else class="jd-input-job-title" md-inline>
-              <md-input v-model="propsEducationInfo.degree"></md-input>
-            </md-input-container> -->
 
         <h3 v-if="!isEditingEducation">{{propsEducationInfo.study_field}}</h3>
 

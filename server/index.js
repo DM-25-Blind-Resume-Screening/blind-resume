@@ -96,6 +96,9 @@ app.get('/api/:user_id/resume', resumesController.getResumeByUser)
 app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmittedResumesByJobPost);
 
 app.post('/api/:user_id/resume/new', resumesController.createResume);
+app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
 
+
+app.delete('/api/skill/:skill_id', resumesController.deleteResumeSkill);
 //PORT
 app.listen(port, () => console.log(`Listening on port ${port}`))

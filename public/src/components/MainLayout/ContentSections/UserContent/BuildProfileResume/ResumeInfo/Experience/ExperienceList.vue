@@ -2,23 +2,57 @@
 	<div >
 		<div class="new-resume-header">
 			<h1 class="new-resume-h1">Experience</h1>
-			<img class="plus" src="../../../../../../../assets/plus.svg"/>
+			<img @click="addingExperience = !addingExperience" class="plus" src="../../../../../../../assets/plus.svg"/>
 		</div>
 		<div class="el-padding-top"></div>
 		<div class="el-content-container">
-			<app-experience-item v-for="experienceItem in experienceList" :key="experienceItem.id" :propExperience="experienceItem">
+			<app-experience-item 
+				v-for="experienceItem in experienceList" 
+				:key="experienceItem.id" 
+				:propExperience="experienceItem">
 			</app-experience-item>
+
+			<app-experience-inputs 
+				v-if="addingExperience" 
+				v-model="newExperience" 
+				:newExperience="newExperience"
+				@addedExp="addExperience"></app-experience-inputs>
 		</div>
 	</div>
 </template>
 
 <script>
 import ExperienceItem from './ExperienceItem.vue'
+import ExperienceInputs from './ExperienceInputs.vue'
 export default {
 	props: ['experienceList'],
+	data() {
+		return {
+			addingExperience: false,
+			newExperience: {
+				title: '',
+				company: '', 
+				from_date: '',
+				to_date: '',
+				description: ''
+			}
+		}
+	},
+	methods: {
+		addExperience() {
+			this.addingExperience = false;
+			this.$emit('addedExp', Object.assign({}, this.newExperience));
+            this.newExperience.title = '';
+            this.newExperience.company = '';
+            this.newExperience.from_date = '';
+            this.newExperience.to_date = '';
+            this.newExperience.description = '';
+		}
+	},
 
 	components: {
-		appExperienceItem: ExperienceItem
+		appExperienceItem: ExperienceItem,
+		appExperienceInputs: ExperienceInputs
 	}
 }
 </script>

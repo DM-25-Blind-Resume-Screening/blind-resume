@@ -7,9 +7,17 @@ module.exports = {
 			req.body.linkedin,
 			req.body.portfolio,
 			req.body.work_exp,
-			req.body.education
+			req.body.education,
+			req.body.skills
 		]).then(response => {
 			res.status(200).send(response)
+		}).catch(err => console.log(err));
+	},
+	createResumeSkill(req, res, next) {
+		const db = req.app.get('db');
+
+		db.resumes.createResumeSkill([req.params.resume_id, req.body.name]).then(response => {
+			res.status(200).send(response);
 		}).catch(err => console.log(err));
 	},
 	getResumeByUser(req, res, next) {
@@ -46,6 +54,14 @@ module.exports = {
 				req.body.to_date,
 				req.body.description
 			]).then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err));
+	},
+	deleteResumeSkill(req, res, next) {
+		const db = req.app.get('db');
+
+		db.resumes.deleteResumeSkill([req.params.skill_id])
+			.then(response => {
 				res.status(200).send(response)
 			}).catch(err => console.log(err));
 	}
