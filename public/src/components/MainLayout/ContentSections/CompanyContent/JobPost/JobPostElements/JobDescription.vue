@@ -11,7 +11,7 @@
 						<h2 class="jd-h2">Position Title</h2>
 						<h2 class="jd-h2">Job Type</h2>
 						<h2 class="jd-h2">Industry</h2>
-						 <h2 class="jd-h2">Description</h2> 
+						 <h2 class="jd-h2">Description</h2>
 					</div>
 					<div class="jd-inputs-container">
 
@@ -23,6 +23,7 @@
 						<md-input-container class="jd-select-job-type">
 							<md-select name="job-type" id="job-type">
 								<md-option value="full-time">Full-time</md-option>
+								<md-option value="full-time">Part-time</md-option>
 							</md-select>
 						</md-input-container>
 
@@ -32,7 +33,7 @@
 							</md-select>
 						</md-input-container>
 
-						 <textarea class="jd-textarea-desciption"></textarea> 
+						 <textarea class="jd-textarea-desciption"></textarea>
 					</div>
 				</div>
 			</div>
@@ -59,7 +60,7 @@ export default {
 <style>
 .jd-header {
 	height: 50px;
-	background: linear-gradient(45deg, #3f51b5 ,#2e73b6);
+	background: linear-gradient(45deg, #1CB48B, #2ED590);
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 	display: flex;

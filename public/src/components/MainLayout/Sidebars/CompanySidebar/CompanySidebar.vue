@@ -14,11 +14,12 @@ export default {
 		appCompanyLogo: CompanyLogo,
 		appJobPostHistory: JobPostHistory
 	}
-  
+
 }
 </script>
 
 
 <style>
+
 
 </style>
