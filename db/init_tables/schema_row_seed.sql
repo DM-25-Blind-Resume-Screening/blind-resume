@@ -52,100 +52,110 @@ values
 -- DevMountain Job Posting 1
 with devmtn_job1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, responsibilities, qualifications, date_posted)
+		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
 	values
 		(
 			DEFAULT, 1, 5, 1, 'Web Developer', 
 			'Looking for a competent web developer to work on the Q functionality and help teach our students to code and stuff.',
-			'<ul><li>Use HTML and CSS to make our site look pretty</li><li>Use React.js to create component-based web applicatoins</li><li>Help students in need of help</li><li>Host weekly workshops for students</li><li>Be Awesome</li></ul>',
-			'<ul><li>Three months experience developing full stack web applications</li><li>No formal education experience required</li><li>Patience with students</li><li>Ability to tolerate terrible puns</li></ul>',
 			current_date
 		)
 	returning id
 ),
-dvtmtn1key1 as (
-	insert into keywords
-		(name, job_post_id)
+devmtn1resp as (
+	insert into responsibilities
+		(resp_text, job_post_id)
 	values
-		('Web Developer', (select id from devmtn_job1))
+		('Use HTML and CSS to make our site look pretty', (select id from devmtn_job1)),
+		('Use React.js to create component-based web applications', (select id from devmtn_job1)),
+		('Help students in need of help', (select id from devmtn_job1)),
+		('Host weekly workshops for students', (select id from devmtn_job1)),
+		('Be Awesome', (select id from devmtn_job1))
 ),
-dvmtn1key2 as (
-	insert into keywords
-		(name, job_post_id)
+devmtn1qual as (
+	insert into qualifications
+		(qual_text, job_post_id)
 	values
-		('JavaScript', (select id from devmtn_job1))
+		('Three months experience developing full stack web applications', (select id from devmtn_job1)),
+		('No formal education experience required', (select id from devmtn_job1)),
+		('Patience with students', (select id from devmtn_job1)),
+		('Ability to tolerate terrible puns', (select id from devmtn_job1))
 )
 insert into keywords
 	(name, job_post_id)
 values
+	('Web Developer', (select id from devmtn_job1)),
+	('JavaScript', (select id from devmtn_job1)),
 	('React', (select id from devmtn_job1));
-
-
 
 
 -- DevMountain Job Posting 2
 with devmtn_job2 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, responsibilities, qualifications, date_posted)
+		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
 	values
 		(
 			DEFAULT, 1, 5, 1, 'Lead Instructor', 
 			'Our lead instructor isn''t cutting it anymore.  His puns are bad.  Looking to replace him ASAP',
-			'<ul><li>Use HTML and CSS to make our site look pretty</li><li>Use React.js to create component-based web applicatoins</li><li>Help students in need of help</li><li>Host weekly workshops for students</li><li>Be Awesome</li></ul>',
-			'<ul><li>Three months experience developing full stack web applications</li><li>No formal education experience required</li><li>Patience with students</li><li>Ability to tolerate terrible puns</li></ul>',
 			current_date
 		)
 	returning id
 ),
-dvtmtn2key1 as (
-	insert into keywords
-		(name, job_post_id)
+devmtn2resp as (
+	insert into responsibilities
+		(resp_text, job_post_id)
 	values
-		('Curriculum Development', (select id from devmtn_job2))
+		('Make better puns', (select id from devmtn_job2)),
+		('MAKE. BETTER. PUNS.', (select id from devmtn_job2))
 ),
-dvmtn2key2 as (
-	insert into keywords
-		(name, job_post_id)
+devmtn2qual as (
+	insert into qualifications
+		(qual_text, job_post_id)
 	values
-		('Angular', (select id from devmtn_job2))
+		('Ability to make better puns', (select id from devmtn_job2)),
+		('Develop curriculum', (select id from devmtn_job2))
 )
 insert into keywords
 	(name, job_post_id)
 values
+	('Curriculum Development', (select id from devmtn_job2)),
+	('Angular', (select id from devmtn_job2)),
 	('MongoDB', (select id from devmtn_job2));
-
 
 
 
 -- Apple Job Posting
 with apple_job1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, responsibilities, qualifications, date_posted)
+		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
 	values
 		(
 			DEFAULT, 2, 20, 1, 'Sales Associate', 
 			'Looking for Sales Associate to assist customers in making important decisions',
-			'<ul><li>Sell Products</li><li>Sell More Products</li><li>Live Mas</li></ul>',
-			'<ul><li>High School Diploma or higher</li><li>Previous retail experience desired</li></ul>',
 			current_date
 		)
 	returning id
 ),
-appl1key1 as (
-	insert into keywords
-		(name, job_post_id)
+apple1resp as (
+	insert into responsibilities
+		(resp_text, job_post_id)
 	values
-		('Sales', (select id from apple_job1))
+		('Sell Products', (select id from apple_job1)),
+		('Sell More Products.', (select id from apple_job1)),
+		('Live Mas', (select id from apple_job1))
+
 ),
-apple2key2 as (
-	insert into keywords
-		(name, job_post_id)
+apple2qual as (
+	insert into qualifications
+		(qual_text, job_post_id)
 	values
-		('Technology', (select id from apple_job1))
+		('High School Diploma or higher', (select id from apple_job1)),
+		('Previous retail experience desired', (select id from apple_job1))
 )
 insert into keywords
 	(name, job_post_id)
 values
+	('Sales', (select id from apple_job1)),
+	('Technology', (select id from apple_job1)),
 	('Customer Service', (select id from apple_job1));
 
 
@@ -153,38 +163,37 @@ values
 -- Facebook Posting 1
 with facebook_post1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, responsibilities, qualifications, date_posted)
+		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
 	values
 		(
 			DEFAULT, 3, 21, 1, 'CEO', 
 			'Our CEO is spending too much time touring the country to run for president.  We need a new one.',
-			'<ul><li>Be CEO</li><li>Attend Meetings</li><li>Don''t be NOT CEO</li></ul>',
-			'<ul><li>Harvard drop out preferred</li><li>Another Qualification</li></ul>',
 			current_date
 		)
 	returning id
 ),
-fb1key1 as (
-	insert into keywords
-		(name, job_post_id)
+fb1resp as (
+	insert into responsibilities
+		(resp_text, job_post_id)
 	values
-		('Executive', (select id from facebook_post1))
+		('Be CEO', (select id from facebook_post1)),
+		('Attend Meetings', (select id from facebook_post1)),
+		('Don''t be NOT CEO', (select id from facebook_post1))
+
 ),
-fb1key2 as (
-	insert into keywords
-		(name, job_post_id)
+fb1qual as (
+	insert into qualifications
+		(qual_text, job_post_id)
 	values
-		('Technology', (select id from facebook_post1))
-),
-fb1key3 as (
-	insert into keywords
-		(name, job_post_id)
-	values
-		('Leadership', (select id from facebook_post1))
+		('Harvard drop out preferred', (select id from facebook_post1)),
+		('Another Qualification', (select id from facebook_post1))
 )
 insert into keywords
 	(name, job_post_id)
 values
+	('Executive', (select id from facebook_post1)),
+	('Technology', (select id from facebook_post1)),
+	('Leadership', (select id from facebook_post1)),
 	('Management', (select id from facebook_post1));
 
 
@@ -249,6 +258,7 @@ resume1_skills as (
 		('Communication', (select id from resume1)),
 		('Leadership', (select id from resume1))
 )
+select * from resume1;
 
 insert into submitted_resumes
 	(resume_id, job_post_id)
