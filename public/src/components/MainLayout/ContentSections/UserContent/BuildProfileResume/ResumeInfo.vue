@@ -26,7 +26,6 @@ import SkillList from './ResumeInfo/Skills/SkillList.vue'
 import SkillsInput from './ResumeInfo/Skills/SkillsInput.vue'
 import axios from 'axios'
 export default {
-<<<<<<< HEAD
 	data() {
 		return {
 			userResume: null,
@@ -37,9 +36,11 @@ export default {
 	},
 	methods: {
 		getUserResume() {
+			console.log('get user resume fired');
+			console.log(this.$route.params.user_id);
 			return axios.get(`http://localhost:3000/api/${this.$route.params.user_id}/resume`)
 				.then(result => {
-					console.log(result.data)
+					console.log('hello')
 					this.userResume = result.data[0]
 					this.userResumeEducation = result.data[0].resume_education
 					this.userResumeExperience = result.data[0].resume_work_experience
@@ -52,8 +53,6 @@ export default {
 	created() {
 		this.getUserResume()
 	},
-=======
->>>>>>> master
 
 	components: {
 		appContentHeader: DefaultHeader,
