@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<app-content-header>
+		<app-content-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 			<h1>Job Post Info</h1>
 		</app-content-header>
 		<h1>{{longjobpost.company}}</h1>
@@ -22,7 +22,7 @@
 		},
 		methods: {
 			getLongJobpost() {
-				return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/${this.$route.params.job_post_id}`)
+				return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/posts/${this.$route.params.job_post_id}`)
 										.then(res => {
 											this.longjobpost = res.data[0]
 										})

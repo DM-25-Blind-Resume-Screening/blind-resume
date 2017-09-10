@@ -1,11 +1,12 @@
 <template>
 	<div>
-		<app-default-header>
+		<app-default-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 			<h1>Current Job Postings</h1>
 		</app-default-header>
 		<app-short-company-job-post
-			v-for="job in shortjobposts"
+			v-for="(job,key) in shortjobposts"
 			:job="job"
+			:key="key"
 		></app-short-company-job-post>
 		<div class="add-btn">
 			<md-button md-theme="add" class="md-fab md-fab-bottom-right md-primary">

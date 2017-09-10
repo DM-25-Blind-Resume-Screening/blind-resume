@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<div class="layout_sidebar">
+		<div :class="{layout_sidebar: isUserRoute, layout_sidebar_green: isCompanyRoute}" >
 			<router-view name="sidebar"></router-view>
 		</div>
 		<div class="layout_content">
@@ -10,7 +10,14 @@
 </template>
 
 <script>
-
+export default {
+	data(){
+		return {
+			isCompanyRoute: this.$route.params.company_id == true,
+			isUserRoute: this.$route.params.user_id == true
+		}
+	}
+}
 </script>
 
 <style>
@@ -37,6 +44,15 @@
 	bottom: 0;
 	width: 250px;
 	background: linear-gradient(45deg, #87e2f2, #003A98);
+	color: #fff;
+	overflow: hidden;
+}
+.layout_sidebar_green {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	background: linear-gradient(45deg, #1CB48B, #2ED590);
 	color: #fff;
 	overflow: hidden;
 }
