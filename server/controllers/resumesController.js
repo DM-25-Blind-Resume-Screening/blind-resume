@@ -13,6 +13,21 @@ module.exports = {
 			res.status(200).send(response)
 		}).catch(err => console.log(err));
 	},
+	createResumeEducation(req, res, next) {
+		const db = req.app.get('db');
+
+		db.resumes.createEducation([
+				req.params.resume_id,
+				req.body.school,
+				req.body.degree,
+				req.body.study_field,
+				req.body.from_date,
+				req.body.to_date,
+				req.body.description
+			]).then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err))
+	},
 	createResumeSkill(req, res, next) {
 		const db = req.app.get('db');
 
