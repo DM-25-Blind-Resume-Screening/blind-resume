@@ -97,7 +97,7 @@ app.get('/api/:company_id/job_postings', jobPostingsController.getAllCompanyJobP
 app.get('/api/:company_id/posts/:job_post_id', jobPostingsController.getCompanyJobPostById);
 app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
 app.get('/api/:user_id/resume', resumesController.getResumeByUser)
-app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmittedResumesByJobPost);
+app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getBlindResumesByJobPostId);
 
 app.post('/api/:user_id/resume/new', resumesController.createResume);
 app.post('/api/:resume_id/education/new', resumesController.createResumeEducation)
