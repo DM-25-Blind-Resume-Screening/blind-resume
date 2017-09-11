@@ -25,8 +25,9 @@
 <script>
 import ExperienceItem from './ExperienceItem.vue'
 import ExperienceInputs from './ExperienceInputs.vue'
+import axios from 'axios'
 export default {
-	props: ['experienceList'],
+	props: ['experienceList', 'resumeID'],
 	data() {
 		return {
 			addingExperience: false,
@@ -41,6 +42,25 @@ export default {
 	},
 	methods: {
 		addExperience() {
+			if(this.resumeID) {
+				return axios.post(`http://localhost:3000/api/${this.resumeID}/experience/new`, 
+						 {
+						 	title: this.newExperience.title,
+						 	company: this.newExperience.company,
+						 	from_date: this.newExperience.from_date,
+						 	to_date: this.newExperience.to_date,
+						 	description: this.newExperience.description
+						 }
+					).then(response => {
+						this.addingExperience = false;
+							this.$emit('addedExp', Object.assign({}, this.newExperience));
+				            this.newExperience.title = '';
+				            this.newExperience.company = '';
+				            this.newExperience.from_date = '';
+				            this.newExperience.to_date = '';
+				            this.newExperience.description = '';
+					})
+			}
 			this.addingExperience = false;
 			this.$emit('addedExp', Object.assign({}, this.newExperience));
             this.newExperience.title = '';

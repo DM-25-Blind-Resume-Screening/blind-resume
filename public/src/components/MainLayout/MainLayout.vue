@@ -10,7 +10,16 @@
 </template>
 
 <script>
-
+	import {mapActions} from 'vuex';
+	export default {
+		methods: {
+			...mapActions(['getIndustries', 'getJobTypes'])
+		},
+		created() {
+			this.getIndustries();
+			this.getJobTypes();
+		}
+	}
 </script>
 
 <style>
