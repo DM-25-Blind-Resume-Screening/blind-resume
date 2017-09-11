@@ -5,9 +5,10 @@
 		</app-default-header>
 		<app-short-company-job-post
 			v-for="job in shortjobposts"
+			:key="job.id"
 			:job="job"
 		></app-short-company-job-post>
-		<div class="add-btn">
+		<div @click="goToNewJobPost" class="add-btn">
 			<md-button md-theme="add" class="md-fab md-fab-bottom-right md-primary">
 				<md-icon>add</md-icon>
 			</md-button>
@@ -32,6 +33,9 @@ export default {
 										this.shortjobposts = res.data
 									})
 									.catch(err => console.log(err))
+		},
+		goToNewJobPost() {
+			this.$router.push({path: `/app/company/${this.$route.params.company_id}/newJob`})
 		}
 	},
 	components: {

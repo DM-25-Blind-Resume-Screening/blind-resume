@@ -14,7 +14,7 @@
 		<h1 class="usjt-h1">Type</h1>
     	<div class="checkbox-container-job-type">
 			<app-user-sidebar-job-type 
-				v-for="jobtype in jobTypes"
+				v-for="jobtype in displayJobTypes"
 				:jobtype="jobtype"
 				:key="jobtype.id">
 					
@@ -27,29 +27,16 @@
 import UserImage from './UserImage.vue';
 import UserSidebarIndustry from './UserSidebarIndustry.vue';
 import UserSidebarJobType from './UserSidebarJobType.vue';
-import {mapActions, mapGetters} from 'vuex';
+import {mapGetters} from 'vuex';
 
 export default {
 	computed: {
-		...mapGetters(['displayIndustries']),
-		industries() {
-			return this.$store.state.industries
-		},
-		jobTypes() {
-			return this.$store.state.jobTypes
-		}
+		...mapGetters(['displayIndustries', 'displayJobTypes']),
 	},
 	components: {
 	  appUserImage: UserImage,
 		appUserSidebarIndustry: UserSidebarIndustry,
 		appUserSidebarJobType: UserSidebarJobType
-	},
-	methods: {
-		...mapActions(['getIndustries', 'getJobTypes'])
-	},
-	created() {
-		this.getIndustries();
-		this.getJobTypes();
 	}
 }
 </script>

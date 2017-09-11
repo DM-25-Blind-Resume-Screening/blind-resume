@@ -13,8 +13,8 @@
 export default {
   data() {
     return {
-    items: ['JavaScript', 'PHP', 'HTML', 'CSS', 'Ruby', 'Python', 'Erlang'],
-    paginate: ['items']
+      items: ['JavaScript', 'PHP', 'HTML', 'CSS', 'Ruby', 'Python', 'Erlang'],
+      paginate: ['items']
     }
   }
 }

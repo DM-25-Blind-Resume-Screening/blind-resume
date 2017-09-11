@@ -48,6 +48,7 @@
 	  		).then(response => {
 	  			console.log(response)
 	  			this.skillsList.push(response.data[0])
+	  			this.newSkill = '';
 	  		})
 	  		.catch(err => console.log(err))
 	  	},

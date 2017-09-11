@@ -14,6 +14,9 @@ const state = {
 const getters = {
 	displayIndustries(state) {
 		return state.industries
+	},
+	displayJobTypes(state) {
+		return state.jobTypes
 	}
 };
 
