@@ -23,7 +23,7 @@ select c.name, jp.id, jp.title,
             order by s.name
         ) d
     ) as resume_skills,
-    r.shortlist, r.accepted 
+    sr.shortlist, sr.interview_candidate 
 from submitted_resumes sr
 join resumes r on sr.resume_id = r.id
 join job_postings jp on sr.job_post_id = jp.id
