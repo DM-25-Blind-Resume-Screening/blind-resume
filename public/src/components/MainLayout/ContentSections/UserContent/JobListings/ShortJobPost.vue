@@ -1,8 +1,7 @@
 <template>
 <div>
   <div class="job-listing">
-        <div class="listing_logo">
-            <img :src="jobListing.logo_url">
+        <div style="{background-image: url(jobListing.logo_url)}"class="listing_logo">
         </div>
     <div class="job-listing-content">
             <h1 class="sjp-h1">{{ jobListing.title }}</h1>
@@ -35,8 +34,10 @@
 }
 
 .listing_logo {
-    width: 100px !important;
-    height: 100px;
+    width: 100px;
+    height: 100px !important;
+    background: blue;
+    display: block;
 }
 
 /*.listing_logo img {
@@ -70,6 +71,10 @@
 
 .sjp-p {
     margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100ch;
 }
 
 </style>
