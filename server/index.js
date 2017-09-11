@@ -92,6 +92,7 @@ app.get('/api/main', function(req,res){
 app.get('/api/industries', typeIndustryController.getAllIndustries)
 app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);
 app.get('/api/job_postings', jobPostingsController.getAllJobPostings);
+app.get('/api/company/:company_id', jobPostingsController.getCompanyInfo);
 app.get('/api/:company_id/job_postings', jobPostingsController.getAllCompanyJobPostings);
 app.get('/api/:company_id/posts/:job_post_id', jobPostingsController.getCompanyJobPostById);
 app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
@@ -102,6 +103,7 @@ app.post('/api/:user_id/resume/new', resumesController.createResume);
 app.post('/api/:resume_id/education/new', resumesController.createResumeEducation)
 app.post('/api/:resume_id/experience/new', resumesController.createResumeExperience)
 app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
+app.post('/api/:company_id/job_post/new', jobPostingsController.createNewJobPost)
 
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);

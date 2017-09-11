@@ -3,7 +3,6 @@
 		<div>
 			<div class="jd-header">
 				<h1 class="jd-h1">Job Description</h1>
-				<img class="jd-pencil" src="../../../../../../assets/pencil-edit-button.svg"/>
 			</div>
 			<div class="jd-content-container">
 				<div class="jd-flex">

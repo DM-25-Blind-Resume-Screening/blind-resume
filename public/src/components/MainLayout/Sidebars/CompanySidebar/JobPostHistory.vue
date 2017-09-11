@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <h1 class="jph-h1">History</h1>
-    <h3 class="jph-h3">{{ jobPostInHistory }}</h3>
-  </div>
+    <button @click="goToJobPost" class="jph-btn">{{jobPost.title}}</button>
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            jobPostInHistory: 'HR Manaager'
+    export default {
+        props: ['jobPost'],
+        methods: {
+            goToJobPost() {
+                this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.jobPost.id}`})
+            }
         }
+      
     }
-  
-}
 </script>
 
 
@@ -25,8 +23,16 @@ export default {
     margin: 80px 0 5px 20px;
 }
 
-.jph-h3 {
-    text-decoration: underline;
+.jph-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
     margin-left: 20px;
 }
 </style>

@@ -1,21 +1,17 @@
 <template>
   <div class="cl-container">
       <div class="cl-logo-container">
-        <img src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
+        <img :src="companyInfo.logo_url" style="border-radius: 50%">
       </div>
       <div class="cl-company-name">
-          <p class="cl-p">{{ companyName }}</p>
+          <p class="cl-p">{{ companyInfo.name }}</p>
       </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-      return {
-          companyName: 'BMW'
-      }
-  }
+  props: ['companyInfo']
 }
 </script>
 
@@ -30,8 +26,8 @@ export default {
     }
 
     .cl-logo-container {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         border-radius: 50px;
         position: relative;
         z-index: 7;

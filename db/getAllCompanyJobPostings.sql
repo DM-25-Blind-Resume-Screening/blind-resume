@@ -1,4 +1,4 @@
-select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_type, 
+select c.name company, c.city, c.logo_url, c.state, jp.id, jp.title, i.name industry, jt.name job_type, 
         jp.job_description,
     (
         select array_to_json(array_agg(b))
@@ -24,7 +24,11 @@ select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_t
             order by k.name
         ) d
     ) as job_keywords,
-    jp.date_posted
+    jp.date_posted,
+    (
+        select count(id) from submitted_resumes sr
+        where sr.job_post_id = jp.id
+    ) as applications_count
     from job_postings jp
     join companies c on c.id = jp.company_id
     join industries i on i.id = jp.industry_id

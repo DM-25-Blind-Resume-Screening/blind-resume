@@ -1,42 +1,59 @@
 <template>
     <div class="skills-section">
-        <div class="new-resume-header">
-            <div class="new-resume-h1">Key Qualifications</div>
-						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
+        <div class="jd-header">
+            <div class="jd-h1">Qualifications</div>
+			<img @click="addQualification = !addQualification" class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
         </div>
     	<div class="content-container">
 				<ul class="list-div">
-					<li v-for="qualification in jobkeyQualifications">{{qualification}}</li>
+					<app-qualification
+						v-for="(qualification, index) in jobQualifications"
+						key="index"
+						:qualification="qualification"
+						:index="index"
+						@deleted="deleteQualification"
+						v-model="jobQualifications[index]"></app-qualification>
 				</ul>
-				<div class="input-div">
-					<div class="edit-div">
-						<img class="edit-button" src="../../../../../../assets/edit.svg" />
-						<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
-					</div>
+				<div v-if="addQualification" class="input-div">
 					<md-input-container  class="enter-input" md-inline>
-	            <label>Enter responsibility here</label>
+	            <label>Enter qualification here</label>
 	            <md-input v-model="newQualification" @keyup.enter.native="addNewQualification"></md-input>
 	        </md-input-container>
 				</div>
 		 	</div>
     </div>
 </template>
+
 <script>
-export default {
-    data() {
-        return {
-            jobkeyQualifications: [],
-						newQualification: ''
-        }
-    },
+	import Qualification from './Qualification.vue'
+	export default {
+	    data() {
+	        return {
+	        	addQualification: false,
+	            jobQualifications: [],
+				newQualification: ''
+	        }
+	    },
 		methods: {
 			addNewQualification(){
-				this.jobkeyQualifications.push(this.newQualification.charAt(0).toUpperCase()+ this.newQualification.slice(1));
+				this.jobQualifications.push(this.newQualification.charAt(0).toUpperCase()+ this.newQualification.slice(1));
 				this.newQualification= '';
+				this.sendToParent()
+			},
+			deleteQualification(val) {
+				this.jobQualifications.splice(val,1)
+				this.sendToParent()
+			},
+			sendToParent() {
+				this.$emit('updateQual', this.jobQualifications)
 			}
+		},
+		components: {
+			appQualification: Qualification
 		}
-}
+	}
 </script>
+
 <style>
 .skills-section {
     margin-top: 20px;
@@ -88,18 +105,6 @@ export default {
 }
 .input-div {
 	display: flex;
-}
-li {
-  list-style-type: none;
-  position: relative;
-  margin-bottom:10px;
-}
-li:before {
-  content: '⭐️';
-  bottom: 0;
-  color:#1CB48B;
-	font-size: 14px;
-	margin-right: 20px;
 }
 
 </style>

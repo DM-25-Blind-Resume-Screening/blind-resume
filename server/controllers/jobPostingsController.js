@@ -1,4 +1,27 @@
 module.exports = {
+	createNewJobPost(req, res, next) {
+		const db = req.app.get('db');
+
+		db.createNewJobPost([
+				req.params.company_id,
+				req.body.industry,
+				req.body.jobType,
+				req.body.title,
+				req.body.description,
+				req.body.responsibilities,
+				req.body.qualifications,
+				req.body.keywords
+			]).then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err))
+	},
+	getCompanyInfo(req, res, next) {
+		const db = req.app.get('db');
+
+		db.getCompanyInfo([req.params.company_id]).then(response=> {
+			res.status(200).send(response)
+		}).catch(err => console.log(err))
+	},
 	getAllJobPostings(req, res, next) {
 		const db = req.app.get('db');
 

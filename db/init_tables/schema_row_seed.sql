@@ -8,15 +8,15 @@ values
 	('anotherUser', 'Another', 'User');
 
 insert into companies
-	(name, city, state)
+	(name, logo_url, city, state)
 values
-	('DevMountain', 'Provo', 'Utah'),
-	('Apple', 'Cupertino', 'California'),
-	('Facebook', 'San Francisco', 'California'),
-	('SharpSpring', 'Gainesville', 'Florida'),
-	('Overstock', 'Lehi', 'Utah'),
-	('Younique', 'Lehi', 'Utah'),
-	('AirBNB', 'San Francisco', 'California');
+	('DevMountain', 'http://ios.devmountain.com/public/icon.png','Provo', 'Utah'),
+	('Apple', 'https://image.freepik.com/free-icon/apple-logo_318-40184.jpg','Cupertino', 'California'),
+	('Facebook', 'https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png','San Francisco', 'California'),
+	('SharpSpring', 'https://sharpspring.com/wp-content/uploads/2017/01/SharpSpring_Color_RGB_twitter_white.png','Gainesville', 'Florida'),
+	('Overstock', 'https://d1iiooxwdowqwr.cloudfront.net/pub/appsubmissions/20170331163128_iosappiconoverstock.png','Lehi', 'Utah'),
+	('Younique', 'http://youniquepics.weebly.com/uploads/2/9/4/7/29476313/9870685_orig.jpg','Lehi', 'Utah'),
+	('AirBNB', 'https://assets.entrepreneur.com/content/3x2/1300/1405612741-airbnb-why-new-logo.jpg','San Francisco', 'California');
 
 insert into industries
 	(name)
