@@ -23,21 +23,29 @@
 
       <div v-else class="exp-container ei-container">
         <div class="ei-flex">
-          <h2 class="ei-h2">Degree</h2>
-          <h2 class="ei-h2">Field of Study</h2>
-          <h2 class="ei-h2">From</h2>
-          <h2 class="ei-h2">Description</h2>
+          
+          
+          
+          
         </div>
         <div class="ei-edits-inputs-container">
-
+          
+          <div class="label-input-container">
+          <h2 class="content-label">Degree</h2>
           <md-input-container class="jd-input-job-title" md-inline>
             <md-input v-model="propsEducationInfo.degree"></md-input>
           </md-input-container>
+          </div>
 
+          <div class="label-input-container">
+          <h2 class="content-label">Field of Study</h2>
            <md-input-container class="jd-input-job-title" md-inline>
             <md-input v-model="propsEducationInfo.study_field"></md-input>
           </md-input-container>
+          </div>
 
+          <div class="label-input-container">
+          <h2 class="content-label">From</h2>
           <div class="ei-date-inputs">
             <md-input-container class="jd-input-job-title" md-inline>
               <md-input v-model="propsEducationInfo.from_date"></md-input>
@@ -47,13 +55,16 @@
               <md-input v-model="propsEducationInfo.to_date"></md-input>
             </md-input-container>
           </div>
+          </div>
 
+          <div class="label-input-container">
+          <h2 class="ei-h2">Description</h2>
           <textarea v-model="propsEducationInfo.description" class="ei-textarea-desciption"></textarea>
-
+          </div>
          
         </div>
          <div class="save-exp-container">
-            <button @click="deleteResumeEducation" class="resume-save-btn">Delete</button>
+            <button @click="deleteResumeEducation" class="delete-btn resume-save-btn">Delete</button>
             <button 
               class="resume-save-btn" 
               @click="updateResumeEducation">
@@ -113,9 +124,9 @@ export default {
   padding-top: 10px;
 }
 
-.md-input-container .md-has-value:first-child {
+/* .md-input-container .md-has-value:first-child {
   color: white !important;
-}
+} */
 
 .education-content-container {
   display: flex;
@@ -131,7 +142,7 @@ export default {
 
 .ei-textarea-desciption {
   width: 100%;
-  margin: 35px 20px;
+  margin-left: 20px;
   height: 150px;
   outline: #3f51b5;
   font-size: 14px;
@@ -149,12 +160,6 @@ export default {
 
 .ei-date.md-input-container {
   width: 30%;
-}
-
-.save-btn-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
 }
 
 .resume-save-btn {
@@ -176,6 +181,10 @@ export default {
 }
 
 .new-resume-pencil {
+  margin-right: 10px;
+}
+
+.delete-btn {
   margin-right: 10px;
 }
 </style>
