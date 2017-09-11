@@ -36,6 +36,9 @@ massive(config.massiveUrl)
 			console.log('schema create tables')
 			db.init_tables.schema_row_seed().then(res => {
 				console.log('schema insert dummy rows');
+        db.init_tables.schema_job_postings_seed().then(res => {
+          console.log('inserted job postings')
+        }).catch(err => console.log(err));
 			}).catch(err => console.log(err));
 		}).catch(err => console.log(err));
 	}).catch(err => console.log(err));
@@ -97,6 +100,7 @@ app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getSubmi
 
 app.post('/api/:user_id/resume/new', resumesController.createResume);
 app.post('/api/:resume_id/education/new', resumesController.createResumeEducation)
+app.post('/api/:resume_id/experience/new', resumesController.createResumeExperience)
 app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
 
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);

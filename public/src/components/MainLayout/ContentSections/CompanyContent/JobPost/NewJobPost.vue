@@ -3,12 +3,22 @@
 		<app-content-header style="background: linear-gradient(45deg, #1CB48B, #2ED590)">
 			<h1 class="nj-h1">Create New Job Post</h1>
 		</app-content-header>
-		<app-job-description class="nj-editor" v-model="newJobPost.jobDescription"></app-job-description>
+		
+		<app-job-description 
+			class="nj-editor" 
+			@updateTitle="updateTitle"
+			@updateType="updateJobType"
+			@updateIndustry="updateIndustry"
+			@updateDescription="updateDescription"></app-job-description>
+		
 		<app-responsibilities class="nj-editor" v-model="newJobPost.jobResponsibilities"></app-responsibilities>
+		
 		<app-key-qualifications class="nj-editor" v-model="newJobPost.jobKeyQualifications"></app-key-qualifications>
+		
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
+		
 		<div class="nj-post-btn-container">
-		<button class="nj-post-btn">Post job</button>
+			<button class="nj-post-btn">Post job</button>
 		</div>
 	</div>
 </template>
@@ -23,11 +33,30 @@ export default {
 	data() {
 		return {
 			newJobPost: {
-				jobDescription: '',
+				jobDescription: {
+					title: '',
+					jobType: null,
+					industry: null,
+					description: ''
+				},
 				jobResponsibilities: '',
 				jobKeyQualifications: '',
 				jobKeywords: []
 			}
+		}
+	},
+	methods: {
+		updateTitle(val) {
+			this.newJobPost.jobDescription.title = val
+		},
+		updateJobType(val) {
+			this.newJobPost.jobDescription.jobType = val;
+		},
+		updateIndustry(val) {
+			this.newJobPost.jobDescription.industry = val;
+		},
+		updateDescription(val) {
+			this.newJobPost.jobDescription.description = val;
 		}
 	},
 	components: {

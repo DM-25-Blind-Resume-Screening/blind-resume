@@ -28,6 +28,20 @@ module.exports = {
 				res.status(200).send(response)
 			}).catch(err => console.log(err))
 	},
+	createResumeExperience(req, res, next) {
+		const db = req.app.get('db');
+
+		db.resumes.createWorkExperience([
+				req.params.resume_id,
+				req.body.title,
+				req.body.company,
+				req.body.from_date,
+				req.body.to_date,
+				req.body.description
+			]).then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err))
+	},
 	createResumeSkill(req, res, next) {
 		const db = req.app.get('db');
 

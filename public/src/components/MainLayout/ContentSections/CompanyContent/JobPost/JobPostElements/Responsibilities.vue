@@ -2,40 +2,41 @@
     <div class="skills-section">
         <div class="new-resume-header">
             <div class="new-resume-h1">Responsibilities</div>
-						<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
+				<img class="new-resume-pencil jd-pencil" src="../../../../../../assets/plus.svg" />
+			</div>
         </div>
     	<div class="content-container">
 				<ul class="list-div">
-					<li v-for="responsibility in jobResponsibilities">{{responsibility}}</li>
+					<app-responsibility v-for="responsibility in jobResponsibilities"></app-responsibility>
 				</ul>
 				<div class="input-div">
-					<div class="edit-div">
-						<img class="edit-button" src="../../../../../../assets/edit.svg" />
-						<img class="edit-button" src="../../../../../../assets/recycle-bin.svg" />
-					</div>
 					<md-input-container  class="enter-input" md-inline>
-	            <label>Enter responsibility here</label>
-	            <md-input v-model="newResponsibility" @keyup.enter.native="addNewResponsibility"></md-input>
-	        </md-input-container>
+		            	<label>Enter responsibility here</label>
+		            	<md-input v-model="newResponsibility" @keyup.enter.native="addNewResponsibility"></md-input>
+		        	</md-input-container>
 				</div>
-		 	</div>
+		 </div>
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-            jobResponsibilities: [],
-						newResponsibility: ''
-        }
-    },
+	import Responsibility from './Responsibility.vue'
+	export default {
+	    data() {
+	        return {
+	            jobResponsibilities: [],
+				newResponsibility: ''
+	        }
+	    },
 		methods: {
 			addNewResponsibility(){
 				this.jobResponsibilities.push(this.newResponsibility.charAt(0).toUpperCase()+ this.newResponsibility.slice(1));
 				this.newResponsibility= '';
 			}
+		},
+		components: {
+			appResponsibility: Responsibility
 		}
-}
+	}
 </script>
 <style>
 .skills-section {

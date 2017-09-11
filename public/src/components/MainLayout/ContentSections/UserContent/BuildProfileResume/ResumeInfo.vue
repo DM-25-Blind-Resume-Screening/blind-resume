@@ -17,7 +17,7 @@
 				></app-education-list>
 			<app-skill-list 
 				:userResume="userResume"
-				skillsList="userResumeSkills" 
+				:skillsList="userResumeSkills" 
 				v-if="resumeExists"
 				></app-skill-list>
 			<app-skills-input v-model="userResumeSkills" v-else></app-skills-input>

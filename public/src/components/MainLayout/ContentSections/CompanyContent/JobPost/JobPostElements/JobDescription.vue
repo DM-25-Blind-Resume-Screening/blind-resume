@@ -17,23 +17,22 @@
 
 						<md-input-container class="jd-input-job-title" md-inline>
 							<label>Enter job title here</label>
-							<md-input></md-input>
+							<md-input v-model="postTitle"></md-input>
 						</md-input-container>
 
 						<md-input-container class="jd-select-job-type">
-							<md-select name="job-type" id="job-type">
-								<md-option value="full-time">Full-time</md-option>
-								<md-option value="full-time">Part-time</md-option>
+							<md-select v-model="postJobType" name="job-type" id="job-type">
+								<md-option v-for="jobType in displayJobTypes"  :key="jobType.id" :value="jobType.id">{{jobType.name}}</md-option>
 							</md-select>
 						</md-input-container>
 
 						<md-input-container class="jd-select-industry">
-							<md-select name="industry" id="industry">
-								<md-option value="industry">Web Development</md-option>
+							<md-select v-model="postIndustry" name="industry" id="industry">
+								<md-option v-for="industry in displayIndustries" :key="industry.id" :value="industry.id">{{industry.name}}</md-option>
 							</md-select>
 						</md-input-container>
 
-						 <textarea class="jd-textarea-desciption"></textarea>
+						 <textarea v-model="postDescription" class="jd-textarea-desciption"></textarea>
 					</div>
 				</div>
 			</div>
@@ -43,15 +42,31 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
 export default {
 	data() {
 		return {
-			internalJobDescription: ''
+			postTitle: '',
+			postJobType: '',
+			postIndustry: '',
+			postDescription: ''				
 		}
 	},
+	computed: {
+		...mapGetters(['displayIndustries', 'displayJobTypes'])
+	},
 	watch: {
-		internalJobDescription() {
-			this.$emit('input', this.internalJobDescription)
+		postTitle() {
+			this.$emit('updateTitle', this.postTitle)
+		},
+		postJobType() {
+			this.$emit('updateType', this.postJobType)
+		},
+		postIndustry() {
+			this.$emit('updateIndustry', this.postIndustry)
+		},
+		postDescription() {
+			this.$emit('updateDescription', this.postDescription)
 		}
 	}
 }
