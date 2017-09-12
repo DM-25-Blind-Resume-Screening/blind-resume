@@ -1,6 +1,6 @@
 <template>
 	<div class="wrapper">
-		<app-content-header>
+		<app-content-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 			<h1>Job Post Info</h1>
 		</app-content-header>
 		<div v-if="!longjobpost">Loading...</div>

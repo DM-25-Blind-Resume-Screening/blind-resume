@@ -1,6 +1,6 @@
 <template>
 	<div class="selected-candidates-display">
-		<app-default-header>Selected Candidates</app-default-header>
+		<app-default-header style="background: linear-gradient(45deg, #2ED590,#1CB48B)">Selected Candidates</app-default-header>
 		<app-candidate-list></app-candidate-list>
 		<!-- <app-pagination></app-pagination> -->
 	</div>

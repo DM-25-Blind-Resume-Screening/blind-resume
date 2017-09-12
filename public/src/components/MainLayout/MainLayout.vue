@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<div class="layout_sidebar">
+		<div class="layout_sidebar" >
 			<router-view name="sidebar"></router-view>
 		</div>
 		<div class="layout_content">
@@ -10,8 +10,19 @@
 </template>
 
 <script>
-	import {mapActions} from 'vuex';
-	export default {
+
+import {mapActions} from 'vuex';
+export default {
+	data(){
+		return {
+			isCompanyRoute: this.$route.params.company_id,
+			isUserRoute: this.$route.params.user_id,
+			route: this.$route
+		}
+	},
+	watch: {
+		'$route': 'getIndustries'
+	},
 		methods: {
 			...mapActions(['getIndustries', 'getJobTypes'])
 		},
@@ -20,6 +31,8 @@
 			this.getJobTypes();
 		}
 	}
+
+
 </script>
 
 <style>
@@ -46,6 +59,15 @@
 	bottom: 0;
 	width: 250px;
 	background: linear-gradient(45deg, #87e2f2, #003A98);
+	color: #fff;
+	overflow: hidden;
+}
+.layout_sidebar_green {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 250px;
+	background: linear-gradient(45deg, #1CB48B, #2ED590);
 	color: #fff;
 	overflow: hidden;
 }

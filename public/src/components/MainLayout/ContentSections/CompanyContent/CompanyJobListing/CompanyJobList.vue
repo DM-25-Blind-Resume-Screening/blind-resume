@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<app-default-header>
+		<app-default-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 			<h1>Current Job Postings</h1>
 		</app-default-header>
 		<app-short-company-job-post
