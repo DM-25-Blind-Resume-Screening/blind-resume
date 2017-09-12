@@ -1,4 +1,4 @@
-<template>
+1<template>
 	<div>
 		<app-default-header>
 			Job Position Title Here
@@ -29,7 +29,6 @@
 					<app-blind-resume class="display-resume-container displayResume" 
 							v-if="show_box" 
 							:resume="resumes[currentIndex]" 
-							@click="remove(index)"
 							key="currentIndex">
 					</app-blind-resume>
 
@@ -58,30 +57,44 @@ export default {
 
 	methods: {
 		getInitialApplications() {
-			return axios.get(`http://localhost:3000/api/job_postings/${this.$route.params.job_post_id}/resumes`)
+			return axios.get(`/api/job_postings/${this.$route.params.job_post_id}/resumes`)
 						.then(res => {
 							this.resumes = res.data
 						})
 						.catch(err => console.log(err))
 		},
 		pass() {
-			this.leaveClass = "animated hinge";
-			const vm = this;
-			setTimeout(function() {
-				vm.remove()
-			}, 10)
+			return axios.delete(`/api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}`)
+						.then(() => {
+							this.leaveClass = "animated hinge";
+							const vm = this;
+							setTimeout(function() {
+								vm.remove()
+								if(vm.resumes.length === 0) {
+									console.log('resumes empty')
+									console.log(vm.$route.params.company_id)
+									console.log(vm.$route.params.job_post_id)
+									vm.$router.push({path: `/app/company/${vm.$route.params.company_id}/${vm.$route.params.job_post_id}`})
+								}
+							}, 10)
+						}).then(()=> {
+						}).catch(err => console.log(err))
 		},
 		save() {
-			this.leaveClass = "animated bounceOutUp";
-			const vm = this;
-			setTimeout(function() {
-				vm.remove()
-			}, 10)
-		},
-		next() {
-			if (this.currentIndex + 1 < this.resumes.length) {
-				this.currentIndex++
-			}
+			return axios.patch(`/api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}/shortlist`)
+						.then(() => {
+							this.leaveClass = "animated bounceOutUp";
+							const vm = this;
+							setTimeout(function() {
+								vm.remove()
+								if(vm.resumes.length === 0) {
+									console.log('resumes empty')
+									console.log(vm.$route.params.company_id)
+									console.log(vm.$route.params.job_post_id)
+									vm.$router.push({path: `/app/company/${vm.$route.params.company_id}/${vm.$route.params.job_post_id}`})
+								}
+							}, 10)
+						}).catch(err => console.log(err))
 		},
 		remove(index) {
 			this.show_box = false

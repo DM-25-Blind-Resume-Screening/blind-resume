@@ -166,11 +166,12 @@ app.post('/api/:job_post_id/:user_id/submit', resumesController.createSubmittedR
 
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);
-
+app.patch('/api/:job_post_id/:resume_id/shortlist', jobPostingsController.updateResumeToShortlist)
 
 app.delete('/api/education/:education_id', resumesController.deleteResumeEducation);
 app.delete('/api/experience/:experience_id', resumesController.deleteResumeExperience);
 app.delete('/api/skill/:skill_id', resumesController.deleteResumeSkill);
+app.delete('/api/:job_post_id/:resume_id', jobPostingsController.deleteSubmittedResume)
 
 
 

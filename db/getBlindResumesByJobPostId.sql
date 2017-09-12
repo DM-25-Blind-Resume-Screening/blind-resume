@@ -1,4 +1,4 @@
-select c.name, jp.id, jp.title, 
+select r.id resume_id, jp.id job_post_id,
     (
         select array_to_json(array_agg(b))
         from (
