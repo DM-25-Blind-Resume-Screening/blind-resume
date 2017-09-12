@@ -4,6 +4,16 @@ import LongCompanyJobPost from '../components/MainLayout/ContentSections/Company
 import NewJobPost from '../components/MainLayout/ContentSections/CompanyContent/JobPost/NewJobPost.vue'
 import ResumeViewer from '../components/MainLayout/ContentSections/CompanyContent/ResumeViewer/ResumeViewer.vue'
 import SelectedCandidates from '../components/MainLayout/ContentSections/CompanyContent/SelectedCandidates/SelectedCandidates.vue'
+import CompanyLanding from '../components/MainLayout/ContentSections/CompanyContent/CompanyJobListing/CompanyLanding.vue'
+
+
+export const companyLanding = 
+	{
+		path: 'company',
+		components: {
+			content: CompanyLanding
+		}
+	}
 
 export const companyMainRoute = 
 	{

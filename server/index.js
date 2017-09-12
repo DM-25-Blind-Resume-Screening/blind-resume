@@ -137,7 +137,7 @@ passport.deserializeUser(function(profileFromSession, done) {
 	console.log('deserialize-user', profileFromSession)
   done(null, profileFromSession); //PUTS 2ND ARGUMENT ON REQ.USER
 });
-app.get('/api/main', function(req,res){
+app.get('/api/companyInfo', function(req,res){
     res.send(req.user)
 })
 
@@ -161,6 +161,7 @@ app.post('/api/:resume_id/education/new', resumesController.createResumeEducatio
 app.post('/api/:resume_id/experience/new', resumesController.createResumeExperience)
 app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
 app.post('/api/:company_id/job_post/new', jobPostingsController.createNewJobPost)
+app.post('/api/:job_post_id/:user_id/submit', resumesController.createSubmittedResume)
 
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);

@@ -2,7 +2,7 @@ import {homeRoutes} from './homeRoutes';
 import RouterError from './RouterError.vue'
 import MainLayout from '../components/MainLayout/MainLayout.vue'
 import {userLanding, userMainRoute, userResumeRoute, userJobPostRoute} from './userRoutes';
-import {companyMainRoute, companyNewJobPostRoute, companyJobPostRoute, companyResumeViewerRoute, companySelectedCandidatesRoute} from './companyRoutes'
+import {companyLanding, companyMainRoute, companyNewJobPostRoute, companyJobPostRoute, companyResumeViewerRoute, companySelectedCandidatesRoute} from './companyRoutes'
 
 export const routes = [
 	homeRoutes,
@@ -14,6 +14,7 @@ export const routes = [
 			userMainRoute,
 			userResumeRoute,
 			userJobPostRoute,
+			companyLanding,
 			companyMainRoute,
 			companyNewJobPostRoute,
 			companyJobPostRoute,
