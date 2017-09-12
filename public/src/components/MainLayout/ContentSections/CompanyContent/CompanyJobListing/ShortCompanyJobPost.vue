@@ -1,9 +1,13 @@
 <template>
     <div>
         <div class="company-job-post">
-             <div>
-                <img width="90px" :src="job.logo_url">
-            </div>
+
+           
+            <md-avatar class="md-large">
+                <img :src="job.logo_url" alt="People">
+            </md-avatar>
+            
+
             <div class="company-job-post-content">
                 <h1 class="sjp-h1">{{ job.title }}</h1>
                 <h2 class="sjp-h2">{{ job.company }}</h2>
@@ -39,6 +43,11 @@
 
 
 <style>
+.md-avatar {
+    margin: 0;
+    margin-right: 20px;
+}
+
 .company-job-post {
     display: flex;
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
@@ -94,5 +103,4 @@
 .shortlist {
     margin-left: 30px;
 }
-
 </style>
