@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<div :class="{layout_sidebar: isUserRoute, layout_sidebar_green: isCompanyRoute}" >
+		<div class="layout_sidebar" >
 			<router-view name="sidebar"></router-view>
 		</div>
 		<div class="layout_content">
@@ -10,14 +10,29 @@
 </template>
 
 <script>
+
+import {mapActions} from 'vuex';
 export default {
 	data(){
 		return {
-			isCompanyRoute: this.$route.params.company_id == true,
-			isUserRoute: this.$route.params.user_id == true
+			isCompanyRoute: this.$route.params.company_id,
+			isUserRoute: this.$route.params.user_id,
+			route: this.$route
+		}
+	},
+	watch: {
+		'$route': 'getIndustries'
+	},
+		methods: {
+			...mapActions(['getIndustries', 'getJobTypes'])
+		},
+		created() {
+			this.getIndustries();
+			this.getJobTypes();
 		}
 	}
-}
+
+
 </script>
 
 <style>

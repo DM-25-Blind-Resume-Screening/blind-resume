@@ -11,8 +11,16 @@
     <md-dialog-title>Log in as</md-dialog-title>
     <!-- <md-dialog-content>Log in as</md-dialog-content> -->
       <md-dialog-actions>
-        <md-button class="md-primary" @click="closeDialog('dialog1')">Employer</md-button>
-        <md-button class="md-primary" @click="closeDialog('dialog1')">Job-Seeker</md-button>
+          <a href="http://localhost:3000/auth/2">
+            <md-button class="md-primary" @click="closeDialog('dialog1')">
+            Employer
+            </md-button>
+          </a>
+          <a href="http://localhost:3000/auth/1">
+            <md-button class="md-primary" @click="closeDialog('dialog1')">
+            Job-Seeker
+            </md-button>
+          </a>
       </md-dialog-actions>
   </md-dialog>
   </div>

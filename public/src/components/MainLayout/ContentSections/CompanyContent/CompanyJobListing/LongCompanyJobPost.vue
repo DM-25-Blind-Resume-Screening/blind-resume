@@ -3,11 +3,14 @@
 		<app-content-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 			<h1>Job Post Info</h1>
 		</app-content-header>
-		<h1>{{longjobpost.company}}</h1>
-		<h3>Description</h3>
-		<p>{{longjobpost.job_description}}</p>
-		<h3>Responsibilities</h3>
-		<div>{{longjobpost.responsibilities}}</div>
+		<div v-if="!longjobpost">Loading...</div>
+		<div v-else class="content">
+			<h1>{{longjobpost.company}}</h1>
+			<h3>Description</h3>
+			<p>{{longjobpost.job_description}}</p>
+			<h3>Responsibilities</h3>
+			<div>{{longjobpost.responsibilities}}</div>
+		</div>
 	</div>
 </template>
 
@@ -17,16 +20,20 @@
 	export default {
 		data(){
 			return {
-				longjobpost: null
+				longjobpost: null,
+				route: this.$route
 			}
+		},
+		watch: {
+			'$route': 'getLongJobpost'
 		},
 		methods: {
 			getLongJobpost() {
 				return axios.get(`http://localhost:3000/api/${this.$route.params.company_id}/posts/${this.$route.params.job_post_id}`)
-										.then(res => {
-											this.longjobpost = res.data[0]
-										})
-										.catch(err => console.log(err))
+					.then(res => {
+						this.longjobpost = res.data[0]
+					})
+					.catch(err => console.log(err))
 			}
 		},
 		components: {

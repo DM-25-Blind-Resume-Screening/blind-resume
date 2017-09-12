@@ -2,7 +2,7 @@
     <div>
         <div class="company-job-post">
              <div>
-                <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
+                <img width="90px" :src="job.logo_url">
             </div>
             <div class="company-job-post-content">
                 <h1 class="sjp-h1">{{ job.title }}</h1>
@@ -10,8 +10,8 @@
                 <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
                 <p class="sjp-p">{{ job.job_description }}</p>
                 <div class="scjp-review-container">
-                    <p class="sjp-p review-applicants">Review Applicants (30)</p>
-                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (2)</p>
+                    <p class="sjp-p review-applicants">Review Applicants ({{job.applications_count}})</p>
+                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (0)</p>
                 </div>
             </div>
         </div>

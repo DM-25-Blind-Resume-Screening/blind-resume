@@ -16,14 +16,18 @@ DROP TABLE IF EXISTS skills CASCADE;
 -- Users
 CREATE TABLE IF NOT EXISTS users (
 	id serial primary key,
-	username text unique not null,
+	user_name text unique not null,
 	first_name text not null,
-	last_name text not null
+	last_name text not null,
+	auth_id text not null,
+	picture text not null,
+	email text unique not null
 );
 
 -- Companies
 CREATE TABLE IF NOT EXISTS companies (
 	id serial primary key,
+	logo_url text not null,
 	name text not null,
 	city text not null,
 	state text not null
@@ -93,12 +97,13 @@ CREATE TABLE IF NOT EXISTS resumes (
 	id serial primary key,
 	user_id integer not null,
 	foreign key (user_id) references users(id),
+	location text default null,
+	about_me text default null,
+	email text default null,
+	phone text default null,
 	linkedin_url text default null,
-	portfolio_url text default null,
-	shortlist boolean default false,
-	interview_candidate boolean default false,
-	accepted boolean default false
-); 
+	portfolio_url text default null
+);
 
 -- work_experiences
 CREATE TABLE IF NOT EXISTS work_experiences (
@@ -138,6 +143,9 @@ CREATE TABLE IF NOT EXISTS submitted_resumes (
 	id serial primary key,
 	resume_id integer not null,
 	job_post_id integer not null,
+	shortlist boolean default false,
+	interview_candidate boolean default false,
+	accepted boolean default false,
 	foreign key (job_post_id) references job_postings(id),
 	foreign key (resume_id) references resumes(id)
 );

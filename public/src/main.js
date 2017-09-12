@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 import store from './vuex/store';
+import axios from 'axios';
+import VueAxios from 'vue-axios'
 
 // VueRouter
 import VueRouter from 'vue-router'
@@ -25,8 +27,7 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 Vue.use(VueMaterial)
 
-// EventBus
-export const EventBus = new Vue();
+Vue.use(VueAxios, axios)
 
 Vue.material.registerTheme('about', {
   primary: {

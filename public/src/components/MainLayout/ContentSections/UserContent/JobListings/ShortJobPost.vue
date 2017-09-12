@@ -1,8 +1,8 @@
 <template>
 <div>
   <div class="job-listing">
-        <div>
-            <img width="90px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
+        <div class="listing_logo">
+            <img :src="jobListing.logo_url">
         </div>
     <div class="job-listing-content">
             <h1 class="sjp-h1">{{ jobListing.title }}</h1>
@@ -15,9 +15,9 @@
 </template>
 
 <script>
-export default {
-    props: ['jobListing']
-}
+    export default {
+        props: ['jobListing']
+    }
 </script>
 
 <style>
@@ -27,13 +27,22 @@ export default {
     display: flex;
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
     width: 700px;
-    height: auto;
     margin: 50px 100px;
 }
 
 .job-listing-content {
     margin-left: 10px;
 }
+
+.listing_logo {
+    width: 100px !important;
+    height: 100px;
+}
+
+/*.listing_logo img {
+    width: 100%;
+    height: 100%;
+}*/
 
 .sjp-h1 {
     font-size: 20px;
