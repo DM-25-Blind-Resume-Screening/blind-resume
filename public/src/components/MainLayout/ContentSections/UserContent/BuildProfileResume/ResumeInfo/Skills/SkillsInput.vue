@@ -1,5 +1,5 @@
 <template>
-    <div class="skills-section">
+    <div>
         <div class="new-resume-header">
             <div class="new-resume-h1">Skills</div>
         </div>
@@ -39,6 +39,7 @@ export default {
     border-top-right-radius: 5px;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .new-resume-h1 {

@@ -22,18 +22,20 @@
         </div>
 
         <div v-else class="exp-container ei-container">
-          <div class="ei-flex">
-            <h2 class="ei-h2">Company</h2>
-            <h2 class="ei-h2">From</h2>
-            <h2 class="ei-h2">Description</h2>
-          </div>
-          <div class="ei-edits-inputs-container">
 
+          <div class="ei-edits-inputs-container">
+            
+          <div class="label-input-container">
+            <h2 class="content-label">Company</h2>
             <md-input-container class="jd-input-job-title" md-inline>
               <md-input v-model="propExperience.company"></md-input>
             </md-input-container>
+            </div>
 
-            <div class="ei-date-inputs">
+            <div class="label-input-container">
+            
+              <h2 class="content-label">From</h2>
+              <div class="ei-date-inputs">
               <md-input-container class="jd-input-job-title" md-inline>
                 <md-input v-model="propExperience.from_date"></md-input>
               </md-input-container>
@@ -42,15 +44,18 @@
                 <md-input v-model="propExperience.to_date"></md-input>
               </md-input-container>
             </div>
+            </div>
 
+            <div class="label-input-container">
+            <h2 class="d-content-label">Description</h2>
             <textarea v-model="propExperience.description" class="ei-textarea-desciption"></textarea>
-
+            </div>
           </div>
 
 
             <div class="save-exp-container">
             <button 
-              class="resume-save-btn"
+              class="delete-btn resume-save-btn"
               @click="deleteResumeExperience">
               Delete</button>
             <button 
@@ -156,11 +161,40 @@ export default {
 .exp-container {
   width: 100%;
   padding-bottom: 20px;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
 }
 
 .save-exp-container {
-  align-self: flex-end;
-  margin-right: 15px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+.label-input-container {
+  display: flex;
+}
+
+.content-label {
+  margin: auto;
+  width: 100px;
+  text-align: right;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.d-content-label {
+  width: 100px;
+  text-align: right;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.ei-date-inputs {
+  display: flex;
+  width: 100%;
 }
 </style>
 
