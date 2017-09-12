@@ -65,10 +65,10 @@ module.exports = {
 			res.status(200).send(response)
 		}).catch(err => console.log(err));
 	},
-	getSubmittedResumesByJobPost(req, res, next) {
+	getBlindResumesByJobPostId(req, res, next) {
 		const db = req.app.get('db');
 
-		db.getSubmittedResumesByJobPost([req.params.job_post_id]).then(response => {
+		db.getBlindResumesByJobPostId([req.params.job_post_id]).then(response => {
 			res.status(200).send(response);
 		}).catch(err => console.log(err));
 	}

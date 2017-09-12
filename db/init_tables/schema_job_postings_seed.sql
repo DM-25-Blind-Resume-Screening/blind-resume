@@ -788,9 +788,14 @@ values
 
 with resume1 as (
 	insert into resumes
-		(id, user_id, linkedin_url, portfolio_url)
+		(id, user_id, location, about_me, email, phone, linkedin_url, portfolio_url)
 	values
-		(default, 1, 'https://www.linkedin.com/in/christopher_wilson88', 'https://www.google.com') 
+		(default, 1, 
+			'Gainesville, FL',
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic neque mollitia alias eos iure aperiam fugit placeat dicta molestias, soluta deleniti, eligendi velit. Laborum ut eius, excepturi, optio blanditiis incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati iure ipsa, aut, ipsum eum, corrupti ullam fuga odit soluta blanditiis dolores voluptatibus alias repellendus, eos similique a? Neque, ipsa, commodi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum repellat velit, blanditiis voluptate earum ipsum ducimus sed, id laboriosam magni voluptatem error ullam nulla eum incidunt, labore esse maxime alias!',
+			'cmw.wilson88@gmail.com',
+			'(555) 567-8901',
+			'https://www.linkedin.com/in/christopher_wilson88', 'https://www.google.com') 
 	returning id
 ),
 resume1_exp as (
@@ -842,9 +847,143 @@ resume1_skills as (
 )
 select * from resume1;
 
+with resume2 as (
+    insert into resumes
+        (id, user_id, location, about_me, email, phone, linkedin_url, portfolio_url)
+    values
+        (default, 2, 
+        	'Minneapolis, MN', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, fugit! Ad recusandae facilis in architecto maxime, culpa at eos eligendi esse enim error dolores debitis dolor. Reiciendis velit eius neque!',
+        	'ashley@me.com', '(555) 555 - 555', 'https://www.linkedin.com/in/ashleyschuette/', 'http://www.aschuette.com/') 
+    returning id
+),
+resume2_exp as (
+    insert into work_experiences
+        (title, company, from_date, to_date, description, resume_id)
+    values
+        (
+            'Full Stack Web Developer', 'DevMountain', '6/2017', 'Present',
+            'Created many full-stack applications using the newest technologies. Some of the technologies include ReactJS, VueJS, NodeJS, PostgreSQL, and Sass.',
+            (select id from resume2)
+        ),
+        (
+            'SEO Associate', 'Top Source Medias', '6/2016', '6/2017',
+            'Ranked and promoted websites on major search engines. Created and designed interal company newsletter monthly. Researched and used tools for best SEO practice.',
+            (select id from resume2)
+        )
+),
+resume2_edu1 as (
+    insert into education
+        (school, degree, study_field, from_date, to_date, description, resume_id)
+    values
+        (
+            'DevMountain', 'Full Stack Web Developer', 'Web Development', '6/2017', '9/2017',
+            'Studied Full Stack development focusing on ReactJS, NodeJS, Express, and PostgreSQL',
+            (select id from resume2)
+        ),
+        (
+            'St. Cloud State University', 'Bachelor of Science', 'Business Marketing', '8/2012', '5/2016',
+            'Undergraduate studies focusing on business, market research and professional networking',
+            (select id from resume2)
+        )
+),
+resume2_skills as (
+    insert into skills
+        (name, resume_id)
+    values 
+        ('ReactJS', (select id from resume2)),
+        ('VueJS', (select id from resume2)),
+        ('NodeJS', (select id from resume2)),
+        ('Sass', (select id from resume2)),
+        ('Sel-motivation', (select id from resume2)),
+        ('Detail-oriented', (select id from resume2)),
+        ('Adaptability', (select id from resume2))
+)
+select * from resume2;
+
+with resume3 as (
+    insert into resumes
+        (id, user_id, location, about_me, email, phone, linkedin_url, portfolio_url)
+    values
+        (default, 3, 'San Francisco, CA', 
+        	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, optio natus deleniti illum eius quo dignissimos accusantium eos a numquam! Tempora aperiam dolorem voluptates accusantium minima, eum, optio voluptatum unde!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, vero harum, architecto eaque quaerat nihil soluta quisquam hic fugiat incidunt suscipit sequi laborum maiores error enim tenetur fugit itaque iusto!', 
+        	'me@logantruong.com', '(555) 543-2109','https://www.linkedin.com/in/logan-truong', 'https://www.logantruong.com') 
+    returning id
+),
+resume3_exp as (
+    insert into work_experiences
+        (title, company, from_date, to_date, description, resume_id)
+    values
+        (
+            'Web Developer', 'DevMountain', '6/2017', 'Present',
+            'Learned full stack web developing skills including HTML/CSS, Javascript, React, Angular, jQuery, Node.js, Express, PostreSQL and RESTful API''s.',
+            (select id from resume3)
+        ),
+        (
+            'Executive Assistance', 'K & L Auto', '12/2016', '6/2017',
+            'Coordinated executive communications, including taking calls, responding to emails and meeting with clients',
+            (select id from resume3)
+        )
+),
+resume3_edu1 as (
+    insert into education
+        (school, degree, study_field, from_date, to_date, description, resume_id)
+    values
+        (
+            'DevMountain', 'Junior Web Developer', 'Web Development', '6/2017', '9/2017',
+            'Studied Full Stack development focusing on ReactJS, NodeJS, Express, and PostgreSQL',
+            (select id from resume3)
+        ),
+        (
+            'University of Hawaii', 'Bachelor of Business Administration', 'Finance', '8/2014', '6/2016',
+            'Undergraduate studies focusing on Business Administration',
+            (select id from resume3)
+        )
+),
+resume3_skills as (
+    insert into skills
+        (name, resume_id)
+    values 
+        ('ReactJS', (select id from resume3)),
+        ('VueJS', (select id from resume3)),
+        ('NodeJS', (select id from resume3)),
+        ('HTML', (select id from resume3)),
+        ('CSS', (select id from resume3)),
+        ('Outgoing', (select id from resume3)),
+        ('Creative', (select id from resume3))
+)
+select * from resume3;
+
 insert into submitted_resumes
 	(resume_id, job_post_id)
 values 
 	(1, 2),
 	(1, 3),
-	(1, 4); 
+	(1, 4),
+	(1, 7),
+	(1, 9),
+	(1, 10),
+	(1, 11),
+	(1, 15),
+	(1, 17),
+	(1, 18),
+	(2, 1),
+	(2, 2),
+	(2, 3),
+	(2, 5),
+	(2, 9),
+	(2, 10),
+	(2, 8),
+	(2, 15),
+	(3, 1),
+	(3, 2),
+	(3, 3),
+	(3, 5),
+	(3, 8),
+	(3, 9),
+	(3, 10),
+	(3, 14),
+	(3, 15),
+	(3, 16),
+	(3, 17);
+
+

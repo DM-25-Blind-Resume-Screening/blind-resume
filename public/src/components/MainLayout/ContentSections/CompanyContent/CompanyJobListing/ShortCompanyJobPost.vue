@@ -10,8 +10,8 @@
                 <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
                 <p class="sjp-p">{{ job.job_description }}</p>
                 <div class="scjp-review-container">
-                    <p class="sjp-p review-applicants">Review Applicants ({{job.applications_count}})</p>
-                    <p class="sjp-p  shortlist review-applicants">Review Shortlist (0)</p>
+                    <p @click="goToApplications" class="sjp-p review-applicants">Review Applicants ({{job.applications_count}})</p>
+                    <p @click="goToShortList" class="sjp-p  shortlist review-applicants">Review Shortlist (0)</p>
                 </div>
             </div>
         </div>
@@ -19,9 +19,22 @@
 </template>
 
 <script>
-export default {
-  props: ['job']
-}
+    export default {
+      props: ['job'],
+      methods: {
+        goToApplications() {
+            this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/resumes`})
+        },
+        goToShortList() {
+            this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/shortlist`})
+
+        },
+        goToInterviewCandidates() {
+            this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/candidates`})
+
+        }
+      }
+    }
 </script>
 
 
@@ -63,6 +76,10 @@ export default {
 
 .sjp-p {
     margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100ch;
 }
 
 .scjp-review-container {
