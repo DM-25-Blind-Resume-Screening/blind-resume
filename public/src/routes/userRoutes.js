@@ -2,8 +2,18 @@ import UserSidebar from '../components/MainLayout/Sidebars/UserSidebar/UserSideb
 import JobListings from '../components/MainLayout/ContentSections/UserContent/JobListings/JobListings.vue'
 import LongJobPost from '../components/MainLayout/ContentSections/UserContent/JobPostInfo/LongJobPost.vue'
 import ResumeInfo from '../components/MainLayout/ContentSections/UserContent/BuildProfileResume/ResumeInfo.vue'
+import UserLanding from '../components/MainLayout/ContentSections/UserContent/JobListings/UserLanding.vue'
 
-export const userMainRoute = 
+export const userLanding =
+	{
+		path: 'user',
+		components: {
+			content: UserLanding
+
+		}
+	}
+
+export const userMainRoute =
 	{
 		path: 'user/:user_id',
 		components: {
@@ -11,7 +21,7 @@ export const userMainRoute =
 			content: JobListings
 		}
 	}
-export const userResumeRoute = 
+export const userResumeRoute =
 	{
 		path: 'user/:user_id/resume',
 		components: {
@@ -19,7 +29,7 @@ export const userResumeRoute =
 			content: ResumeInfo
 		}
 	}
-export const userJobPostRoute = 
+export const userJobPostRoute =
 	{
 		path: 'user/:user_id/:job_post_id',
 		components: {

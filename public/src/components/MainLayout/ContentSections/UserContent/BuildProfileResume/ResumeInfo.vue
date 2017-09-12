@@ -5,19 +5,19 @@
 		</app-content-header>
 		<app-demographic-info></app-demographic-info>
 		<div class="ri-container">
-			<app-experience-list 
+			<app-experience-list
 				@addedExp="pushToExp"
 				:experienceList="userResumeExperience"
 				:resumeID="userResume.id"
 				></app-experience-list>
-			<app-education-list 
-				@addedEdu="pushToEdu" 
+			<app-education-list
+				@addedEdu="pushToEdu"
 				:educationList="userResumeEducation"
 				:resumeID="userResume.id"
 				></app-education-list>
-			<app-skill-list 
+			<app-skill-list
 				:userResume="userResume"
-				:skillsList="userResumeSkills" 
+				:skillsList="userResumeSkills"
 				v-if="resumeExists"
 				></app-skill-list>
 			<app-skills-input v-model="userResumeSkills" v-else></app-skills-input>
@@ -47,7 +47,7 @@ export default {
 	},
 	methods: {
 		getUserResume() {
-			return axios.get(`http://localhost:3000/api/${this.$route.params.user_id}/resume`)
+			return axios.get(`/api/${this.$route.params.user_id}/resume`)
 				.then(result => {
 					this.userResume = result.data[0]
 					this.userResumeEducation = result.data[0].resume_education
@@ -64,7 +64,7 @@ export default {
 			this.userResumeEducation.push(val);
 		},
 		saveResume() {
-			return axios.post(`http://localhost:3000/api/${this.$route.params.user_id}/resume/new`, 
+			return axios.post(`/api/${this.$route.params.user_id}/resume/new`,
 					{
 						linkedin: null,
 						portfolio: null,
@@ -109,4 +109,3 @@ export default {
 	margin: 20px auto;
 }
 </style>
-

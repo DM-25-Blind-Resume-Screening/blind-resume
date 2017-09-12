@@ -16,9 +16,12 @@ DROP TABLE IF EXISTS skills CASCADE;
 -- Users
 CREATE TABLE IF NOT EXISTS users (
 	id serial primary key,
-	username text unique not null,
+	user_name text unique not null,
 	first_name text not null,
-	last_name text not null
+	last_name text not null,
+	auth_id text not null,
+	picture text not null,
+	email text unique not null
 );
 
 -- Companies
@@ -100,7 +103,7 @@ CREATE TABLE IF NOT EXISTS resumes (
 	phone text default null,
 	linkedin_url text default null,
 	portfolio_url text default null
-); 
+);
 
 -- work_experiences
 CREATE TABLE IF NOT EXISTS work_experiences (

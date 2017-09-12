@@ -1,11 +1,11 @@
 insert into Users
-	(username, first_name, last_name)
+	(user_name, email, first_name, last_name, auth_id, picture)
 values
-	('cmwilson88', 'Christopher', 'Wilson'),
-	('meginocc', 'Megan', 'wilson'),
-	('mjordanfan23', 'Michael', 'Jordan'),
-	('username241', 'User', 'Name23'),
-	('anotherUser', 'Another', 'User');
+	('cmwilson88', 'aasd@gmail.com', 'Christopher', 'Wilson', 'abc213414', 'piclink'),
+	('meginocc','aas35d@gmail.com', 'Megan', 'wilson', 'ajnfwf324', 'piclink'),
+	('mjordanfan23','aas23rd@gmail.com', 'Michael', 'Jordan','wuhuwnw', 'piclink' ),
+	('username241', 'aas2567d@gmail.com', 'User', 'Name23','dij2iej','piclink'),
+	('anotherUser','aas5236d@gmail.com', 'Another', 'User','2ijojnf','piclink');
 
 insert into companies
 	(name, logo_url, city, state)
@@ -48,7 +48,7 @@ values
 
 
 insert into job_types
-	(name) 
+	(name)
 values
 	('Full-Time'),
 	('Part-Time'),
@@ -56,5 +56,3 @@ values
 	('Apprenticeship'),
 	('Contract'),
 	('Temporary');
-
-
