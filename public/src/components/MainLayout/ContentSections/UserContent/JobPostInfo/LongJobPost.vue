@@ -3,7 +3,7 @@
 		<app-default-header v-if="!jobPost">Loading..</app-default-header>
 		<app-default-header v-else>{{jobPost.title}}</app-default-header>
 		<div v-if="!jobPost">Loading..</div>
-		
+
 		<div v-else class="company-info-section">
 			<div class="longjp-logo-contain">
 				<img class="longjp-logo" :src="jobPost.logo_url">
@@ -25,14 +25,14 @@
 			<h3 class="ljp-h3">Responsibilities</h3>
 				<li v-for="responsibility in jobPost.responsibilities" :key="responsibility.id" class="ljp-p">{{responsibility.resp_text}}</li>
 			<h3 class="ljp-h3">Key Qualifications</h3>
-				<li v-for="qualification in jobPost.qualifications" :key="qualification.id" class="ljp-p">{{qualification.qual_text}}</li>			
+				<li v-for="qualification in jobPost.qualifications" :key="qualification.id" class="ljp-p">{{qualification.qual_text}}</li>
 		</div>
 		<div class="ljp-btns-container">
 			<button class="ljp-save-job-btn">Save Job</button>
 			<button class="ljp-apply-btn">Apply</button>
 		</div>
 		</div>
-		
+
 	</div>
 </template>
 
@@ -90,9 +90,6 @@ export default {
 	width: 880px;
 }
 
-.ljp-job-info-content {
-	width: 880px;
-}
 
 .ljp-h1 {
 	font-size: 20px;
