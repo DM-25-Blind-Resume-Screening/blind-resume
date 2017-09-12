@@ -1,31 +1,31 @@
 <template>
 	<div>
-		<app-default-header></app-default-header>
-		<div class="company-info-section">
-			<div>
-				<img width="120px" src="http://certifiedeurocollision.com/wp-content/uploads/2015/11/bmw-logo.png">
+		<app-default-header v-if="!jobPost">Loading..</app-default-header>
+		<app-default-header v-else>{{jobPost.title}}</app-default-header>
+		<div v-if="!jobPost">Loading..</div>
+		
+		<div v-else class="company-info-section">
+			<div class="longjp-logo-contain">
+				<img class="longjp-logo" :src="jobPost.logo_url">
 			</div>
 			<div class="company-info-content">
 				<h1 class="ljp-h1">Company Info</h1>
-				<p class="ljp-p"> Stuff about company</p>
+				<p class="ljp-p">{{jobPost.company}}</p>
+				<p class="ljp-p">{{jobPost.city}}, {{jobPost.state}}</p>
+				<p class="ljp-p">{{jobPost.job_type}}</p>
 			</div>
 		</div>
 
-		<div class="ljp-job-info-section">
-			<h2 class="ljp-h2">Senior Front End Devloper</h2>
+		<div v-if="!jobPost">Loading..</div>
+		<div v-else class="ljp-job-info-section">
+			<h2 class="ljp-h2">{{jobPost.title}}</h2>
 		<div class="ljp-job-info-content">
 			<h3 class="ljp-h3">Job Description</h3>
-				<p class="ljp-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quia 
-					cumque consequatur voluptates necessitatibus? Odio vitae animi ipsam saepe, totam. Sequi 
-					voluptate beatae nihil nostrum. Molestiae quas veniam incidunt eum.</p>
+				<p class="ljp-p">{{jobPost.job_description}}</p>
 			<h3 class="ljp-h3">Responsibilities</h3>
-				<p class="ljp-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro veniam 
-					sequi sint iure architecto omnis, incidunt natus est temporibus quibusdam! Doloribus 
-					magnam vero suscipit quam provident consequuntur, nam totam cumque?</p>
+				<li v-for="responsibility in jobPost.responsibilities" :key="responsibility.id" class="ljp-p">{{responsibility.resp_text}}</li>
 			<h3 class="ljp-h3">Key Qualifications</h3>
-				<p class="ljp-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro veniam 
-					sequi sint iure architecto omnis, incidunt natus est temporibus quibusdam! Doloribus 
-					magnam vero suscipit quam provident consequuntur, nam totam cumque?</p>			
+				<li v-for="qualification in jobPost.qualifications" :key="qualification.id" class="ljp-p">{{qualification.qual_text}}</li>			
 		</div>
 		<div class="ljp-btns-container">
 			<button class="ljp-save-job-btn">Save Job</button>
@@ -39,15 +39,42 @@
 
 <script>
 import DefaultHeader from '../../../Headers/DefaultHeader.vue';
+import axios from 'axios'
 export default {
+	data() {
+		return {
+			jobPost: null
+		}
+	},
 	components: {
 		appDefaultHeader: DefaultHeader
+	},
+	methods: {
+		getJobPostInfo() {
+			return axios.get(`http://localhost:3000/api/job_postings/${this.$route.params.job_post_id}`)
+				.then(res => this.jobPost = res.data[0])
+				.catch(err => console.log(err))
+		}
+	},
+	created() {
+		this.getJobPostInfo()
 	}
 }
 </script>
 
 
 <style>
+
+.longjp-logo {
+	object-fit: cover;
+}
+
+.longjp-logo-contain {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	overflow: hidden;
+}
 
 .company-info-section {
 	display: flex;
@@ -93,6 +120,7 @@ export default {
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .ljp-save-job-btn {
@@ -103,12 +131,12 @@ export default {
 	font-size: 15px;
 	background: transparent;
 	outline: none;
-	border: 1px solid #3b83bf;
+	border: 1px solid #3f51b5;
 	margin-right: 20px;
 }
 
 .ljp-save-job-btn:hover {
-	background: #3b83bf;
+	background: #3f51b5;
 	color: #fff;
 	cursor: pointer;
 }
@@ -119,7 +147,7 @@ export default {
 	font-family: 'Avenir' Arial, Helvetica, sans-serif;
 	color: #fff;
 	font-size: 15px;
-	background: #3b83bf;
+	background: #3f51b5;
 	outline: none;
 	border: none;
 }

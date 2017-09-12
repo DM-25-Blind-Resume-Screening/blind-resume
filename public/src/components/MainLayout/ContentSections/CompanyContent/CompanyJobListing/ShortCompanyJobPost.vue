@@ -43,11 +43,9 @@
 
 
 <style>
-.comp-logo {
-    margin-left: 30px;
+.md-avatar {
+    margin: 0;
     margin-right: 20px;
-    margin-top: 30px;
-    overflow: hidden;
 }
 
 .company-job-post {
