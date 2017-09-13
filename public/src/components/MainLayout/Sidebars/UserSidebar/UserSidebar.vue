@@ -7,6 +7,8 @@
 				v-for="industry in displayIndustries"
 				:key="industry.id"
 				:industry="industry"
+				@industryAdded="addToIndustrySearch"
+				@industryDeleted="removeFromIndustrySearch"
 			>
 				
 			</app-user-sidebar-industry>
@@ -16,7 +18,9 @@
 			<app-user-sidebar-job-type 
 				v-for="jobtype in displayJobTypes"
 				:jobtype="jobtype"
-				:key="jobtype.id">
+				:key="jobtype.id"
+				@typeAdded="addToTypeSearch"
+				@typeDeleted="removeFromTypeSearch">
 					
 			</app-user-sidebar-job-type>
 		</div>
@@ -25,13 +29,42 @@
 
 <script>
 import UserImage from './UserImage.vue';
+import {EventBus} from '../../../../main.js';
 import UserSidebarIndustry from './UserSidebarIndustry.vue';
 import UserSidebarJobType from './UserSidebarJobType.vue';
 import {mapGetters} from 'vuex';
 
 export default {
+	data() {
+		return {
+			searchIndustry: [],
+			searchType: []
+		}
+	},
 	computed: {
 		...mapGetters(['displayIndustries', 'displayJobTypes']),
+	},
+	watch: {
+		searchIndustry() {
+			EventBus.$emit('searchIndustryChanged', this.searchIndustry)
+		},
+		searchType() {
+			EventBus.$emit('searchTypeChanged', this.searchType)
+		}
+	},
+	methods: {
+		addToIndustrySearch(val) {
+			this.searchIndustry.push(val)
+		},
+		removeFromIndustrySearch(val) {
+			this.searchIndustry.splice(this.searchIndustry.indexOf(val), 1)
+		},
+		addToTypeSearch(val) {
+			this.searchType.push(val)
+		},
+		removeFromTypeSearch(val) {
+			this.searchType.splice(this.searchType.indexOf(val), 1)
+		}
 	},
 	components: {
 	  appUserImage: UserImage,
