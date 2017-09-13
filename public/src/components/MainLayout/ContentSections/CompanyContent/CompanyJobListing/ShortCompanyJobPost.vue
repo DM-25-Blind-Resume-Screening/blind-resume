@@ -2,7 +2,7 @@
     <div class="shortpost-wrapper">
         <div class="company-job-post">
             <md-avatar class="md-large">
-                <img :src="job.logo_url" alt="Company Logo">
+                <img :src="job.picture" alt="Company Logo">
             </md-avatar>
             <div class="company-job-post-content">
                 <h1 @click="goToLongJobpost" class="sjp-h1">{{ job.title }}</h1>

@@ -95,9 +95,9 @@ export default {
 
 }
 .line{
-  height:1px;
+  height:1.5px;
   width: 40%;
-  background: black;
+  background: #80D6F3;
 }
 .explanation-div {
   display: flex;
@@ -106,14 +106,18 @@ export default {
   align-items: center;
   height: 800px;
   width: 75vw;
+  margin: 15px;
 }
 .paragraph {
   height: 150px;
-  width: 700px;
+  width: 650px;
+  margin: 30px 30px auto 0px;
 }
 .picture1 {
   height: 300px;
   width: 300px;
+  margin-right: 30px;
+  box-shadow: -5px 5px 2px rgba(0,0,0,0.2);
 }
 
 

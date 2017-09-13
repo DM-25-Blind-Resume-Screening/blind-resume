@@ -11,7 +11,7 @@
 			<div class="company-info-content">
 				<h1 class="ljp-h1">Company Info</h1>
 				<p class="ljp-p">{{jobPost.company}}</p>
-				<p class="ljp-p">{{jobPost.city}}, {{jobPost.state}}</p>
+				<p class="ljp-p">{{jobPost.location}}</p>
 				<p class="ljp-p">{{jobPost.job_type}}</p>
 			</div>
 		</div>
