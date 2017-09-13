@@ -18,8 +18,9 @@
 			</div>
 		</div>
 		  <div class="lcjp-review-container">
-				<p @click="goToApplications" class="ljp-p review-applicants">Review Applicants</p>
-				<p @click="goToShortList" class="ljp-p  shortlist review-applicants">Review Shortlist (0)</p>
+				<p @click="goToApplications" class="ljp-p review-applicants">Review Applicants ({{longjobpost.applications_count}})</p>
+				<p @click="goToShortList" class="ljp-p  shortlist review-applicants">Review Shortlist ({{longjobpost.shortlist_count}})</p>
+				<p @click="goToCandidateList" class="ljp-p  shortlist review-applicants">Review Candidates ({{longjobpost.candidate_count}})</p>
 			</div>
 	</div>
 </div>
@@ -53,6 +54,9 @@
 			goToShortList() {
 					this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.$route.params.job_post_id}/shortlist`})
 			},
+			goToCandidateList() {
+					this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.$route.params.job_post_id}/candidates`})
+			}
 		},
 		components: {
 			appContentHeader: DefaultHeader
