@@ -15,7 +15,7 @@ values
 	('Facebook', 'https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png','San Francisco', 'California'),
 	('SharpSpring', 'https://sharpspring.com/wp-content/uploads/2017/01/SharpSpring_Color_RGB_twitter_white.png','Gainesville', 'Florida'),
 	('Overstock', 'https://d1iiooxwdowqwr.cloudfront.net/pub/appsubmissions/20170331163128_iosappiconoverstock.png','Lehi', 'Utah'),
-	('Younique', 'http://youniquepics.weebly.com/uploads/2/9/4/7/29476313/9870685_orig.jpg','Lehi', 'Utah'),
+	('Younique', 'https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=KovvdfsGVeqNV83eETwyMUYogc0%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G-KlTfi6ThEQaYCLauCMPDxixnCV175H0zFrXNCVqFa5LAT-PvA4EIz-mSXsiaf1YPUBYX0UV768kUHTspmKClEtH6Widj46JIYyg','Lehi', 'Utah'),
 	('AirBNB', 'https://assets.entrepreneur.com/content/3x2/1300/1405612741-airbnb-why-new-logo.jpg','San Francisco', 'California');
 
 insert into industries
