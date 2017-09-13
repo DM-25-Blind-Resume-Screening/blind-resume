@@ -7,7 +7,7 @@
         <md-input-container v-else class="jd-input-job-title" md-inline>
           <md-input v-model="propExperience.title" style="color: white"></md-input>
         </md-input-container>
-        <img @click="isEditingExperience=true" class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
+        <img @click="isEditingExperience = !isEditingExperience" class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
       </div>
 
       <div class="exp-content-flex">
@@ -187,7 +187,8 @@ export default {
 
 .content-label {
   margin: auto;
-  width: 100px;
+  width: 120px;
+  padding-right: 10px;
   text-align: right;
   font-size: 15px;
   margin-left: 20px;
@@ -197,12 +198,12 @@ export default {
   width: 100px;
   text-align: right;
   font-size: 15px;
-  margin-left: 20px;
+  margin-left: 45px;
 }
 
 .ei-date-inputs {
   display: flex;
-  width: 100%;
+  width: 80%;
 }
 </style>
 

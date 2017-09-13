@@ -8,14 +8,22 @@
 				<div class="jd-flex">
 					<div>
 						<h2 class="jd-h2">Position Title</h2>
+						<h2 class="jd-h2">Location</h2>
 						<h2 class="jd-h2">Job Type</h2>
 						<h2 class="jd-h2">Industry</h2>
 						 <h2 class="jd-h2">Description</h2>
+						 
+						 
 					</div>
 					<div class="jd-inputs-container">
 
 						<md-input-container class="jd-input-job-title" md-inline>
 							<label>Enter job title here</label>
+							<md-input v-model="postTitle"></md-input>
+						</md-input-container>
+
+						<md-input-container class="jd-input-job-title" md-inline>
+							<label>Enter location here</label>
 							<md-input v-model="postTitle"></md-input>
 						</md-input-container>
 
