@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="new-resume-header">
-            <h1 class="new-resume-h1">Education</h1>
+            <h1 class="new-resume-h1">Add New Education</h1>
         </div>
 
         <div class="ei-container">
@@ -43,7 +43,7 @@
                 <textarea  v-model="newEducation.description" class="ei-textarea-desciption"></textarea>
             
                 <div class="add-edu-btn-container">
-                    <button class="resume-save-btn" @click="addNewEdu">
+                    <button class="exp-save-btn" @click="addNewEdu">
                         Save</button>
                 </div>
             </div>
@@ -63,6 +63,59 @@
 </script>
 
 <style>
+
+.ei-h2 {
+    font-size: 17px;
+    margin-top: 30px;
+    margin-bottom: 28px;
+}
+.ei-container {
+    display: flex;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.ei-inputs-container {
+    width: 50%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+.ei-date-inputs {
+    display: flex;
+}
+
+.ei-end-date.md-input-container {
+    margin-left: 20px;
+}
+
+.add-exp-btn-container {
+    margin-top: 40px;
+}
+
+.exp-save-btn {
+    width: 110px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #3f51b5;
+    font-size: 15px;
+    color: #3f51b5;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    margin-bottom: 10px;
+}
+
+.exp-save-btn:hover {
+    color: #fff;
+    background: #3f51b5;
+}
 .new-resume-pencil {
     margin-right: 10px;
 }

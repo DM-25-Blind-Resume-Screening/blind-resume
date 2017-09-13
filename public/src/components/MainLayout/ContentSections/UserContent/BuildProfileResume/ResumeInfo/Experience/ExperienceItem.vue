@@ -24,45 +24,42 @@
         <div v-else class="exp-container ei-container">
 
           <div class="ei-edits-inputs-container">
-            
-          <div class="label-input-container">
-            <h2 class="content-label">Company</h2>
-            <md-input-container class="jd-input-job-title" md-inline>
-              <md-input v-model="propExperience.company"></md-input>
-            </md-input-container>
+
+            <div class="label-input-container">
+              <h2 class="content-label">Company</h2>
+              <md-input-container class="jd-input-job-title" md-inline>
+                <md-input v-model="propExperience.company"></md-input>
+              </md-input-container>
             </div>
 
             <div class="label-input-container">
-            
+
               <h2 class="content-label">From</h2>
               <div class="ei-date-inputs">
-              <md-input-container class="jd-input-job-title" md-inline>
-                <md-input v-model="propExperience.from_date"></md-input>
-              </md-input-container>
+                <md-input-container class="jd-input-job-title" md-inline>
+                  <md-input v-model="propExperience.from_date"></md-input>
+                </md-input-container>
 
-              <md-input-container class="ei-end-date jd-input-job-title" md-inline>
-                <md-input v-model="propExperience.to_date"></md-input>
-              </md-input-container>
-            </div>
+                <md-input-container class="ei-end-date jd-input-job-title" md-inline>
+                  <md-input v-model="propExperience.to_date"></md-input>
+                </md-input-container>
+              </div>
             </div>
 
             <div class="label-input-container">
-            <h2 class="d-content-label">Description</h2>
-            <textarea v-model="propExperience.description" class="ei-textarea-desciption"></textarea>
+              <h2 class="d-content-label">Description</h2>
+              <textarea v-model="propExperience.description" class="ei-textarea-desciption"></textarea>
             </div>
           </div>
 
-
-            <div class="save-exp-container">
-            <button 
-              class="delete-btn resume-save-btn"
-              @click="deleteResumeExperience">
-              Delete</button>
-            <button 
-              class="resume-save-btn" 
-              @click="updateResumeExperience">
-              Save</button>
+          <div class="save-exp-container">
+            <div class="resume-edit-btns">
+              <button class="delete-btn resume-save-btn" @click="deleteResumeExperience">
+                Delete</button>
+              <button class="resume-save-btn" @click="updateResumeExperience">
+                Save</button>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,24 +77,24 @@ export default {
   },
   methods: {
     updateResumeExperience() {
-       return axios.patch(`http://localhost:3000/api/experience/${this.propExperience.id}`,
-          {
-            title: this.propExperience.title,
-            company: this.propExperience.company,
-            from_date: this.propExperience.from_date,
-            to_date: this.propExperience.to_date,
-            description: this.propExperience.description
-          }
-        ).then(res => {
-          this.isEditingExperience = false;
-        }).catch(err => console.log(err))
+      return axios.patch(`http://localhost:3000/api/experience/${this.propExperience.id}`,
+        {
+          title: this.propExperience.title,
+          company: this.propExperience.company,
+          from_date: this.propExperience.from_date,
+          to_date: this.propExperience.to_date,
+          description: this.propExperience.description
+        }
+      ).then(res => {
+        this.isEditingExperience = false;
+      }).catch(err => console.log(err))
     },
     deleteResumeExperience() {
       return axios.delete(`http://localhost:3000/api/experience/${this.propExperience.id}`)
-              .then(res => {
-                this.isEditingExperience = false;
-                this.$emit('deletedExp', res.data[0].id)
-              }).catch(err => console.log(err))
+        .then(res => {
+          this.isEditingExperience = false;
+          this.$emit('deletedExp', res.data[0].id)
+        }).catch(err => console.log(err))
     }
   }
 }
@@ -159,6 +156,7 @@ export default {
 }
 
 .exp-container {
+  display: flex;
   width: 100%;
   padding-bottom: 20px;
   border-right: 1px solid #cccccc;
@@ -167,10 +165,20 @@ export default {
 }
 
 .save-exp-container {
+    position: relative;
+    height: 350px;
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.resume-edit-btns {
     display: flex;
     justify-content: flex-end;
-    margin-right: 15px;
-    margin-top: 20px;
+    height: auto;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
 }
 
 .label-input-container {
