@@ -36,7 +36,7 @@
               <textarea v-model="newExperience.description" class="ei-textarea-desciption"></textarea> 
 
             <div class="add-exp-btn-container">
-              <button class="resume-save-btn" @click="addNewExp">
+              <button class="exp-save-btn" @click="addNewExp">
                 Save</button>
             </div>
 
@@ -72,6 +72,7 @@
     border-bottom: 1px solid #cccccc;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    position: relative;
 }
 
 .ei-inputs-container {
@@ -92,6 +93,24 @@
 
 .add-exp-btn-container {
     margin-top: 40px;
+}
+
+.exp-save-btn {
+    width: 110px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #3f51b5;
+    font-size: 15px;
+    color: #3f51b5;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    margin-bottom: 10px;
+}
+
+.exp-save-btn:hover {
+    color: #fff;
+    background: #3f51b5;
 }
 
 </style>
