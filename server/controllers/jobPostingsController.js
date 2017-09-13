@@ -79,6 +79,13 @@ module.exports = {
 			res.status(200).send(response);
 		}).catch(err => console.log(err))
 	},
+	getSelectedCandidatesByJobPostId(req, res, next) {
+		const db = req.app.get('db');
+
+		db.getSelectedCandidatesByJobPostId([req.params.job_post_id]).then(response => {
+			res.status(200).send(response)
+		}).catch(err => console.log(err))
+	},
 	updateResumeToShortlist(req, res, next) {
 		const db = req.app.get('db');
 
