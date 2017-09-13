@@ -46,9 +46,11 @@ export default {
 	},
 	watch: {
 		searchIndustry() {
+			this.$router.push({ path: `/app/user/${this.$route.params.user_id}`})
 			EventBus.$emit('searchIndustryChanged', this.searchIndustry)
 		},
 		searchType() {
+			this.$router.push({ path: `/app/user/${this.$route.params.user_id}`})
 			EventBus.$emit('searchTypeChanged', this.searchType)
 		}
 	},
