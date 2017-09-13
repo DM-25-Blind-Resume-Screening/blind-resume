@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<app-content-header style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
-			<h1>Job Post Info</h1>
+			<h1>Job Post Details</h1>
 		</app-content-header>
 		<div v-if="!longjobpost">Loading...</div>
 		<div v-else class="content">
@@ -17,6 +17,10 @@
 					<li v-for="qualification in longjobpost.qualifications" :key="qualification.id" class="ljp-p">{{qualification.qual_text}}</li>
 			</div>
 		</div>
+		  <div class="lcjp-review-container">
+				<p @click="goToApplications" class="ljp-p review-applicants">Review Applicants</p>
+				<p @click="goToShortList" class="ljp-p  shortlist review-applicants">Review Shortlist (0)</p>
+			</div>
 	</div>
 </div>
 </template>
@@ -42,7 +46,13 @@
 						console.log(this.longjobpost)
 					})
 					.catch(err => console.log(err))
-			}
+			},
+			goToApplications() {
+					this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.$route.params.job_post_id}/resumes`})
+			},
+			goToShortList() {
+					this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.$route.params.job_post_id}/shortlist`})
+			},
 		},
 		components: {
 			appContentHeader: DefaultHeader
@@ -55,19 +65,19 @@
 
 <style>
 .ljp-job-info-section {
-	margin-left: 30px;
-	margin-top: 30px;
-	width: 880px;
+	margin-left: 40px;
+	margin-top: 40px;
 }
 .ljp-job-info-content {
 	width: 880px;
 }
 .ljp-h2 {
 	font-size: 17px;
-	width: 880px;
+	width: 100%;
 	height: 30px;
-	border-bottom: 1.5px solid #313131;
+	border-bottom: 1.5px solid #2ED590;
 	margin-bottom: 20px;
+	font-weight: bold;
 }
 .ljp-h3 {
 	font-size: 15px;
@@ -76,5 +86,25 @@
 }
 .ljp-p {
 	margin-top: 10px;
+}
+.lcjp-review-container {
+    display: flex;
+		margin-left: 40px;
+		margin-top: 20px;
+}
+.review-applicants {
+    color: #2ED590;
+    font-weight: 600;
+    cursor: pointer;
+}
+.ljp-p {
+    margin-top: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100ch;
+}
+.shortlist {
+    margin-left: 40px;
 }
 </style>

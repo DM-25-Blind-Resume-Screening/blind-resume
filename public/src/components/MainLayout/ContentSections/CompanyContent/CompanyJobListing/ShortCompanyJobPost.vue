@@ -1,15 +1,11 @@
 <template>
-    <div>
+    <div class="shortpost-wrapper">
         <div class="company-job-post">
-
-           
             <md-avatar class="md-large">
-                <img :src="job.logo_url" alt="People">
+                <img :src="job.logo_url" alt="Company Logo">
             </md-avatar>
-            
-
             <div class="company-job-post-content">
-                <h1 class="sjp-h1">{{ job.title }}</h1>
+                <h1 @click="goToLongJobpost" class="sjp-h1">{{ job.title }}</h1>
                 <h2 class="sjp-h2">{{ job.company }}</h2>
                 <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
                 <p class="sjp-p">{{ job.job_description }}</p>
@@ -26,16 +22,17 @@
     export default {
       props: ['job'],
       methods: {
+        goToLongJobpost() {
+          this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}`})
+        },
         goToApplications() {
             this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/resumes`})
         },
         goToShortList() {
             this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/shortlist`})
-
         },
         goToInterviewCandidates() {
             this.$router.push({path: `/app/company/${this.$route.params.company_id}/${this.job.id}/candidates`})
-
         }
       }
     }
@@ -43,26 +40,34 @@
 
 
 <style>
+.shortpost-wrapper {
+  width: 100%;
+  height: 100%;
+}
 .md-avatar {
-    margin: 0;
-    margin-right: 20px;
+    margin: 20px 10px 30px 30px;
 }
 
 .company-job-post {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
     display: flex;
+    align-items: flex-start;
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
-    width: 700px;
     height: auto;
-    margin: 50px 100px;
 }
 
 .company-job-post-content {
-    margin-left: 10px;
+    margin: 20px 0px 20px 20px;
+    width: 100%;
 }
 
 .sjp-h1 {
     font-size: 20px;
-    text-decoration: underline;
+    height:30px;
+    text-decoration: none;
+    border-bottom: 1px solid #2ED590;
     margin: 0;
 }
 
@@ -98,6 +103,7 @@
 .review-applicants {
     color: #3f51b5;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .shortlist {
