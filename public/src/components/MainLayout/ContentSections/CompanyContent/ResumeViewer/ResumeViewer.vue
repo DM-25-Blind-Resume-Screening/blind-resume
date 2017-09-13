@@ -19,10 +19,10 @@
 
 		<div class="resume-viewer-container">
 			<div v-if="!resumes.length">Loading...</div>
-			<div v-else>
+			<div class="hire-me" v-else>
 				<transition appear 
-							mode="out-in" 
-							:duration="{enter:1000, leave: 500}"
+							mode="out-in"
+							:duration="{enter: 1000, leave: 500}"
 							enter-active-class="animated slideInRight"
 							:leave-active-class="leaveClass">
 
@@ -49,7 +49,7 @@ import axios from 'axios'
 export default {
 	data() {
 		return {
-			leaveClass: "animated hinge",
+			leaveClass: "animated rotateOutDownLeft",
 			show_box: true,
 			resumes: [],
 			currentIndex: 0
@@ -65,7 +65,7 @@ export default {
 						.catch(err => console.log(err))
 		},
 		pass() {
-			this.leaveClass = "animated hinge";
+			this.leaveClass = "animated rotateOutDownLeft";
 			const vm = this;
 			setTimeout(function() {
 				vm.remove()
@@ -89,7 +89,7 @@ export default {
 			const vm = this
 			setTimeout(function() {
 				vm.show_box = true;
-			}, 2000);
+			}, 700);
 		}
 	},
 
@@ -108,6 +108,7 @@ export default {
 .resume-viewer-container {
 	display: flex;
 	align-items: center;
+	margin-top: 30px;
 }
 
 .display-resume-container {
@@ -117,12 +118,13 @@ export default {
 	background-color: #fff;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin: auto;
 }
 
-/*
-.displayResume {
-	width: 80%;
-*/
+.hire-me {
+	width: 100%;
+}
+
 .nextResume {
 	height: 300px;
 	position: absolute;

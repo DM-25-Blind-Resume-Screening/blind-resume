@@ -34,6 +34,13 @@
     overflow: hidden;
     padding: 5px;
     margin-left: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    text-decoration: underline;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
 }
 </style>
 
