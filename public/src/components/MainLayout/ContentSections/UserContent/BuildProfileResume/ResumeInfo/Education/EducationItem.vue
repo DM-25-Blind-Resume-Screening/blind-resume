@@ -151,6 +151,10 @@ export default {
   font-family: 'Avnenir', Arial, Helvetica, sans-serif;
 }
 
+.ei-textarea-desciption:focus {
+  border: 2px solid #3f51b5;
+}
+
 .eil-text-container {
   width: 90%;
   padding-top: 20px;
