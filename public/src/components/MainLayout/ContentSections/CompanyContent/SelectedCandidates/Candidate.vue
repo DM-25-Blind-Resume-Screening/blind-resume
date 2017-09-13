@@ -1,7 +1,7 @@
 <template>
 	<div class="selected-candidate">
 		<div class="image-div">
-			<div class="sc-image"></div>
+			<div class="sc-image" :style="{ 'background-image': 'url(' + candidate.picture +')' }"></div>
 		</div>
 		<div class="text-div">
 			<h1>Name</h1>
@@ -14,6 +14,9 @@
 
 <script>
 
+	export default {
+		props: ['candidate']
+	}
 </script>
 
 <style>
@@ -38,6 +41,8 @@
 		height: 90px;
 		border-radius: 50%;
 		background: white;
+		background-size: cover;
+		background-position: center;
 		box-shadow: 2px 2px 10px black;
 	}
 	.text-div {

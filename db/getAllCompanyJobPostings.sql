@@ -27,8 +27,16 @@ select c.name company, c.city, c.logo_url, c.state, jp.id, jp.title, i.name indu
     jp.date_posted,
     (
         select count(id) from submitted_resumes sr
-        where sr.job_post_id = jp.id
-    ) as applications_count
+        where sr.job_post_id = jp.id and sr.shortlist = false and sr.interview_candidate = false
+    ) as applications_count,
+    (
+        select count(id) from submitted_resumes sr
+        where sr.job_post_id = jp.id and sr.shortlist = true and sr.interview_candidate = false
+    ) as shortlist_count,
+    (
+        select count(id) from submitted_resumes sr
+        where sr.job_post_id = jp.id and sr.interview_candidate = true
+    ) as candidate_count
     from job_postings jp
     join companies c on c.id = jp.company_id
     join industries i on i.id = jp.industry_id

@@ -137,7 +137,7 @@ passport.deserializeUser(function(profileFromSession, done) {
 	console.log('deserialize-user', profileFromSession)
   done(null, profileFromSession); //PUTS 2ND ARGUMENT ON REQ.USER
 });
-app.get('/api/main', function(req,res){
+app.get('/api/companyInfo', function(req,res){
     res.send(req.user)
 })
 
@@ -155,21 +155,26 @@ app.get('/api/:company_id/posts/:job_post_id', jobPostingsController.getCompanyJ
 app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
 app.get('/api/:user_id/resume', resumesController.getResumeByUser)
 app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getBlindResumesByJobPostId);
+app.get('/api/job_postings/:job_post_id/shortlist', jobPostingsController.getBlindResumesByJobPostIdShortlist);
 app.get('/api/job_postings/:job_post_id', jobPostingsController.getJobPostById);
+app.get('/api/job_postings/:job_post_id/candidates', jobPostingsController.getSelectedCandidatesByJobPostId);
 
 app.post('/api/:user_id/resume/new', resumesController.createResume);
 app.post('/api/:resume_id/education/new', resumesController.createResumeEducation)
 app.post('/api/:resume_id/experience/new', resumesController.createResumeExperience)
 app.post('/api/:resume_id/skill/new', resumesController.createResumeSkill);
 app.post('/api/:company_id/job_post/new', jobPostingsController.createNewJobPost)
+app.post('/api/:job_post_id/:user_id/submit', resumesController.createSubmittedResume)
 
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);
-
+app.patch('/api/:job_post_id/:resume_id/shortlist', jobPostingsController.updateResumeToShortlist)
+app.patch('/api/:job_post_id/:resume_id/interview', jobPostingsController.updateResumeToInterview)
 
 app.delete('/api/education/:education_id', resumesController.deleteResumeEducation);
 app.delete('/api/experience/:experience_id', resumesController.deleteResumeExperience);
 app.delete('/api/skill/:skill_id', resumesController.deleteResumeSkill);
+app.delete('/api/:job_post_id/:resume_id', jobPostingsController.deleteSubmittedResume)
 
 
 

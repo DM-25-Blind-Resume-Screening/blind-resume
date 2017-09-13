@@ -14,8 +14,8 @@
                 <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
                 <p class="sjp-p">{{ job.job_description }}</p>
                 <div class="scjp-review-container">
-                    <p @click="goToApplications" class="sjp-p review-applicants">Review Applicants ({{job.applications_count}})</p>
-                    <p @click="goToShortList" class="sjp-p  shortlist review-applicants">Review Shortlist (0)</p>
+                    <p @click="goToApplications" class="sjp-p review-applicants">Total Applicants ({{job.applications_count}})</p>
+                    <p @click="goToShortList" class="sjp-p  shortlist review-applicants">Shortlist ({{job.shortlist_count}})</p>
                 </div>
             </div>
         </div>
@@ -98,6 +98,7 @@
 .review-applicants {
     color: #3f51b5;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .shortlist {
