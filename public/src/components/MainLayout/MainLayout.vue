@@ -40,19 +40,6 @@ export default {
 	display: flex;
 }
 
-
-/* .weird-box {
-	width: 250px;
-	height: 350px;
-	background: white;
-	box-shadow: 2px 2px 50px 4px rgba(0,0,0,0.7);
-	position: absolute;
-	z-index: 1;
-	margin-top: -175px;
-
-	transform: rotate(45deg);
-} */
-
 .layout_sidebar {
 	position: fixed;
 	top: 0;

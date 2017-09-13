@@ -1,12 +1,55 @@
 <template>
 	<div class="di-container">
-	<div class="user-image-div">
-		<img class="user-image" src="../../../../../assets/landing-picture.jpg" />
-	</div>
+		<div class="user-image-div">
+			<img class="user-image" src="../../../../../assets/landing-picture.jpg" />
+		</div>
 		<div class="di-content-container">
-			<h1>Name Here</h1>
-			<p>Location: {{ userLocation }}</p>
-			<p>About Me: {{ userAboutMe }}</p>
+			<div class="onec-demo">
+				<h1>Name Here</h1>
+				<p>Location: {{ userLocation }}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>e.g, City, State</label>
+					<md-input></md-input>
+				</md-input-container>
+
+				<p>Phone: {{userPhone}}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>e.g, 123-456-7891</label>
+					<md-input></md-input>
+				</md-input-container>
+
+				<p>Email: {{userEmail}}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>Email</label>
+					<md-input></md-input>
+				</md-input-container>
+			</div>
+
+			<div class="twoc-demo">
+				<div class="edit-pencil-demo">
+				<p>About Me:</p>
+			<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
+				</div>
+
+				<textarea class="about-textarea">{{ userAboutMe }}</textarea>
+
+				<p>Portfolio:</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label></label>
+					<md-input></md-input>
+				</md-input-container>
+
+				<p>LinkedIn:</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label></label>
+					<md-input></md-input>
+				</md-input-container>
+				
+			<div>
+			</div>
+
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -15,7 +58,10 @@
 export default {
 	data() {
 		return {
+			isEditingDemographics: false,
 			userLocation: 'Provo, UT',
+			userPhone: '456-345-6789',
+			userEmail: 'sdfdf@gmail.com',
 			userAboutMe: 'aksdjflkasjdfkajf'
 		}
 	}
@@ -24,14 +70,14 @@ export default {
 
 
 <style>
-  .user-image-div {
-	width: 150px;
+.user-image-div {
+	width: 190px;
 	height: 150px;
 	border-radius: 50%;
-	margin-left: 100px;
+	margin-left: 80px;
 	margin-top: 30px;
 	overflow: hidden;
-}  
+}
 
 .user-image {
 	width: 150px !important;
@@ -45,10 +91,34 @@ export default {
 
 .di-content-container {
 	display: flex;
-	flex-direction: column;
-	margin-left: 30px;
+	margin-left: 20px;
 	margin-top: 40px;
 	line-height: 30px;
+	width: 100%;
 }
 
+.onec-demo {
+	width: 45%;
+}
+
+.twoc-demo {
+	width: 45%;
+}
+
+.about-textarea {
+	width: 90%;
+	height: 100px;
+	outline: none;
+	font-size: 14px;
+	font-family: 'Avenir', Arial, Helvetica, sans-serif;
+}
+
+.about-textarea:focus {
+	border: 2px solid #3f51b5;
+}
+
+.edit-pencil-demo {
+	display: flex;
+	justify-content: space-between;
+}
 </style>

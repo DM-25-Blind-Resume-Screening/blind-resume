@@ -86,6 +86,7 @@ export default {
 
 .plus {
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 .el-content-container {
