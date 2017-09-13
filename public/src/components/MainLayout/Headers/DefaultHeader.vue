@@ -1,5 +1,5 @@
 <template>
-	<div class="content_header">
+	<div class="content_header" style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 		 <slot>
 			 Default Header Content
 		</slot>
@@ -35,5 +35,6 @@ export default {
 	.arrow {
 		position: fixed;
 		right: 20px;
+		top: 8px;
 	}
 </style>

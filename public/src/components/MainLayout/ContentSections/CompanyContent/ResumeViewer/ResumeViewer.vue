@@ -3,15 +3,6 @@
 		<app-default-header>
 			Job Position Title Here
 		</app-default-header>
-
-		<!-- <div class="resume-container"> -->
-		<!-- <div class="display-resume-container"> -->
-		<!-- <app-blind-resume class="displayResume"></app-blind-resume> -->
-		<!-- <h1>{{numbers[currentIndex]}}</h1> -->
-		<!-- </div> -->
-		<!-- <app-blind-resume class="nextResume"></app-blind-resume> -->
-		<!-- </div> -->
-
 		<div class="rv-buttons">
 			<button @click="pass" class="rv-pass-btn">Pass</button>
 			<button @click="save" class="rv-save-btn">Save</button>
@@ -20,15 +11,15 @@
 		<div class="resume-viewer-container">
 			<div v-if="!resumes.length">Loading...</div>
 			<div class="hire-me" v-else>
-				<transition appear 
+				<transition appear
 							mode="out-in"
 							:duration="{enter: 1000, leave: 500}"
 							enter-active-class="animated slideInRight"
 							:leave-active-class="leaveClass">
 
-					<app-blind-resume class="display-resume-container displayResume" 
-							v-if="show_box" 
-							:resume="resumes[currentIndex]" 
+					<app-blind-resume class="display-resume-container displayResume"
+							v-if="show_box"
+							:resume="resumes[currentIndex]"
 							@click="remove(index)"
 							key="currentIndex">
 					</app-blind-resume>
@@ -147,7 +138,7 @@ export default {
 	width: 130px;
 	height: 35px;
 	outline: none;
-	background: #2baf7a;
+	background: #2ED590;
 	border-radius: 50px;
 	border: none;
 	text-transform: uppercase;
@@ -156,13 +147,14 @@ export default {
 	letter-spacing: 1px;
 	color: #fff;
 	margin-left: 40%;
+	cursor: pointer;
 }
 
 .rv-pass-btn {
 	width: 130px;
 	height: 35px;
 	outline: none;
-	background: #D55050;
+	background: #D73944;
 	border-radius: 50px;
 	border: none;
 	text-transform: uppercase;
@@ -170,5 +162,6 @@ export default {
 	font-weight: 500;
 	letter-spacing: 1px;
 	color: #fff;
+	cursor: pointer;
 }
 </style>
