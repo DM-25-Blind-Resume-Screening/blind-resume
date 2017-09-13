@@ -1,34 +1,36 @@
-<template>
+1<template>
 	<div>
 		<app-default-header>
 			Job Position Title Here
 		</app-default-header>
-		<div class="rv-buttons">
-			<button @click="pass" class="rv-pass-btn">Pass</button>
-			<button @click="save" class="rv-save-btn">Save</button>
-		</div>
 
-		<div class="resume-viewer-container">
-			<div v-if="!resumes.length">Loading...</div>
-			<div class="hire-me" v-else>
-				<transition appear
-							mode="out-in"
-							:duration="{enter: 1000, leave: 500}"
-							enter-active-class="animated slideInRight"
-							:leave-active-class="leaveClass">
-
-					<app-blind-resume class="display-resume-container displayResume"
-							v-if="show_box"
-							:resume="resumes[currentIndex]"
-							@click="remove(index)"
-							key="currentIndex">
-					</app-blind-resume>
-
-					<!-- <app-blind-resume key="currentIndex+1" class="nextResume"></app-blind-resume> -->
-
-				</transition>
+			<div class="rv-buttons">
+				<button @click="pass" class="rv-pass-btn">Pass</button>
+				<!-- <button @click="selectCandidate" class="rv-save-btn" v-if="isShortlist">Interview</button> -->
+				<button @click="save" class="rv-save-btn">
+					<span v-if="isShortlist">Interview</span>
+					<span v-else>Shortlist</span>
+				</button>
 			</div>
-		</div>
+
+			<div class="resume-viewer-container">
+				<div v-if="!resumes.length">No resumes to view!</div>
+				<div class="hire-me" v-else>
+					<transition appear
+								mode="out-in"
+								:duration="{enter:1000, leave: 500}"
+								enter-active-class="animated slideInRight"
+								:leave-active-class="leaveClass">
+
+						<app-blind-resume class="display-resume-container displayResume"
+								v-if="show_box"
+								:resume="resumes[currentIndex]"
+								key="currentIndex">
+						</app-blind-resume>
+
+					</transition>
+				</div>
+			</div>
 
 	</div>
 </template>
@@ -40,6 +42,7 @@ import axios from 'axios'
 export default {
 	data() {
 		return {
+			isShortlist: false,
 			leaveClass: "animated rotateOutDownLeft",
 			show_box: true,
 			resumes: [],
@@ -49,29 +52,66 @@ export default {
 
 	methods: {
 		getInitialApplications() {
-			return axios.get(`http://localhost:3000/api/job_postings/${this.$route.params.job_post_id}/resumes`)
+			return axios.get(`/api/job_postings/${this.$route.params.job_post_id}/resumes`)
+						.then(res => {
+							this.resumes = res.data.filter(item => item.shortlist === false)
+						})
+						.catch(err => console.log(err))
+		},
+		getShortListApplications() {
+			return axios.get(`/api/job_postings/${this.$route.params.job_post_id}/shortlist`)
 						.then(res => {
 							this.resumes = res.data
 						})
 						.catch(err => console.log(err))
 		},
 		pass() {
-			this.leaveClass = "animated rotateOutDownLeft";
-			const vm = this;
-			setTimeout(function() {
-				vm.remove()
-			}, 10)
+			return axios.delete(`/api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}`)
+						.then(() => {
+							this.leaveClass = "animated rotateOutDownLeft";
+							const vm = this;
+							setTimeout(function() {
+								vm.remove()
+								if(vm.resumes.length === 0) {
+									console.log('resumes empty')
+									console.log(vm.$route.params.company_id)
+									console.log(vm.$route.params.job_post_id)
+									vm.$router.push({path: `/app/company/${vm.$route.params.company_id}/${vm.$route.params.job_post_id}`})
+								}
+							}, 10)
+						}).catch(err => console.log(err))
 		},
 		save() {
-			this.leaveClass = "animated bounceOutUp";
-			const vm = this;
-			setTimeout(function() {
-				vm.remove()
-			}, 10)
-		},
-		next() {
-			if (this.currentIndex + 1 < this.resumes.length) {
-				this.currentIndex++
+			if(this.isShortlist) {
+				return axios.patch(`api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}/interview`)
+						.then(() => {
+							this.leaveClass = "animated bounceOutUp";
+							const vm = this;
+							setTimeout(function() {
+								vm.remove()
+								if(vm.resumes.length === 0) {
+									console.log('resumes empty')
+									console.log(vm.$route.params.company_id)
+									console.log(vm.$route.params.job_post_id)
+									vm.$router.push({path: `/app/company/${vm.$route.params.company_id}/${vm.$route.params.job_post_id}`})
+								}
+							}, 10)
+						})
+			} else {
+				return axios.patch(`/api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}/shortlist`)
+							.then(() => {
+								this.leaveClass = "animated bounceOutUp";
+								const vm = this;
+								setTimeout(function() {
+									vm.remove()
+									if(vm.resumes.length === 0) {
+										console.log('resumes empty')
+										console.log(vm.$route.params.company_id)
+										console.log(vm.$route.params.job_post_id)
+										vm.$router.push({path: `/app/company/${vm.$route.params.company_id}/${vm.$route.params.job_post_id}`})
+									}
+								}, 10)
+							}).catch(err => console.log(err))
 			}
 		},
 		remove(index) {
@@ -89,7 +129,15 @@ export default {
 		appDefaultHeader: DefaultHeader
 	},
 	created() {
-		this.getInitialApplications()
+		if(this.$route.path.includes('shortlist')) {
+			console.log('has shortlist')
+			this.isShortlist = true
+			this.getShortListApplications()
+		} else {
+			this.isShortlist = false
+			console.log('regular resumes')
+			this.getInitialApplications()
+		}
 	}
 
 }

@@ -28,8 +28,8 @@
 				<li v-for="qualification in jobPost.qualifications" :key="qualification.id" class="ljp-p">{{qualification.qual_text}}</li>
 		</div>
 		<div class="ljp-btns-container">
-			<button class="ljp-save-job-btn">Save Job</button>
-			<button class="ljp-apply-btn">Apply</button>
+			<!-- <button class="ljp-save-job-btn">Save Job</button> -->
+			<button @click="submitResume" class="ljp-apply-btn">Apply</button>
 		</div>
 		</div>
 
@@ -51,9 +51,16 @@ export default {
 	},
 	methods: {
 		getJobPostInfo() {
-			return axios.get(`http://localhost:3000/api/job_postings/${this.$route.params.job_post_id}`)
+			return axios.get(`/api/job_postings/${this.$route.params.job_post_id}`)
 				.then(res => this.jobPost = res.data[0])
 				.catch(err => console.log(err))
+		},
+		submitResume() {
+			return axios.post(`/api/${this.jobPost.id}/${this.$route.params.user_id}/submit`)
+					.then(() => {
+						alert('Thank you for applying')
+						this.$router.push({path: `/app/user/${this.$route.params.user_id}`})
+					}).catch(err => console.log(err))
 		}
 	},
 	created() {
