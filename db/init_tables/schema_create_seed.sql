@@ -27,10 +27,13 @@ CREATE TABLE IF NOT EXISTS users (
 -- Companies
 CREATE TABLE IF NOT EXISTS companies (
 	id serial primary key,
-	logo_url text not null,
 	name text not null,
-	city text not null,
-	state text not null
+	picture text not null,
+	user_name text not null,
+	auth_id text not null,
+	email text not null,
+	city text,
+	state text
 );
 
 --Industries

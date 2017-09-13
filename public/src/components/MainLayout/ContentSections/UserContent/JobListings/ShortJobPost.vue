@@ -8,7 +8,7 @@
             <div class="job-listing-content">
                 <h1 @click="goToLongJobPost" class="sjp-h1">{{ jobListing.title }}</h1>
                 <h2 class="sjp-h2">{{ jobListing.company }}</h2>
-                <h3 class="sjp-h3">{{jobListing.city}}, {{ jobListing.state }}</h3>
+                <h3 class="sjp-h3">{{jobListing.location}}</h3>
                 <p class="sjp-p">{{ jobListing.job_description }}</p>
             </div>
         </div>

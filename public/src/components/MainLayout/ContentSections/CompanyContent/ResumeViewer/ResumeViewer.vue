@@ -16,15 +16,15 @@
 			<div class="resume-viewer-container">
 				<div v-if="!resumes.length">No resumes to view!</div>
 				<div class="hire-me" v-else>
-					<transition appear 
-								mode="out-in" 
+					<transition appear
+								mode="out-in"
 								:duration="{enter:1000, leave: 500}"
 								enter-active-class="animated slideInRight"
 								:leave-active-class="leaveClass">
 
-						<app-blind-resume class="display-resume-container displayResume" 
-								v-if="show_box" 
-								:resume="resumes[currentIndex]" 
+						<app-blind-resume class="display-resume-container displayResume"
+								v-if="show_box"
+								:resume="resumes[currentIndex]"
 								key="currentIndex">
 						</app-blind-resume>
 
@@ -186,7 +186,7 @@ export default {
 	width: 130px;
 	height: 35px;
 	outline: none;
-	background: #2baf7a;
+	background: #2ED590;
 	border-radius: 50px;
 	border: none;
 	text-transform: uppercase;
@@ -195,13 +195,14 @@ export default {
 	letter-spacing: 1px;
 	color: #fff;
 	margin-left: 40%;
+	cursor: pointer;
 }
 
 .rv-pass-btn {
 	width: 130px;
 	height: 35px;
 	outline: none;
-	background: #D55050;
+	background: #D73944;
 	border-radius: 50px;
 	border: none;
 	text-transform: uppercase;
@@ -209,5 +210,6 @@ export default {
 	font-weight: 500;
 	letter-spacing: 1px;
 	color: #fff;
+	cursor: pointer;
 }
 </style>
