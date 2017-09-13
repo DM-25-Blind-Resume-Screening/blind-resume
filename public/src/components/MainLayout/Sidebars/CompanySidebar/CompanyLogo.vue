@@ -1,7 +1,7 @@
 <template>
   <div class="cl-container">
       <div class="cl-logo-container">
-        <img :src="companyInfo.logo_url" style="border-radius: 50%">
+        <img :src="companyInfo.picture" style="border-radius: 50%">
       </div>
       <div class="cl-company-name">
           <p class="cl-p">{{ companyInfo.name }}</p>
@@ -46,4 +46,3 @@ export default {
         margin-top: 5px;
     }
 </style>
-

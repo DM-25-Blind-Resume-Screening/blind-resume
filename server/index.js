@@ -105,16 +105,16 @@ passport.use('employer',new Auth0Strategy({
   callbackURL: 'http://localhost:3000/auth/callback2'
 }, function(accessToken, refreshToken, extraParams, profile, done) {
   //GO TO DB TO FIND AND CREATE USER
+	console.log('profile', profile)
   let db = app.get('db')
 	,email = profile.emails[0].value
-  ,first_name = profile.name.givenName
-	,last_name = profile.name.familyName
+  ,name = profile.displayName
   ,picture = profile.picture
 	,auth_id = profile.id
 	,user_name = profile.nickname
-  db.users.get_user(auth_id).then(res=> {
+  db.companies.get_company(auth_id).then(res=> {
     if(!res.length){
-        db.users.create_user([first_name, last_name, email, picture, auth_id, user_name])
+        db.companies.create_company([name, email, picture, auth_id, user_name])
         .then((userCreated) => {
           console.log('Logged in user: ',userCreated)
               return done(null, userCreated[0])
@@ -126,7 +126,7 @@ passport.use('employer',new Auth0Strategy({
 }));
 
 app.get('/auth/2', passport.authenticate('employer'))
-app.get('/auth/callback2', passport.authenticate('employer', {successRedirect: 'http://localhost:8080/#/app/company/1'}))
+app.get('/auth/callback2', passport.authenticate('employer', {successRedirect: 'http://localhost:8080/#/app/company/'}))
 
 passport.serializeUser(function(profileToSession, done) {
 	console.log('serialize-user', profileToSession)

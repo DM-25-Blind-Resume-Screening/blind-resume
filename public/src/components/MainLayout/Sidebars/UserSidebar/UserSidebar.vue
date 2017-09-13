@@ -10,7 +10,6 @@
 				@industryAdded="addToIndustrySearch"
 				@industryDeleted="removeFromIndustrySearch"
 			>
-				
 			</app-user-sidebar-industry>
 		</div>
 		<h1 class="usjt-h1">Type</h1>
@@ -24,6 +23,7 @@
 					
 			</app-user-sidebar-job-type>
 		</div>
+		<!-- <button class="job-search-btn">Search</button> -->
 	</div>
 </template>
 
@@ -88,11 +88,10 @@ export default {
         font-size: 19px;
         font-weight: bold;
         color: #fff;
-        margin: 30px 0 5px 20px;
+        margin: 20px 0 5px 20px;
     }
 
     .checkbox-container-industry {
-        /* background: #2062ae; */
         width: 90%;
         height: 250px;
         display: flex;
@@ -100,16 +99,10 @@ export default {
 		overflow-y: scroll;
         overflow-x: hidden;
 	}
-	
-	/* .checkbox-container-industry::-webkit-scrollbar {
-		display: block;
-	} */
 
 	.checkbox-container-job-type {
-	  /* background: #3b83bf; */
 	  width: 90%;
 	  height: 190px;
-	  overflow-y: scroll;
 	  display: flex;
 	  flex-direction: column;
 	}	
@@ -128,4 +121,26 @@ export default {
 		text-overflow: ellipsis;
 		color: #fff;
 	}
+
+	.md-checkbox .md-checkbox-container {
+		border: 1px solid rgba(255, 255, 255, 0.54);
+	}
+
+	/* .job-search-btn {
+		height: 30px;
+		width: 70px;
+		font-size: 14px;
+		outline: none;
+		border: none;
+		color: #fff;
+		background: #3f51b5;
+		margin-left: 20px;
+		margin-top: 20px;
+		cursor: pointer;
+	}
+
+	.job-search-btn:hover {
+		color: #3f51b5;
+		background: #fff;
+	} */
 </style>

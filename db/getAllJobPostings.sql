@@ -1,16 +1,17 @@
-select jp.id, c.name company, c.city, c.logo_url, c.state, jp.title, i.name industry, i.id industry_id, jt.id job_type_id, jt.name job_type,
+
+select jp.id, c.name company, c.picture, jp.title, i.name industry, i.id industry_id, jt.id job_type_id, jt.name job_type,
      jp.job_description, 
     (
         select array_to_json(array_agg(b))
         from (
-            select * from responsibilities rs 
+            select * from responsibilities rs
             where rs.job_post_id = jp.id
             order by rs.id
         ) b
     ) as responsibilities,
     (
         select array_to_json(array_agg(c))
-        from ( 
+        from (
             select * from qualifications q
             where q.job_post_id = jp.id
             order by q.id
@@ -30,3 +31,4 @@ select jp.id, c.name company, c.city, c.logo_url, c.state, jp.title, i.name indu
     join industries i on i.id = jp.industry_id
     join job_types jt on jt.id = jp.job_type_id
     order by random() limit 1000;
+

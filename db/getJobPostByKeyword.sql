@@ -1,4 +1,4 @@
-select c.name company, c.city, c.state, jp.title, i.name industry, jt.name job_type, jp.job_description, jp.responsibilities, jp.qualifications, 
+select c.name company, c.picture, jp.title, i.name industry, jt.name job_type, jp.job_description, jp.responsibilities, jp.qualifications, 
     (
         select array_to_json(array_agg(d))
         from (
