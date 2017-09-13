@@ -1,12 +1,17 @@
 <template>
 	<div class="candidate-list">
-		<app-candidate></app-candidate>
+		<app-candidate
+			v-for="candidate in interviewCandidates"
+			:key="candidate.id"
+			:candidate="candidate"
+		></app-candidate>
 	</div>
 </template>
 
 <script>
 	import Candidate from './Candidate.vue'
 	export default {
+		props: ['interviewCandidates'],
 		components: {
 			appCandidate: Candidate
 		}
