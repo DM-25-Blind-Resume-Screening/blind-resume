@@ -63,12 +63,14 @@
           </div>
          
         </div>
-         <div class="save-exp-container">
+         <div class="save-ed-container">
+           <div class="resume-edit-btns">
             <button @click="deleteResumeEducation" class="delete-btn resume-save-btn">Delete</button>
             <button 
               class="resume-save-btn" 
               @click="updateResumeEducation">
               Save</button>
+              </div>
           </div>
       </div>
 
@@ -146,6 +148,7 @@ export default {
   height: 150px;
   outline: #3f51b5;
   font-size: 14px;
+  font-family: 'Avnenir', Arial, Helvetica, sans-serif;
 }
 
 .eil-text-container {
@@ -186,6 +189,15 @@ export default {
 
 .delete-btn {
   margin-right: 10px;
+}
+
+.save-ed-container {
+    height: 425px;
+    width: 300px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
 }
 </style>
 

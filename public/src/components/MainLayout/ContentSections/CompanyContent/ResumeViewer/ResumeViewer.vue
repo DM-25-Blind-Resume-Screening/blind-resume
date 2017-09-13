@@ -4,40 +4,6 @@
 			Job Position Title Here
 		</app-default-header>
 
-		<!-- <div class="resume-container"> -->
-		<!-- <div class="display-resume-container"> -->
-		<!-- <app-blind-resume class="displayResume"></app-blind-resume> -->
-		<!-- <h1>{{numbers[currentIndex]}}</h1> -->
-		<!-- </div> -->
-		<!-- <app-blind-resume class="nextResume"></app-blind-resume> -->
-		<!-- </div> -->
-<!-- 		<div v-if="isShortlist">
-			<div class="rv-buttons">
-				<button @click="pass" class="rv-pass-btn">Pass</button>
-				<button @click="save" class="rv-save-btn">Save</button>
-			</div>
-
-			<div class="resume-viewer-container">
-				<div v-if="!resumes.length">No resumes to view!</div>
-				<div v-else>
-					<transition appear 
-								mode="out-in" 
-								:duration="{enter:1000, leave: 500}"
-								enter-active-class="animated slideInRight"
-								:leave-active-class="leaveClass">
-
-						<app-blind-resume class="display-resume-container displayResume" 
-								v-if="show_box" 
-								:resume="resumes[currentIndex]" 
-								key="currentIndex">
-						</app-blind-resume>
-
-					</transition>
-				</div>
-			</div>
-		</div>
- -->
-		<!-- <div v-else> -->
 			<div class="rv-buttons">
 				<button @click="pass" class="rv-pass-btn">Pass</button>
 				<!-- <button @click="selectCandidate" class="rv-save-btn" v-if="isShortlist">Interview</button> -->
@@ -49,7 +15,7 @@
 
 			<div class="resume-viewer-container">
 				<div v-if="!resumes.length">No resumes to view!</div>
-				<div v-else>
+				<div class="hire-me" v-else>
 					<transition appear 
 								mode="out-in" 
 								:duration="{enter:1000, leave: 500}"
@@ -65,7 +31,6 @@
 					</transition>
 				</div>
 			</div>
-		<!-- </div> -->
 
 	</div>
 </template>
@@ -78,7 +43,7 @@ export default {
 	data() {
 		return {
 			isShortlist: false,
-			leaveClass: "animated hinge",
+			leaveClass: "animated rotateOutDownLeft",
 			show_box: true,
 			resumes: [],
 			currentIndex: 0
@@ -103,7 +68,7 @@ export default {
 		pass() {
 			return axios.delete(`/api/${this.$route.params.job_post_id}/${this.resumes[this.currentIndex].resume_id}`)
 						.then(() => {
-							this.leaveClass = "animated hinge";
+							this.leaveClass = "animated rotateOutDownLeft";
 							const vm = this;
 							setTimeout(function() {
 								vm.remove()
@@ -155,7 +120,7 @@ export default {
 			const vm = this
 			setTimeout(function() {
 				vm.show_box = true;
-			}, 2000);
+			}, 700);
 		}
 	},
 
@@ -182,6 +147,7 @@ export default {
 .resume-viewer-container {
 	display: flex;
 	align-items: center;
+	margin-top: 30px;
 }
 
 .display-resume-container {
@@ -191,12 +157,13 @@ export default {
 	background-color: #fff;
 	margin-top: 30px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	margin: auto;
 }
 
-/*
-.displayResume {
-	width: 80%;
-*/
+.hire-me {
+	width: 100%;
+}
+
 .nextResume {
 	height: 300px;
 	position: absolute;

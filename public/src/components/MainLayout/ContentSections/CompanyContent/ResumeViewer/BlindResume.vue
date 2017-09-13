@@ -3,9 +3,9 @@
 		<div>
 			<div class="br-resume-content">
 				<h1 class="br-h1">Work Experience</h1>
-				<div v-for="experience in resume.resume_work_experience" key="exprience.id">
+				<div v-for="experience in resume.resume_work_experience" :key="experience.id">
 					<div class="br-work-header">
-						<h1>{{experience.title}}</h1> - <span>{{experience.company}}</span>
+						<h1>{{experience.title}} - {{experience.company}}</h1>
 					</div>
 					<span><em>{{experience.from_date}}</em></span> - <span><em>{{experience.to_date}}</em></span>
 					<p>{{experience.description}}</p>
@@ -13,7 +13,7 @@
 				</div>
 				<hr>
 				<h1 class="br-h1">Education</h1>
-				<div v-for="education in resume.resume_education" key="education.id">
+				<div v-for="education in resume.resume_education" :key="education.id">
 					<h1>{{education.school}}</h1>
 					<h3>{{education.study_field}} - {{education.degree}}</h3>
 					<span>{{education.from_date}}</span> - <span>{{education.to_date}}</span>
@@ -22,7 +22,7 @@
 				<hr>
 				<h1 class="br-h1">Skills</h1>
 				<ul>
-					<li v-for="skill in resume.resume_skills" key="skill.id">{{skill.name}}</li>
+					<li v-for="skill in resume.resume_skills" :key="skill.id">{{skill.name}}</li>
 				</ul>
 			</div>
 		</div>
