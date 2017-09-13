@@ -8,7 +8,6 @@
 				:key="industry.id"
 				:industry="industry"
 			>
-				
 			</app-user-sidebar-industry>
 		</div>
 		<h1 class="usjt-h1">Type</h1>
@@ -19,7 +18,7 @@
 				:key="jobtype.id">
 			</app-user-sidebar-job-type>
 		</div>
-		<button class="job-search-btn">Search</button>
+		<!-- <button class="job-search-btn">Search</button> -->
 	</div>
 </template>
 
@@ -91,7 +90,7 @@ export default {
 		border: 1px solid rgba(255, 255, 255, 0.54);
 	}
 
-	.job-search-btn {
+	/* .job-search-btn {
 		height: 30px;
 		width: 70px;
 		font-size: 14px;
@@ -107,5 +106,5 @@ export default {
 	.job-search-btn:hover {
 		color: #3f51b5;
 		background: #fff;
-	}
+	} */
 </style>

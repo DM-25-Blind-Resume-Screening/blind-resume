@@ -1,46 +1,54 @@
 <template>
 	<div class="di-container">
-	<div class="user-image-div">
-		<img class="user-image" src="../../../../../assets/landing-picture.jpg" />
-	</div>
+		<div class="user-image-div">
+			<img class="user-image" src="../../../../../assets/landing-picture.jpg" />
+		</div>
 		<div class="di-content-container">
 			<div class="onec-demo">
-			<h1>Name Here</h1>
-			<p>Location: {{ userLocation }}</p>
-			<md-input-container class="jd-input-job-title" md-inline>
-                    <label>e.g, City, State</label>
-                    <md-input ></md-input>
-                </md-input-container>
+				<h1>Name Here</h1>
+				<p>Location: {{ userLocation }}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>e.g, City, State</label>
+					<md-input></md-input>
+				</md-input-container>
 
-			<p>Phone: {{userPhone}}</p>
-			<md-input-container class="jd-input-job-title" md-inline>
-                    <label>e.g, 123-456-7891</label>
-                    <md-input ></md-input>
-                </md-input-container>
+				<p>Phone: {{userPhone}}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>e.g, 123-456-7891</label>
+					<md-input></md-input>
+				</md-input-container>
 
-			<p>Email: {{userEmail}}</p>
-			<md-input-container class="jd-input-job-title" md-inline>
-                    <label>Email</label>
-                    <md-input ></md-input>
-                </md-input-container>
+				<p>Email: {{userEmail}}</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label>Email</label>
+					<md-input></md-input>
+				</md-input-container>
 			</div>
 
-		<div class="twoc-demo">
-			<p>About Me:</p>
-			<textarea class="about-textarea">{{ userAboutMe }}</textarea>
+			<div class="twoc-demo">
+				<div class="edit-pencil-demo">
+				<p>About Me:</p>
+			<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
+				</div>
 
-			<p>Portfolio:</p>
-			<md-input-container class="jd-input-job-title" md-inline>
-                    <label></label>
-                    <md-input ></md-input>
-            </md-input-container>
+				<textarea class="about-textarea">{{ userAboutMe }}</textarea>
 
-			<p>LinkedIn:</p>
-			<md-input-container class="jd-input-job-title" md-inline>
-                    <label></label>
-                    <md-input ></md-input>
-                </md-input-container>
-		</div>
+				<p>Portfolio:</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label></label>
+					<md-input></md-input>
+				</md-input-container>
+
+				<p>LinkedIn:</p>
+				<md-input-container class="jd-input-job-title" md-inline>
+					<label></label>
+					<md-input></md-input>
+				</md-input-container>
+				
+			<div>
+			</div>
+
+			</div>
 
 		</div>
 	</div>
@@ -50,6 +58,7 @@
 export default {
 	data() {
 		return {
+			isEditingDemographics: false,
 			userLocation: 'Provo, UT',
 			userPhone: '456-345-6789',
 			userEmail: 'sdfdf@gmail.com',
@@ -61,14 +70,14 @@ export default {
 
 
 <style>
-  .user-image-div {
+.user-image-div {
 	width: 190px;
 	height: 150px;
 	border-radius: 50%;
 	margin-left: 80px;
 	margin-top: 30px;
 	overflow: hidden;
-}  
+}
 
 .user-image {
 	width: 150px !important;
@@ -108,4 +117,8 @@ export default {
 	border: 2px solid #3f51b5;
 }
 
+.edit-pencil-demo {
+	display: flex;
+	justify-content: space-between;
+}
 </style>

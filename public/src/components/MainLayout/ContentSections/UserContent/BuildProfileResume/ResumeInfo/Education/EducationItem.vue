@@ -7,7 +7,7 @@
         <md-input-container v-else class="jd-input-job-title" md-inline>
           <md-input v-model="propsEducationInfo.school" style="color: white"></md-input>
         </md-input-container>
-        <img @click="isEditingEducation=true" class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
+        <img @click="isEditingEducation = !isEditingEducation" class="new-resume-pencil jd-pencil" src="../../../../../../../assets/pencil-edit-button.svg" />
       </div>
 
       <div v-if="!isEditingEducation" class="subheader-text">
@@ -22,12 +22,7 @@
       </div>
 
       <div v-else class="exp-container ei-container">
-        <div class="ei-flex">
-          
-          
-          
-          
-        </div>
+  
         <div class="ei-edits-inputs-container">
           
           <div class="label-input-container">
@@ -136,12 +131,6 @@ export default {
   align-items: center;
 }
 
-.ei-flex {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
-
 .ei-textarea-desciption {
   width: 100%;
   margin-left: 20px;
@@ -161,7 +150,7 @@ export default {
 }
 
 .md-input-container {
-  margin-left: 20px;
+  margin-left: 10px;
   width: 80%;
 }
 
@@ -189,6 +178,7 @@ export default {
 
 .new-resume-pencil {
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .delete-btn {
@@ -202,6 +192,11 @@ export default {
     margin-top: 10px;
     margin-bottom: 20px;
     position: relative;
+}
+
+h2.ei-h2 {
+  margin-left: 45px;
+  font-size: 15px;
 }
 </style>
 
