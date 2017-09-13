@@ -155,6 +155,7 @@ app.get('/api/:company_id/posts/:job_post_id', jobPostingsController.getCompanyJ
 app.get('/api/:user_id/saved_jobs', jobPostingsController.getSavedJobPostingsByUser);
 app.get('/api/:user_id/resume', resumesController.getResumeByUser)
 app.get('/api/job_postings/:job_post_id/resumes', jobPostingsController.getBlindResumesByJobPostId);
+app.get('/api/job_postings/:job_post_id/shortlist', jobPostingsController.getBlindResumesByJobPostIdShortlist);
 app.get('/api/job_postings/:job_post_id', jobPostingsController.getJobPostById);
 
 app.post('/api/:user_id/resume/new', resumesController.createResume);
@@ -167,6 +168,7 @@ app.post('/api/:job_post_id/:user_id/submit', resumesController.createSubmittedR
 app.patch('/api/education/:education_id', resumesController.updateResumeEducation);
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);
 app.patch('/api/:job_post_id/:resume_id/shortlist', jobPostingsController.updateResumeToShortlist)
+app.patch('/api/:job_post_id/:resume_id/interview', jobPostingsController.updateResumeToInterview)
 
 app.delete('/api/education/:education_id', resumesController.deleteResumeEducation);
 app.delete('/api/experience/:experience_id', resumesController.deleteResumeExperience);

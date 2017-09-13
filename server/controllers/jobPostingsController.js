@@ -72,12 +72,27 @@ module.exports = {
 			res.status(200).send(response);
 		}).catch(err => console.log(err));
 	},
+	getBlindResumesByJobPostIdShortlist(req, res,next) {
+		const db = req.app.get('db');
+
+		db.getBlindResumeByJobPostIdShortlist([req.params.job_post_id]).then(response => {
+			res.status(200).send(response);
+		}).catch(err => console.log(err))
+	},
 	updateResumeToShortlist(req, res, next) {
 		const db = req.app.get('db');
 
 		db.updateResumeToShortlist([req.params.job_post_id, req.params.resume_id ]).then(response => {
 			res.status(200).send(response)
 		}).catch(err => console.log(err));
+	},
+	updateResumeToInterview(req, res, next) {
+		const db = req.app.get('db');
+
+		db.updateResumeToInterview([req.params.job_post_id, req.params.resume_id])
+			.then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err))
 	},
 	deleteSubmittedResume(req, res, next) {
 		const db = req.app.get('db')
