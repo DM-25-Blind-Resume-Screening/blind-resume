@@ -2,7 +2,7 @@
     <div>
         <div class="job-listing">
             <md-avatar class="md-large">
-                <img :src="jobListing.logo_url" alt="People">
+                <img :src="jobListing.picture" alt="People">
             </md-avatar>
 
             <div class="job-listing-content">

@@ -1,1 +1,2 @@
-select * from industries;
+select * from industries
+order by name;

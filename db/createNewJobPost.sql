@@ -1,8 +1,8 @@
 with new_job_post as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
-		(default, $1, $2, $3, $4, $5, current_date)
+		(default, $1, $2, $3, $4,$9, $5, current_date)
 	returning id
 ),
 new_post_responsibilities as (

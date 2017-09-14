@@ -1,4 +1,4 @@
-select *,
+select r.*, u.first_name, u.last_name,
     (
         select array_to_json(array_agg(b))
         from (
@@ -24,5 +24,6 @@ select *,
         ) d
     ) as resume_skills
     from resumes r
+    join users u on u.id = r.user_id
     where r.user_id = $1;
 
