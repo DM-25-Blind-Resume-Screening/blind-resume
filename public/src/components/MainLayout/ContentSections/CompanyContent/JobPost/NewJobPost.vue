@@ -3,30 +3,30 @@
 		<app-content-header style="background: linear-gradient(45deg, #1CB48B, #2ED590)">
 			<h1 class="nj-h1">Create New Job Post</h1>
 		</app-content-header>
-		
-		<app-job-description 
-			class="nj-editor" 
+
+		<app-job-description
+			class="nj-editor"
 			@updateTitle="updateTitle"
 			@updateType="updateJobType"
 			@updateLocation="updateJobLocation"
 			@updateIndustry="updateIndustry"
 			@updateDescription="updateDescription"></app-job-description>
-		
-		<app-responsibilities 
-			@updateResp="updateResponsibilities" 
-			class="nj-editor" 
+
+		<app-responsibilities
+			@updateResp="updateResponsibilities"
+			class="nj-editor"
 			v-model="newJobPost.jobResponsibilities"></app-responsibilities>
-		
-		<app-key-qualifications 
-			@updateQual="updateQualifications" 
-			class="nj-editor" 
+
+		<app-key-qualifications
+			@updateQual="updateQualifications"
+			class="nj-editor"
 			v-model="newJobPost.jobKeyQualifications"></app-key-qualifications>
-		
+
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
-		
+
 		<div class="nj-post-btn-container">
 			<button @click="createNewJobPost" class="nj-post-btn">Post job</button>
-			<button @click="cancelAddJob" class="nj-post-btn">Cancel</button>
+			<button @click="cancelAddJob" class="cancel-btn">Cancel</button>
 		</div>
 	</div>
 </template>
@@ -131,7 +131,7 @@ export default {
 
 .nj-editor {
 	width: 75%;
-	margin: 20px auto;
+	margin: 30px auto;
 }
 
 .nj-post-btn-container {
@@ -145,14 +145,29 @@ export default {
 	width: 110px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid #3f51b5;
+	border: 1px solid #1CB48B;
 	font-size: 15px;
-	color: #3f51b5;
+	color: #1CB48B;
+}
 
+.cancel-btn {
+	width: 110px;
+	height: 30px;
+	font-size: 15px;
+	margin-left: 20px;
+	border: none;
+	background: #1CB48B;
+	color: #fff;
+}
+.cancel-btn:hover {
+	background: #fff;
+	color: #1CB48B;
+	border: 1px solid #1CB48B;
+	cursor: pointer;
 }
 
 .nj-post-btn:hover {
-	background: #3f51b5;
+	background: #1CB48B;
 	color: #fff;
 	cursor: pointer;
 }

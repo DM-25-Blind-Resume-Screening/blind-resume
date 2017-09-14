@@ -31,12 +31,13 @@ export default {
 .job-listing {
     display: flex;
     font-family: 'Avenir', Arial, Helvetica, sans-serif;
-    width: 700px;
-    margin: 50px 100px;
+    width: 800px;
+    margin: 50px 50px;
 }
 
 .job-listing-content {
-    margin-left: 10px;
+    margin-left: 30px;
+    overflow: hidden;
 }
 
 .sjp-h1 {
@@ -70,8 +71,8 @@ export default {
     white-space: nowrap;
     max-width: 100ch;
 }
-
 .md-avatar {
-    margin: 0;
+  margin: 0;
 }
+
 </style>

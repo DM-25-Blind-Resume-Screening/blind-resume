@@ -5,10 +5,6 @@
 		    <div class="user-image-div" v-if="!displayUserInfo" :style="{'background-image': 'url(https://www.drupal.org/files/issues/default-avatar.png)'}"></div>
 			<div class="user-image-div" v-else :style="{'background-image': 'url('+displayUserInfo.picture+')'}">
 			</div>
-
-			<div class="edit-pencil-demo">
-				<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
-			</div>
 	    	
 	    </div>
 		
@@ -17,7 +13,6 @@
 				
 				<h1 v-if="!displayUserInfo">Loading..</h1>
 				<h1 v-else>{{displayUserInfo.first_name}} {{displayUserInfo.last_name}}</h1>
-
 					
 					<h3>About Me:</h3>
 					<p v-if="conditionalRenderInputs">{{ userDemographics.about_me }}</p>
@@ -28,13 +23,17 @@
 				</div>
 
 			<div class="twoc-demo">
+
+				<div class="edit-pencil-demo">
+					<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
+				</div>
 				
 				<label v-if="conditionalRenderInputs">Location:  <span>{{ userDemographics.location }}</span></label>
 				<md-input-container class="jd-input-job-title" md-inline v-else>
 					<label>e.g, City, State</label>
 					<md-input v-model="userDemographics.location" @keyup.enter.native="isEditingDemographics=false"></md-input>
 				</md-input-container>
-
+				
 				<br>
 
 				<label v-if="conditionalRenderInputs">Phone: <span> {{userDemographics.phone}}</span></label>
@@ -60,10 +59,8 @@
 					<label>Portfolio Site URL</label>
 					<md-input v-model="userDemographics.portfolio" @keyup.enter.native="isEditingDemographics=false"></md-input>
 				</md-input-container>
-				
 
 				<br>
-
 
 				<label v-if="conditionalRenderInputs">LinkedIn: 
 					<a :href="userDemographics.linkedin">{{userDemographics.linkedin}}</a>
@@ -167,9 +164,12 @@ export default {
 }
 
 .edit-pencil-demo {
+	position: absolute;
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
+	right: 0;
+	margin-top: 5px;
+	margin-right: 80px;
 }
 
 .di-container h1,

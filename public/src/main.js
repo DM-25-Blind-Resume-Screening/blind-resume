@@ -34,7 +34,7 @@ Vue.material.registerTheme('about', {
   primary: {
     color: 'light-blue',
     hue: 'A200',
-    textColor: 'white'
+    textColor: 'white',
   }
 })
 
@@ -43,8 +43,12 @@ Vue.material.registerTheme('add', {
     color: 'light-blue',
     hue: '900',
     textColor: 'white'
+  },
+    accent: {
+    color: 'green',
+    textColor: 'white'
   }
-})
+  })
 
 new Vue({
   el: '#app',

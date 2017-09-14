@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<app-user-image></app-user-image>
+		<h1 @click="myResume" class="my-resume usi-h1">My Resume</h1>
 		<h1 class="usi-h1">Industry</h1>
     	<div class="checkbox-container-industry">
 			<app-user-sidebar-industry
@@ -72,6 +73,11 @@ export default {
 	  appUserImage: UserImage,
 		appUserSidebarIndustry: UserSidebarIndustry,
 		appUserSidebarJobType: UserSidebarJobType
+	},
+	methods: {
+		myResume() {
+			this.$router.push({path: `/app/user/${this.$route.params.user_id}/resume`})
+		}
 	}
 }
 </script>
@@ -89,11 +95,15 @@ export default {
         font-weight: bold;
         color: #fff;
         margin: 20px 0 5px 20px;
-    }
+	}
+	
+	.my-resume {
+		cursor: pointer;
+	}
 
     .checkbox-container-industry {
         width: 90%;
-        height: 250px;
+        height: 30vh;
         display: flex;
         flex-direction: column;
 		overflow-y: scroll;
@@ -102,7 +112,7 @@ export default {
 
 	.checkbox-container-job-type {
 	  width: 90%;
-	  height: 190px;
+	  height: 20vh;
 	  display: flex;
 	  flex-direction: column;
 	}	
