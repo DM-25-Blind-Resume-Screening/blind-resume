@@ -67,17 +67,15 @@ export default {
 		},
 		removeFromTypeSearch(val) {
 			this.searchType.splice(this.searchType.indexOf(val), 1)
+		},
+		myResume() {
+			this.$router.push({path: `/app/user/${this.$route.params.user_id}/resume`})
 		}
 	},
 	components: {
 	  appUserImage: UserImage,
 		appUserSidebarIndustry: UserSidebarIndustry,
 		appUserSidebarJobType: UserSidebarJobType
-	},
-	methods: {
-		myResume() {
-			this.$router.push({path: `/app/user/${this.$route.params.user_id}/resume`})
-		}
 	}
 }
 </script>
