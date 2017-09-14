@@ -137,13 +137,13 @@ export default {
 	width: 100%;
 	margin: 35px 0;
 	height: 150px;
-	outline: #3f51b5;
+	outline: #2ED590;
 	font-size: 14px;
 }
 
 .jd-textarea-desciption:focus {
 	outline: none;
-	border: 2px solid #3f51b5;
+	border: 2px solid #2ED590;
 }
 
 .jd-h2 {

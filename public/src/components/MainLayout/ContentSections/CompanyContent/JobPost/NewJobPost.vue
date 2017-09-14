@@ -25,7 +25,7 @@
 		
 		<div class="nj-post-btn-container">
 			<button @click="createNewJobPost" class="nj-post-btn">Post job</button>
-			<button @click="cancelAddJob" class="nj-post-btn">Cancel</button>
+			<button @click="cancelAddJob" class="cancel-btn">Cancel</button>
 		</div>
 	</div>
 </template>
@@ -139,14 +139,29 @@ export default {
 	width: 110px;
 	height: 30px;
 	background: transparent;
-	border: 1px solid #3f51b5;
+	border: 1px solid #1CB48B;
 	font-size: 15px;
-	color: #3f51b5;
+	color: #1CB48B;
+}
 
+.cancel-btn {
+	width: 110px;
+	height: 30px;
+	font-size: 15px;
+	margin-left: 20px;
+	border: none;
+	background: #1CB48B; 
+	color: #fff;
+}
+.cancel-btn:hover {
+	background: #fff;
+	color: #1CB48B;
+	border: 1px solid #1CB48B;
+	cursor: pointer;
 }
 
 .nj-post-btn:hover {
-	background: #3f51b5;
+	background: #1CB48B;
 	color: #fff;
 	cursor: pointer;
 }

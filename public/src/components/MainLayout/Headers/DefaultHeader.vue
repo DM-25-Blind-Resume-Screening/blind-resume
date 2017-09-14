@@ -1,10 +1,17 @@
 <template>
+<div>
 	<div class="content_header" style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
 		 <slot>
 			 Default Header Content
 		</slot>
 		<img @click="goBack" class="arrow" src="../../../assets/left-arrow.svg" alt="back">
+		
 	</div>
+	<div class="header-div">
+
+		</div>
+		</div>
+	
 </template>
 
 <script>
@@ -31,7 +38,14 @@ export default {
 		font-size: 18px;
 		background: linear-gradient(45deg,#003A98,#3f89c2);
 		box-shadow:  1px 3px 6px 1px rgba(0,0,0,0.3);
+		position: fixed;
 	}
+
+	.header-div {
+		height: 52px;
+		width: 100%;
+	}
+	
 	.arrow {
 		position: fixed;
 		right: 20px;

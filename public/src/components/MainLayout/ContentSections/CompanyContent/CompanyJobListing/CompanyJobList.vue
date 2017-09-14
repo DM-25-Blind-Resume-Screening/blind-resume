@@ -9,7 +9,7 @@
 			:job="job"
 		></app-short-company-job-post>
 		<div @click="goToNewJobPost" class="add-btn">
-			<md-button md-theme="add" class="md-fab md-fab-bottom-right md-primary">
+			<md-button md-theme="add" class="md-fab md-fab-bottom-right md-accent">
 				<md-icon>add</md-icon>
 			</md-button>
 		</div>
@@ -54,5 +54,8 @@ export default {
 	position: fixed;
 	right: 10px;
 	bottom: 10px;
+}
+.md-theme-add.md-button:not([disabled]).md-accent:not(.md-icon-button) {
+	color: white !important;
 }
 </style>
