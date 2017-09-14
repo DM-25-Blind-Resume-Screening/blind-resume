@@ -1,12 +1,32 @@
 <template>
     <div class="jsb-search-container">
-        <input class="jsb-input" type="text" placeholder="Enter a company or keyword">
-        <input class="jsb-input jsb-location" type="text" placeholder="Enter a location">
-        <div class="jsb-search-icon">
+        <input class="jsb-input" type="text" placeholder="Enter a keyword" v-model="searchKeyword">
+        <input class="jsb-input jsb-location" type="text" placeholder="Enter a location" v-model="searchLocation">
+<!--         <div class="jsb-search-icon" @click="confirmSearch">
         <img  src="../../../../../assets/searchblue.svg">
-        </div>
+        </div> -->
   </div>
 </template>
+
+<script>
+    import {EventBus} from '../../../../../main.js'
+    export default {
+        data() {
+            return {
+                searchKeyword: '',
+                searchLocation: ''
+            }
+        },
+        watch: {
+            searchKeyword() {
+                EventBus.$emit('searchKeyword', this.searchKeyword);
+            },
+            searchLocation() {
+                EventBus.$emit('searchLocation', this.searchLocation);
+            }
+        }
+    }
+</script>
 
 <style>
 

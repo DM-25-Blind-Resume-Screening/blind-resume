@@ -23,23 +23,40 @@
 		data() {
 			return {
 				searchIndustry: [],
-				searchType: []
+				searchType: [],
+				searchKey: '',
+				searchLocation: ''
 			}
 		},
 		computed: {
 			allJobPostings() {
-				const allJobPosts = this.$store.state.allJobPostings
+				let allJobPosts = this.$store.state.allJobPostings
 				const searchInd = this.searchIndustry
 				const searchType = this.searchType
-				if(searchInd.length && searchType.length) {
-					return allJobPosts.filter(elem => searchInd.indexOf(elem.industry_id) >-1 && searchType.indexOf(elem.job_type_id) > -1)
-				} else if (searchInd.length && !searchType.length) {
-					return allJobPosts.filter(elem => searchInd.indexOf(elem.industry_id) > -1);
-				} else if (!searchInd.length && searchType.length) {
-					return allJobPosts.filter(elem => searchType.indexOf(elem.job_type_id) > -1);
-				} else {
-					return allJobPosts
+
+
+				if(searchInd.length) {
+					allJobPosts = allJobPosts.filter(elem => searchInd.indexOf(elem.industry_id) > -1);
 				}
+
+				if(searchType.length) {
+					allJobPosts = allJobPosts.filter(elem => searchType.indexOf(elem.job_type_id) > -1);
+				}
+
+				if(this.searchKey) {
+					allJobPosts = allJobPosts.filter(elem => {
+						return elem.job_keywords.some(keyword => keyword.name.toLowerCase() === this.searchKey.toLowerCase())
+					})
+				}
+
+				if(this.searchLocation) {
+					allJobPosts = allJobPosts.filter(elem => {
+						return elem.location.toLowerCase().includes(this.searchLocation.toLowerCase());
+					})
+				}
+
+
+				return allJobPosts
 			}
 		},
 		components: {
@@ -50,14 +67,23 @@
 		methods: {
 			...mapActions(['getAllJobPostings'])
 		},
-		created() {
-			this.getAllJobPostings();
+		mounted() {
 			EventBus.$on('searchIndustryChanged', searchIndustry => {
 				this.searchIndustry = searchIndustry
 			})
 			EventBus.$on('searchTypeChanged', searchType => {
 				this.searchType = searchType
 			})
+			EventBus.$on('searchKeyword', val => {
+				this.searchKey = val
+			})
+			EventBus.$on('searchLocation', val => {
+				this.searchLocation = val
+			})
+			
+		},
+		created() {
+			this.getAllJobPostings();
 		}
 	}
 </script>
