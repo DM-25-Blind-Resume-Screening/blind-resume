@@ -72,7 +72,7 @@
 }
 
 .sjp-h1:hover {
-    color: #3f51b5;
+    color: #1CB48B;
     cursor: pointer;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .review-applicants {
-    color: #3f51b5;
+    color: #2ED590;
     font-weight: 600;
     cursor: pointer;
 }
