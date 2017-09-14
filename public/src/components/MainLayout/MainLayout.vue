@@ -1,6 +1,9 @@
 <template>
 	<div class="layout">
-		<div class="layout_sidebar" >
+		<div v-if="isUserRoute" class="layout_sidebar">
+			<router-view name="sidebar"></router-view>
+		</div>
+		<div v-else class="layout_sidebar_green">
 			<router-view name="sidebar"></router-view>
 		</div>
 		<div class="layout_content">
@@ -15,8 +18,7 @@ import {mapActions} from 'vuex';
 export default {
 	data(){
 		return {
-			isCompanyRoute: this.$route.params.company_id,
-			isUserRoute: this.$route.params.user_id,
+			isUserRoute: this.$route.path.includes("app/user"),
 			route: this.$route
 		}
 	},
@@ -27,6 +29,7 @@ export default {
 			...mapActions(['getIndustries', 'getJobTypes'])
 		},
 		created() {
+			console.log(this.$route.path)
 			this.getIndustries();
 			this.getJobTypes();
 		}

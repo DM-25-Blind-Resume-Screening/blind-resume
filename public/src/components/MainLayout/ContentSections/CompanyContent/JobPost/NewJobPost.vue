@@ -3,27 +3,27 @@
 		<app-content-header style="background: linear-gradient(45deg, #1CB48B, #2ED590)">
 			<h1 class="nj-h1">Create New Job Post</h1>
 		</app-content-header>
-		
-		<app-job-description 
-			class="nj-editor" 
+
+		<app-job-description
+			class="nj-editor"
 			@updateTitle="updateTitle"
 			@updateType="updateJobType"
 			@updateLocation="updateJobLocation"
 			@updateIndustry="updateIndustry"
 			@updateDescription="updateDescription"></app-job-description>
-		
-		<app-responsibilities 
-			@updateResp="updateResponsibilities" 
-			class="nj-editor" 
+
+		<app-responsibilities
+			@updateResp="updateResponsibilities"
+			class="nj-editor"
 			v-model="newJobPost.jobResponsibilities"></app-responsibilities>
-		
-		<app-key-qualifications 
-			@updateQual="updateQualifications" 
-			class="nj-editor" 
+
+		<app-key-qualifications
+			@updateQual="updateQualifications"
+			class="nj-editor"
 			v-model="newJobPost.jobKeyQualifications"></app-key-qualifications>
-		
+
 		<app-keyword-list v-model="newJobPost.jobKeywords"></app-keyword-list>
-		
+
 		<div class="nj-post-btn-container">
 			<button @click="createNewJobPost" class="nj-post-btn">Post job</button>
 			<button @click="cancelAddJob" class="cancel-btn">Cancel</button>
@@ -131,7 +131,7 @@ export default {
 
 .nj-editor {
 	width: 75%;
-	margin: 20px auto;
+	margin: 30px auto;
 }
 
 .nj-post-btn-container {
@@ -156,7 +156,7 @@ export default {
 	font-size: 15px;
 	margin-left: 20px;
 	border: none;
-	background: #1CB48B; 
+	background: #1CB48B;
 	color: #fff;
 }
 .cancel-btn:hover {
