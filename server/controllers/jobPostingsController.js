@@ -10,7 +10,8 @@ module.exports = {
 				req.body.description,
 				req.body.responsibilities,
 				req.body.qualifications,
-				req.body.keywords
+				req.body.keywords,
+				req.body.location
 			]).then(response => {
 				res.status(200).send(response)
 			}).catch(err => console.log(err))

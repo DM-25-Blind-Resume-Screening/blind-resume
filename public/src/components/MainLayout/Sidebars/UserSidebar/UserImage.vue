@@ -1,22 +1,28 @@
 <template>
     <div>
-        <div class="ui-profile-pic">
-            <img width="110px" src="../../../../assets/head3.png">
+        <div class="ui-profile-pic" v-if="!displayUserInfo" :style="{'background-image': 'url(https://www.drupal.org/files/issues/default-avatar.png)'}"></div>
+        <div class="ui-profile-pic" v-else :style="{'background-image': 'url(' + displayUserInfo.picture + ')'}">
         </div>
 
-        <div class="ui-user-name">
-            <p class="ui-p">{{ userName }}</p>
+        <div class="ui-user-name" v-if="!displayUserInfo">Loading...</div>
+        <div class="ui-user-name" v-else>
+            <p class="ui-p">{{displayUserInfo.first_name}} {{displayUserInfo.last_name}}</p>
         </div>
         
     </div>
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex'
 export default {
-    data() {
-        return {
-            userName: 'Ashley Schuette'
-        }
+    computed: {
+        ...mapGetters(['displayUserInfo'])
+    },
+    methods: {
+        ...mapActions(['getUserInfo'])
+    },
+    created() {
+        this.getUserInfo(this.$route.params.user_id)
     }
 }
 </script>
@@ -25,7 +31,12 @@ export default {
 <style>
 .ui-profile-pic {
     text-align: center;
-    margin-top: 10px;
+    height: 110px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 10px auto;
     position: relative;
     z-index: 2;
 }
