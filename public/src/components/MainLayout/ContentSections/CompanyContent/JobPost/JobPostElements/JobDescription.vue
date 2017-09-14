@@ -24,7 +24,7 @@
 
 						<md-input-container class="jd-input-job-title" md-inline>
 							<label>Enter location here</label>
-							<md-input v-model="postTitle"></md-input>
+							<md-input v-model="postLocation"></md-input>
 						</md-input-container>
 
 						<md-input-container class="jd-select-job-type">
@@ -55,6 +55,7 @@ export default {
 		return {
 			postTitle: '',
 			postJobType: '',
+			postLocation: '',
 			postIndustry: '',
 			postDescription: ''				
 		}
@@ -65,6 +66,9 @@ export default {
 	watch: {
 		postTitle() {
 			this.$emit('updateTitle', this.postTitle)
+		},
+		postLocation() {
+			this.$emit('updateLocation', this.postLocation)
 		},
 		postJobType() {
 			this.$emit('updateType', this.postJobType)

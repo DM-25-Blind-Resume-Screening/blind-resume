@@ -31,9 +31,7 @@ CREATE TABLE IF NOT EXISTS companies (
 	picture text not null,
 	user_name text not null,
 	auth_id text not null,
-	email text not null,
-	city text,
-	state text
+	email text not null
 );
 
 --Industries
@@ -58,6 +56,7 @@ CREATE TABLE IF NOT EXISTS job_postings (
 	job_type_id integer not null,
 	foreign key (job_type_id) references job_types(id),
 	title text not null,
+	location text,
 	job_description text,
 	date_posted date
 );

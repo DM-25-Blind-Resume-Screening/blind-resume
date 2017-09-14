@@ -8,6 +8,7 @@
 			class="nj-editor" 
 			@updateTitle="updateTitle"
 			@updateType="updateJobType"
+			@updateLocation="updateJobLocation"
 			@updateIndustry="updateIndustry"
 			@updateDescription="updateDescription"></app-job-description>
 		
@@ -43,6 +44,7 @@ export default {
 			newJobPost: {
 				jobDescription: {
 					title: '',
+					location: '',
 					jobType: null,
 					industry: null,
 					description: ''
@@ -59,6 +61,9 @@ export default {
 		},
 		updateJobType(val) {
 			this.newJobPost.jobDescription.jobType = val;
+		},
+		updateJobLocation(val) {
+			this.newJobPost.jobDescription.location = val;
 		},
 		updateIndustry(val) {
 			this.newJobPost.jobDescription.industry = val;
@@ -81,7 +86,8 @@ export default {
 						description: this.newJobPost.jobDescription.description,
 						responsibilities: this.newJobPost.jobResponsibilities,
 						qualifications: this.newJobPost.jobQualifications,
-						keywords: this.newJobPost.jobKeywords
+						keywords: this.newJobPost.jobKeywords,
+						location: this.newJobPost.jobDescription.location
 					}
 				).then(response => {
 						this.clearInputs()

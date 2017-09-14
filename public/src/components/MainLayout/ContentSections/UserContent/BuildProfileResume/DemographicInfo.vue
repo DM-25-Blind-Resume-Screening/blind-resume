@@ -1,68 +1,107 @@
 <template>
 	<div class="di-container">
-		<div class="user-image-div">
-			<img class="user-image" src="../../../../../assets/landing-picture.jpg" />
-		</div>
+	    
+	    <div class="left-about-column">
+		    <div class="user-image-div" v-if="!displayUserInfo" :style="{'background-image': 'url(https://www.drupal.org/files/issues/default-avatar.png)'}"></div>
+			<div class="user-image-div" v-else :style="{'background-image': 'url('+displayUserInfo.picture+')'}">
+			</div>
+
+			<div class="edit-pencil-demo">
+				<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
+			</div>
+	    	
+	    </div>
+		
 		<div class="di-content-container">
 			<div class="onec-demo">
-				<h1>Name Here</h1>
-				<p>Location: {{ userLocation }}</p>
-				<md-input-container class="jd-input-job-title" md-inline>
-					<label>e.g, City, State</label>
-					<md-input></md-input>
-				</md-input-container>
+				
+				<h1 v-if="!displayUserInfo">Loading..</h1>
+				<h1 v-else>{{displayUserInfo.first_name}} {{displayUserInfo.last_name}}</h1>
 
-				<p>Phone: {{userPhone}}</p>
-				<md-input-container class="jd-input-job-title" md-inline>
-					<label>e.g, 123-456-7891</label>
-					<md-input></md-input>
-				</md-input-container>
+					
+					<h3>About Me:</h3>
+					<p v-if="conditionalRenderInputs">{{ userDemographics.about_me }}</p>
+					<md-input-container v-else>
+						<md-textarea v-model="userDemographics.about_me"></md-textarea>
+					</md-input-container>
 
-				<p>Email: {{userEmail}}</p>
-				<md-input-container class="jd-input-job-title" md-inline>
-					<label>Email</label>
-					<md-input></md-input>
-				</md-input-container>
-			</div>
-
-			<div class="twoc-demo">
-				<div class="edit-pencil-demo">
-				<p>About Me:</p>
-			<img @click="isEditingDemographics = !isEditingDemographics" class="new-resume-pencil jd-pencil" src="../../../../../assets/pencil-edit-button-blue.svg"/>
 				</div>
 
-				<textarea class="about-textarea">{{ userAboutMe }}</textarea>
-
-				<p>Portfolio:</p>
-				<md-input-container class="jd-input-job-title" md-inline>
-					<label></label>
-					<md-input></md-input>
+			<div class="twoc-demo">
+				
+				<label v-if="conditionalRenderInputs">Location:  <span>{{ userDemographics.location }}</span></label>
+				<md-input-container class="jd-input-job-title" md-inline v-else>
+					<label>e.g, City, State</label>
+					<md-input v-model="userDemographics.location" @keyup.enter.native="isEditingDemographics=false"></md-input>
 				</md-input-container>
 
-				<p>LinkedIn:</p>
-				<md-input-container class="jd-input-job-title" md-inline>
-					<label></label>
-					<md-input></md-input>
+				<br>
+
+				<label v-if="conditionalRenderInputs">Phone: <span> {{userDemographics.phone}}</span></label>
+				<md-input-container class="jd-input-job-title" md-inline v-else>
+					<label>e.g, 123-456-7891</label>
+					<md-input v-model="userDemographics.phone" @keyup.enter.native="isEditingDemographics=false"></md-input>
+				</md-input-container>
+
+				<br>
+
+				<label v-if="conditionalRenderInputs">Email: <span>{{userDemographics.email}}</span></label>
+				<md-input-container class="jd-input-job-title" md-inline v-else>
+					<label>Email</label>
+					<md-input v-model="userDemographics.email" @keyup.enter.native="isEditingDemographics=false"></md-input>
+				</md-input-container>
+
+				<br>
+
+				<label v-if="conditionalRenderInputs">Portfolio: 
+					<a :href="userDemographics.portfolio">{{userDemographics.portfolio}}</a>
+				</label>
+				<md-input-container class="jd-input-job-title" md-inline v-else>
+					<label>Portfolio Site URL</label>
+					<md-input v-model="userDemographics.portfolio" @keyup.enter.native="isEditingDemographics=false"></md-input>
 				</md-input-container>
 				
-			<div>
-			</div>
+
+				<br>
+
+
+				<label v-if="conditionalRenderInputs">LinkedIn: 
+					<a :href="userDemographics.linkedin">{{userDemographics.linkedin}}</a>
+				</label>
+				<md-input-container class="jd-input-job-title" md-inline v-else>
+					<label>Linkedin URL</label>
+					<md-input v-model="userDemographics.linkedin" @keyup.enter.native="isEditingDemographics=false"></md-input>
+				</md-input-container>
+				
+
+
 
 			</div>
+
 
 		</div>
 	</div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
+	props: ['userDemographics'],
 	data() {
 		return {
 			isEditingDemographics: false,
-			userLocation: 'Provo, UT',
-			userPhone: '456-345-6789',
-			userEmail: 'sdfdf@gmail.com',
-			userAboutMe: 'aksdjflkasjdfkajf'
+			internalLocation: '',
+			internalPhone: '',
+			inernalEmail: '',
+			internalAbout: '',
+			internalPortfolio: '',
+			internalLinkedin: ''
+		}
+	},
+	computed: {
+		...mapGetters(['displayUserInfo']),
+		conditionalRenderInputs() {
+			return !this.isEditingDemographics || !this.userDemographics
 		}
 	}
 }
@@ -70,13 +109,22 @@ export default {
 
 
 <style>
+
+.left-about-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 80px;
+}
 .user-image-div {
-	width: 190px;
+	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	margin-left: 80px;
+	/*margin-left: 80px;*/
 	margin-top: 30px;
 	overflow: hidden;
+	background-size: cover;
+	background-position: center;
 }
 
 .user-image {
@@ -103,6 +151,7 @@ export default {
 
 .twoc-demo {
 	width: 45%;
+	margin-left: 15px;
 }
 
 .about-textarea {
@@ -119,6 +168,12 @@ export default {
 
 .edit-pencil-demo {
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	margin-top: 30px;
+}
+
+.di-container h1,
+.di-container h3 {
+	font-weight: 700;
 }
 </style>

@@ -21,6 +21,7 @@ Vue.use(VueQuillEditor)
 import VuePaginate from 'vue-paginate'
 Vue.use(VuePaginate)
 
+export const EventBus = new Vue();
 
 // Vue Material
 import VueMaterial from 'vue-material'
