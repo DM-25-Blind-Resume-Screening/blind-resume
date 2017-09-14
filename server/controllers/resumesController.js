@@ -8,7 +8,11 @@ module.exports = {
 			req.body.portfolio,
 			req.body.work_exp,
 			req.body.education,
-			req.body.skills
+			req.body.skills,
+			req.body.about_me,
+			req.body.location,
+			req.body.email,
+			req.body.phone
 		]).then(response => {
 			res.status(200).send(response)
 		}).catch(err => console.log(err));
@@ -49,6 +53,13 @@ module.exports = {
 			res.status(200).send(response);
 		}).catch(err => console.log(err));
 	},
+	getUserInformation(req, res, next) {
+		const db = req.app.get('db')
+
+		db.users.getUserById([req.params.user_id]).then(response => {
+			res.status(200).send(response)
+		}).catch(err => console.log(err))
+	},
 	getResumeByUser(req, res, next) {
 		const db = req.app.get('db');
 
@@ -61,6 +72,21 @@ module.exports = {
 
 		db.resumes.createSubmittedResume([req.params.job_post_id, req.params.user_id])
 			.then(response => {
+				res.status(200).send(response)
+			}).catch(err => console.log(err))
+	},
+	updateResumeDemographics(req, res, next) {
+		const db = req.app.get('db');
+
+		db.resumes.updateResumeDemographics([
+				req.body.about_me,
+				req.body.location,
+				req.body.email,
+				req.body.phone,
+				req.body.portfolio,
+				req.body.linkedin,
+				req.params.user_id
+			]).then(response => {
 				res.status(200).send(response)
 			}).catch(err => console.log(err))
 	},

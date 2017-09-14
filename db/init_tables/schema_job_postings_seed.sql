@@ -5,10 +5,10 @@
 -- DevMountain Job Posting 1
 with devmtn_job1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 1, 5, 1, 'Web Developer', 
+			DEFAULT, 1, 5, 1, 'Web Developer', 'Provo, UT',
 			'Looking for a competent web developer to work on the Q functionality and help teach our students to code and stuff.',
 			current_date
 		)
@@ -44,10 +44,10 @@ values
 -- DevMountain Job Posting 2
 with devmtn_job2 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 1, 5, 1, 'Lead Instructor', 
+			DEFAULT, 1, 5, 1, 'Lead Instructor', 'Provo, UT',
 			'Our lead instructor isn''t cutting it anymore.  His puns are bad.  Looking to replace him ASAP',
 			current_date
 		)
@@ -82,10 +82,10 @@ values
 -- Apple Job Posting
 with apple_job1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 2, 20, 1, 'Sales Associate', 
+			DEFAULT, 2, 20, 1, 'Sales Associate', 'Cupertino, CA',
 			'Looking for Sales Associate to assist customers in making important decisions',
 			current_date
 		)
@@ -116,10 +116,10 @@ values
 
 with apple_post2 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 2, 5, 2, 'Part Time Reseller Specialist', 
+            DEFAULT, 2, 5, 2, 'Part Time Reseller Specialist', 'Cupertino, CA',
       		'As a Specialist in a reseller store, you help create the energy and excitement around Apple products, providing the right solutions and getting products into customers'' hands. You understand that Apple is dedicated to delivering a customer experience that''s unlike any other. It starts with you discovering customers'' needs. You match those needs with the right products, and then with the support of your partner you help customers develop lifelong relationships with Apple. Every day you''ll encounter unique opportunities to change lives and make a difference.',
             current_date
         )
@@ -155,10 +155,10 @@ values
 
 with apple_post3 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 2, 24, 5, 'Recruiting Coordinator (6 months contract)', 
+            DEFAULT, 2, 24, 5, 'Recruiting Coordinator (6 months contract)', 'Cupertino, CA', 
       'Imagine what you could do here. At Apple, great ideas have a way of becoming great products, services, and customer experiences very quickly. Bring passion and dedication to your job and there''s no telling what you could accomplish. In this role, you will be responsible for providing the highest level of recruiting coordination services to Apple Inc.''s business leaders, helping to bring the best talents in the market by supporting the recruiters, candidates and managers through Apple''s selection process.',         
       current_date
         )
@@ -199,10 +199,10 @@ values
 -- Facebook Posting 1
 with facebook_post1 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 3, 21, 1, 'CEO', 
+			DEFAULT, 3, 21, 1, 'CEO', 'San Francisco, CA',
 			'Our CEO is spending too much time touring the country to run for president.  We need a new one.',
 			current_date
 		)
@@ -236,10 +236,10 @@ values
 -- Facebook Posting 2
 with facebook_post2 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 3, 21, 1, 'Software Developer, VoIP (WhatsAPP)', 
+			DEFAULT, 3, 21, 1, 'Software Developer, VoIP (WhatsAPP)', 'San Francisco, CA',
 			'WhatsApp is a fast, simple and reliable way to talk to anyone in the world. More than 1 billion people in over 180 countries use WhatsApp to stay in touch with friends and family, anytime and anywhere. WhatsApp is not only free but also available on multiple mobile devices and in low connectivity areas — making it accessible and reliable wherever you are. It''s a simple and secure way to share your favorite moments, send important information or catch up with a friend. WhatsApp helps people connect and share no matter where they are in the world. Join a world-class engineering-driven company, where you''ll have instant impact from day one. WhatsApp has an open culture and flat organization. Every engineer is literally sitting a few steps away from the founders. As a member of our engineering team you will tackle challenging issues of scale, reliability and security while delivering a delightful, simple user experience to a global user base. If you love writing code, hate tons of meetings, then come talk to us',
 			current_date
 		)
@@ -276,10 +276,10 @@ values
 -- Facebook Posting 3
 with facebook_post3 as (
 	insert into job_postings
-		(id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 3, 21, 1, 'Mobile Software Developer, Analytics', 
+			DEFAULT, 3, 21, 1, 'Mobile Software Developer, Analytics', 'San Francisco, CA',
 			'WhatsApp is a fast, simple and reliable way to talk to anyone in the world. More than 1 billion people in over 180 countries use WhatsApp to stay in touch with friends and family, anytime and anywhere. WhatsApp is not only free but also available on multiple mobile devices and in low connectivity areas — making it accessible and reliable wherever you are. It''s a simple and secure way to share your favorite moments, send important information or catch up with a friend. WhatsApp helps people connect and share no matter where they are in the world. Join a world-class engineering-driven company, where you''ll have instant impact from day one. WhatsApp has an open culture and flat organization. Every engineer is literally sitting a few steps away from the founders. As a member of our engineering team you will tackle challenging issues of scale, reliability and security while delivering a delightful, simple user experience to a global user base. If you love writing code, hate tons of meetings, then come talk to us',
 			current_date
 		)
@@ -326,10 +326,10 @@ values
 -----------------------------------------------------------------
 with overstock_post1 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 5, 11, 1, 'Architect', 
+            DEFAULT, 5, 11, 1, 'Architect', 'Lehi, UT',
             'As a Software Architect, you will be expected to work on high-level architecture problems, low-level design, coding issues and everything in between. We value intelligence, creativity, quality, adaptability, technical leadership, and a strong interest to learn. You will work closely with various development teams who all share a common goal: building highly reliable systems that can handle huge loads without breaking a sweat.',
             current_date
         )
@@ -371,10 +371,10 @@ values
 
 with overstock_post2 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 5, 11, 1, 'Pricing Strategist', 
+            DEFAULT, 5, 11, 1, 'Pricing Strategist', 'Lehi, UT',
             'As a Software Architect, you will be expected to work on high-level architecture problems, low-level design, coding issues and everything in between. We value intelligence, creativity, quality, adaptability, technical leadership, and a strong interest to learn. You will work closely with various development teams who all share a common goal: building highly reliable systems that can handle huge loads without breaking a sweat.',
             current_date
         )
@@ -413,10 +413,10 @@ values
 -- overstock 3
 with overstock_post3 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 5, 11, 1, 'Senior 3D Artist', 
+            DEFAULT, 5, 11, 1, 'Senior 3D Artist', 'Lehi, UT',
             'The Senior 3D Artist is an expert in creating photo-realistic renderings, with the leadership skills to direct the work of others. This position will drive the technical framework for how 3D renderings are created at Overstock, deciding when to produce imagery internally versus relying on vendors. This individual works closely with the CGI Art Director and CGI Producer to develop the processes, strategy and workflow for creating a high-volume pipeline of photo-realistic 3D renderings',
             current_date
         )
@@ -456,10 +456,10 @@ values
 -- Overstock 4
 with overstock_post4 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 5, 11, 1, 'Senior Software Developer', 
+            DEFAULT, 5, 11, 1, 'Senior Software Developer', 'Lehi, UT',
             'Senior Software Developers are responsible for working on significant critical projects with limited or no supervision, must be able to take responsibility for all facets of the development process, participates in evaluation, change, and tracking of project requirements, plans and designs software components, services, and processes, fosters strong working relationships within IT and with business groups, mentors other developers, participates in work breakdown into tasks and provides work estimates, able to lead moderate, non-critical projects, have mastery in most core technologies and tools, understands all phases of the company software development life cycle, demonstrates initiative and integrity in all aspects of work, should demonstrate good analytical skills, has a basic understanding of overall company organization, has strong understanding of business partner organization and operations.',
             current_date
         )
@@ -501,10 +501,10 @@ values
 -----------------------------------------------------------------
 with younique_post1 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 6, 20, 1, 'VP, Sales', 
+            DEFAULT, 6, 20, 1, 'VP, Sales', 'Lehi, UT',
             'The VP of Sales will be responsible for creating, optimizing, and maintaining superior Presenter and customer opportunities and engagements across a global organization. As a key member of the leadership team, this executive will be responsible for driving exponential growth in the rapidly-evolving cosmetic industry.  Strategic responsibilities will include maintaining and enhancing the culture within the organization while overseeing presenter and customer engagement.  This highly visible role should ultimately live the brand, mission and inspire others to do the same.',
             current_date
         )
@@ -541,10 +541,10 @@ values
 
 with younique_post2 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 6, 13, 1, 'Director - Privacy Counsel', 
+            DEFAULT, 6, 13, 1, 'Director - Privacy Counsel', 'Lehi, UT',
             'Younique is seeking an experienced and skilled Privacy counsel ready to bring his or her skills to a thriving and team-oriented in-house legal department in an agile and fast-growing company. This position will lead the legal component of Younique’s privacy, data security, and information management programs in collaboration with our legal team.',
             current_date
         )
@@ -582,10 +582,10 @@ values
 
 with younique_post3 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 6, 5, 1, 'Mid-level PHP Developer', 
+            DEFAULT, 6, 5, 1, 'Mid-level PHP Developer', 'Lehi, UT',
             'Younique is seeking a skilled PHP Developer to join our growing team.',
             current_date
         )
@@ -627,10 +627,10 @@ values
 -----------------------------------------------------------------
 with airbnb_post1 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 7, 5, 1, 'Software Engineer, Frontend', 
+            DEFAULT, 7, 5, 1, 'Software Engineer, Frontend', 'San Francisco, CA',
             'Frontend Engineers are an essential part of Airbnb''s Product Team.  Working closely with designers, we implement the user interface of our web app.  We build libraries and abstractions to make our lives easier, such as O2, our front-end toolkit.  We make the most of modern tools like React, ES6, and SASS, and we ensure our UIs work well on all screen sizes.  Some of us specialize in CSS, some in front-end infrastructure, but all of us are JavaScript pros and full-stack engineers',
             current_date
         )
@@ -671,10 +671,10 @@ values
 -- AIRBNB 2
 with airbnb_post2 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 7, 5, 1, 'China Performance Marketing Lead', 
+            DEFAULT, 7, 5, 1, 'China Performance Marketing Lead', 'San Francisco, CA',
       'Airbnb is the world''s largest community-driven hospitality company. Every day, we connect thousands of guests and hosts online, leading to meaningful travel experiences in the real world. From treehouses to castles, Airbnb gives access to the most interesting places to stay around the world, putting you in the local scene and connecting you with unforgettable characters that become part of your story. Travel inspires the some of our best and most memorable stories, and travel with Airbnb facilitates even more interesting experiences and stories that are worth sharing.  Airbnb is looking for a talented Digital Performance Marketing  Manager to lead the Performance Marketing team in our Beijing office.  As the Digital Performance Marketing Manager for China, you will work closely with other functional counterparts and the Director of China Engineering to align on performance strategy to drive growth in China. Success in this role means  maximizing the value of Airbnb''s performance marketing investment in China by driving the high value users and growing our presence in China. The ideal candidate for this position will be quantitative, detail-oriented, and willing to get his or her hands dirty.',
           current_date
         )
@@ -714,10 +714,10 @@ values
 
 with airbnb_post3 as (
     insert into job_postings
-        (id, company_id, industry_id, job_type_id, title, job_description, date_posted)
+        (id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
     values
         (
-            DEFAULT, 7, 5, 1, 'Design Technologist', 
+            DEFAULT, 7, 5, 1, 'Design Technologist', 'San Francisco, CA',
       'We are seeking a Design Technologist who will support our team in advancing Airbnb''s digital product. In this role you will be working with designers and engineers of all levels on a wide variety of projects from building high-fidelity prototypes to creating new tools and integrations needed to help solve our most complex problems efficiently and effectively.',
           current_date
         )

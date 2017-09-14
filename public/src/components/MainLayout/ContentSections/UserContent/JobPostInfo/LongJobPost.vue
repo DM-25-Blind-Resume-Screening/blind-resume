@@ -6,7 +6,7 @@
 
 		<div v-else class="company-info-section">
 			<div class="longjp-logo-contain">
-				<img class="longjp-logo" :src="jobPost.logo_url">
+				<img class="longjp-logo" :src="jobPost.picture">
 			</div>
 			<div class="company-info-content">
 				<h1 class="ljp-h1">Company Info</h1>

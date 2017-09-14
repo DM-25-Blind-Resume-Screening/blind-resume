@@ -1,12 +1,16 @@
 with new_resume as (
 	insert into resumes
-		(id, user_id, linkedin_url, portfolio_url)
+		(id, user_id, linkedin_url, portfolio_url, about_me, location, email, phone,)
 	values
 		(
 			default, 
 			$1,
 			$2,
-			$3
+			$3,
+			$7,
+			$8,
+			$9,
+			$10
 		) 
 	returning id
 ),

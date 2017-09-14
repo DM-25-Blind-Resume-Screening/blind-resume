@@ -147,6 +147,7 @@ app.get('/api/companyInfo', function(req,res){
 //				APPLICATION ENDPOINTS                         //
 /////////////////////////////////////////////////////////
 app.get('/api/industries', typeIndustryController.getAllIndustries)
+app.get('/api/users/:user_id', resumesController.getUserInformation)
 app.get('/api/jobtypes', typeIndustryController.getAllJobTypes);
 app.get('/api/job_postings', jobPostingsController.getAllJobPostings);
 app.get('/api/company/:company_id', jobPostingsController.getCompanyInfo);
@@ -170,6 +171,7 @@ app.patch('/api/education/:education_id', resumesController.updateResumeEducatio
 app.patch('/api/experience/:experience_id', resumesController.updateResumeWorkExperience);
 app.patch('/api/:job_post_id/:resume_id/shortlist', jobPostingsController.updateResumeToShortlist)
 app.patch('/api/:job_post_id/:resume_id/interview', jobPostingsController.updateResumeToInterview)
+app.patch('/api/:user_id/resume/demographics', resumesController.updateResumeDemographics)
 
 app.delete('/api/education/:education_id', resumesController.deleteResumeEducation);
 app.delete('/api/experience/:experience_id', resumesController.deleteResumeExperience);

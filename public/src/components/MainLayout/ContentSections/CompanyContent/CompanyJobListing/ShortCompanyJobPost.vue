@@ -7,7 +7,7 @@
             <div class="company-job-post-content">
                 <h1 @click="goToLongJobpost" class="sjp-h1">{{ job.title }}</h1>
                 <h2 class="sjp-h2">{{ job.company }}</h2>
-                <h3 class="sjp-h3">{{ job.city }}, {{ job.state }}</h3>
+                <h3 class="sjp-h3">{{ job.location}}</h3>
                 <p class="sjp-p">{{ job.job_description }}</p>
                 <div class="scjp-review-container">
                     <p @click="goToApplications" class="sjp-p review-applicants">Total Applicants ({{job.applications_count}})</p>
