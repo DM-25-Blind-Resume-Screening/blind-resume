@@ -1,5 +1,5 @@
 <template>
-	<div class="content_header" style="background: linear-gradient(45deg, #2ED590, #1CB48B)">
+	<div class="content_header">
 		 <slot>
 			 Default Header Content
 		</slot>
