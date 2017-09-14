@@ -26,7 +26,7 @@ values
 	('SharpSpring', 'https://sharpspring.com/wp-content/uploads/2017/01/SharpSpring_Color_RGB_twitter_white.png','24121asd','aksd','kj2ne@gmailc.om'),
 	('Overstock', 'https://d1iiooxwdowqwr.cloudfront.net/pub/appsubmissions/20170331163128_iosappiconoverstock.png','24121asd','aksd','kj2ne@gmailc.om'),
 	('Younique', 'https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=KovvdfsGVeqNV83eETwyMUYogc0%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6nlh8Tw1It6a2FowGz60oISIfYC2G-KlTfi6ThEQaYCLauCMPDxixnCV175H0zFrXNCVqFa5LAT-PvA4EIz-mSXsiaf1YPUBYX0UV768kUHTspmKClEtH6Widj46JIYyg','24121asd','aksd','kj2ne@gmailc.om'),
-	('AirBNB', 'https://assets.entrepreneur.com/content/3x2/1300/1405612741-airbnb-why-new-logo.jpg','24121asd','aksd','kj2ne@gmailc.om');
+	('Airbnb', 'https://assets.entrepreneur.com/content/3x2/1300/1405612741-airbnb-why-new-logo.jpg','24121asd','aksd','kj2ne@gmailc.om');
 
 insert into industries
 	(name)

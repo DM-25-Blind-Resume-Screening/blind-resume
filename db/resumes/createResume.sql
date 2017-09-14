@@ -1,6 +1,6 @@
 with new_resume as (
 	insert into resumes
-		(id, user_id, linkedin_url, portfolio_url, about_me, location, email, phone,)
+		(id, user_id, linkedin_url, portfolio_url, about_me, location, email, phone)
 	values
 		(
 			default, 
