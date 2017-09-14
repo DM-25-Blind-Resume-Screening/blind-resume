@@ -1,16 +1,26 @@
 <template>
 	<div class="">
 		<div v-if="isUserRoute" class="content_header">
-		<slot>
-			 Default Header Content
-		</slot>
-		<img @click="goBack" class="arrow" src="../../../assets/left-arrow.svg" alt="back">
+			<img @click="goBack" class="arrow" src="../../../assets/left-arrow.svg" alt="back">
+			<slot>
+				 Default Header Content
+			</slot>
+		<div class="sign-out">
+			<a href="http://localhost:3000/auth/logout">
+				<button type="button" class="logout-button">Logout</button>
+			</a>
+		</div>
 		</div>
 		<div v-else class="content_header_green">
-		<slot>
-			 Default Header Content
-		</slot>
-		<img @click="goBack" class="arrow" src="../../../assets/left-arrow.svg" alt="back">
+			<img @click="goBack" class="arrow" src="../../../assets/left-arrow.svg" alt="back">
+			<slot>
+				 Default Header Content
+			</slot>
+		<div class="sign-out">
+			<a href="http://localhost:3000/auth/logout">
+				<button type="button" class="logout-button">Logout</button>
+			</a>
+		</div>
 		</div>
 		<div class="header-div">
 		</div>
@@ -37,12 +47,12 @@ export default {
 	.content_header {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		padding: 10px 5px;
-		width: 100%;
+		width: 86vw;
 		height: 52px;
-		display: flex;
-		align-items: center;
-		padding-left: 30px;
+		padding-left: 25px;
+		padding-right: 25px;
 		color: white;
 		font-size: 18px;
 		background: linear-gradient(45deg,#003A98,#3f89c2);
@@ -53,12 +63,12 @@ export default {
 	.content_header_green {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		padding: 10px 5px;
-		width: 100%;
+		width: 86vw;
 		height: 52px;
-		display: flex;
-		align-items: center;
-		padding-left: 30px;
+		padding-left: 25px;
+		padding-right: 25px;
 		color: white;
 		font-size: 18px;
 		background: linear-gradient(45deg, #2ED590 , #1CB48B );
@@ -71,10 +81,14 @@ export default {
 		height: 52px;
 		width: 100%;
 	}
-
-	.arrow {
-		position: fixed;
-		right: 20px;
-		top: 8px;
+	.logout-button {
+		height: 30px;
+		width: 80px;
+		background: none;
+		border: solid 1px white;
+		color: white;
+		font-size: 15px;
+		box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.2);
 	}
+
 </style>

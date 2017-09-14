@@ -140,9 +140,13 @@ passport.deserializeUser(function(profileFromSession, done) {
 app.get('/api/companyInfo', function(req,res){
     res.send(req.user)
 })
-
-
-
+///////////////////////////////////////////////////////////
+//				LOG OUT                                       //
+/////////////////////////////////////////////////////////
+app.get('/auth/logout', function (req, res) {
+    req.logout();
+    res.redirect ('http://localhost:8080/') // change this to the sign in route
+})
 ///////////////////////////////////////////////////////////
 //				APPLICATION ENDPOINTS                         //
 /////////////////////////////////////////////////////////
