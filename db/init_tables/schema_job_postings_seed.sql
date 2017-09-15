@@ -47,8 +47,8 @@ with devmtn_job2 as (
 		(id, company_id, industry_id, job_type_id, title, location, job_description, date_posted)
 	values
 		(
-			DEFAULT, 1, 5, 1, 'Lead Instructor', 'Provo, UT',
-			'Our lead instructor isn''t cutting it anymore.  His puns are bad.  Looking to replace him ASAP',
+			DEFAULT, 1, 5, 1, 'Web Director', 'Provo, UT',
+			'Our web director isn''t cutting it anymore.  His puns are bad.  Looking to replace him ASAP',
 			current_date
 		)
 	returning id
@@ -953,6 +953,101 @@ resume3_skills as (
 )
 select * from resume3;
 
+with resume4 as (
+    insert into resumes
+        (id, user_id, location, about_me, email, phone, linkedin_url, portfolio_url)
+    values
+        (default, 4, 'Topkea, KS', 
+        	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, optio natus deleniti illum eius quo dignissimos accusantium eos a numquam! Tempora aperiam dolorem voluptates accusantium minima, eum, optio voluptatum unde!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, vero harum, architecto eaque quaerat nihil soluta quisquam hic fugiat incidunt suscipit sequi laborum maiores error enim tenetur fugit itaque iusto!', 
+        	'me@logantruong.com', '(555) 543-2109','https://www.linkedin.com/in/logan-truong', 'https://www.logantruong.com') 
+    returning id
+),
+resume4_exp as (
+    insert into work_experiences
+        (title, company, from_date, to_date, description, resume_id)
+    values
+        (
+            'Web Developer', 'DevMountain', '6/2017', 'Present',
+            'BAD RESUME',
+            (select id from resume4)
+        )
+),
+resume4_edu1 as (
+    insert into education
+        (school, degree, study_field, from_date, to_date, description, resume_id)
+    values
+        (
+            'DevMountain', 'Junior Web Developer', 'Web Development', '6/2017', '9/2017',
+            'Studied Full Stack development focusing on ReactJS, NodeJS, Express, and PostgreSQL',
+            (select id from resume4)
+        ),
+        (
+            'University of Hawaii', 'Bachelor of Business Administration', 'Finance', '8/2014', '6/2016',
+            'Undergraduate studies focusing on Business Administration',
+            (select id from resume4)
+        )
+),
+resume4_skills as (
+    insert into skills
+        (name, resume_id)
+    values 
+        ('ReactJS', (select id from resume4)),
+        ('SQL', (select id from resume4)),
+        ('NodeJS', (select id from resume4)),
+        ('Communication', (select id from resume4))
+)
+select * from resume4;
+
+
+
+with resume5 as (
+    insert into resumes
+        (id, user_id, location, about_me, email, phone, linkedin_url, portfolio_url)
+    values
+        (default, 5, 'New York City, NY', 
+        	'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, optio natus deleniti illum eius quo dignissimos accusantium eos a numquam! Tempora aperiam dolorem voluptates accusantium minima, eum, optio voluptatum unde!  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, vero harum, architecto eaque quaerat nihil soluta quisquam hic fugiat incidunt suscipit sequi laborum maiores error enim tenetur fugit itaque iusto!', 
+        	'me@logantruong.com', '(555) 543-2109','https://www.linkedin.com/in/logan-truong', 'https://www.logantruong.com') 
+    returning id
+),
+resume5_exp as (
+    insert into work_experiences
+        (title, company, from_date, to_date, description, resume_id)
+    values
+        (
+            'Web Developer', 'DevMountain', '6/2017', 'Present',
+            'MEDIOCRE RESUME',
+            (select id from resume5)
+        )
+),
+resume5_edu1 as (
+    insert into education
+        (school, degree, study_field, from_date, to_date, description, resume_id)
+    values
+        (
+            'DevMountain', 'Junior Web Developer', 'Web Development', '6/2017', '9/2017',
+            'Studied Full Stack development focusing on ReactJS, NodeJS, Express, and PostgreSQL',
+            (select id from resume5)
+        ),
+        (
+            'University of Hawaii', 'Bachelor of Business Administration', 'Finance', '8/2014', '6/2016',
+            'Undergraduate studies focusing on Business Administration',
+            (select id from resume5)
+        )
+),
+resume5_skills as (
+    insert into skills
+        (name, resume_id)
+    values 
+        ('angularJS', (select id from resume5)),
+        ('SQL', (select id from resume5)),
+        ('PHP', (select id from resume5)),
+        ('Communication', (select id from resume5))
+)
+select * from resume5;
+
+
+
+
 insert into submitted_resumes
 	(resume_id, job_post_id)
 values 
@@ -984,6 +1079,28 @@ values
 	(3, 14),
 	(3, 15),
 	(3, 16),
-	(3, 17);
+	(3, 17),
+	(4, 1),
+	(4, 2),
+	(4, 3),
+	(4, 5),
+	(4, 8),
+	(4, 9),
+	(4, 10),
+	(4, 14),
+	(4, 15),
+	(4, 16),
+	(4, 17),
+	(5, 1),
+	(5, 2),
+	(5, 3),
+	(5, 5),
+	(5, 8),
+	(5, 9),
+	(5, 10),
+	(5, 14),
+	(5, 15),
+	(5, 16),
+	(5, 17);
 
 

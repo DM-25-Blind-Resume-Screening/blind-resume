@@ -4,10 +4,10 @@ values
 	('cmwilson88', 'aasd@gmail.com', 'Christopher', 'Wilson', 'abc213414',
 		'https://st.depositphotos.com/1987283/2136/i/950/depositphotos_21362149-stock-photo-headshot-of-serious-professional-doctor.jpg'
 		),
-	('meginocc','aas35d@gmail.com', 'Megan', 'wilson', 'ajnfwf324',
+	('aschuette','aas35d@gmail.com', 'Megan', 'wilson', 'ajnfwf324',
 		'https://i.pinimg.com/236x/29/0c/96/290c9625d895fe4f6f39f1d41d41eb1c--corporate-portrait-business-portrait.jpg'
 		),
-	('mjordanfan','aas23rd@gmail.com', 'Michael', 'Jordan','wuhuwnw',
+	('asdf','aas23rd@gmail.com', 'Logan', 'Truong','wuhuwnw',
 		'https://thumbs.dreamstime.com/t/professional-headshot-closeup-portrait-smart-elderly-man-pink-shirt-dark-eye-glasses-specs-sitting-down-laughing-indoors-72972126.jpg'
 		),
 	('username241', 'aas2567d@gmail.com', 'User', 'Name23','dij2iej',
