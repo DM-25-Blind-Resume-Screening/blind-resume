@@ -1,7 +1,7 @@
 <template >
   <div class="footer-div">
     <p>© All rights reserved. Made with ❤️ by
-    <a class="link-to-portfolio" href="http://cwilsoncode.com">Christopher Wilson</a>,
+    <a class="link-to-portfolio" href="http://www.seewilsoncode.com">Christopher Wilson</a>,
     <a class="link-to-portfolio" href="http://www.aschuette.com/">Ashley Schuette</a> and
     <a class="link-to-portfolio" href="http://logantruong.com">Logan Truong.</a>
     </p>

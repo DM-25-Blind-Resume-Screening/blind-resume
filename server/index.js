@@ -36,12 +36,12 @@ massive(config.massiveUrl)
 
 		db.init_tables.schema_create_seed().then(res => {
 			console.log('schema create tables')
-			db.init_tables.schema_row_seed().then(res => {
-				console.log('schema insert dummy rows');
-        db.init_tables.schema_job_postings_seed().then(res => {
-          console.log('inserted job postings')
-        }).catch(err => console.log(err));
-			}).catch(err => console.log(err));
+			// db.init_tables.schema_row_seed().then(res => {
+				// console.log('schema insert dummy rows');
+        // db.init_tables.schema_job_postings_seed().then(res => {
+          // console.log('inserted job postings')
+        // }).catch(err => console.log(err));
+			// }).catch(err => console.log(err));
 		}).catch(err => console.log(err));
 	}).catch(err => console.log(err));
 
