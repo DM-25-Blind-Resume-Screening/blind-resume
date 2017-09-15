@@ -48,11 +48,10 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 10px 5px;
-		width: 86vw;
+		width: 100%;
 		height: 52px;
 		padding-left: 25px;
-		padding-right: 25px;
+		padding-right: 265px;
 		color: white;
 		font-size: 18px;
 		background: linear-gradient(45deg,#003A98,#3f89c2);
@@ -65,10 +64,10 @@ export default {
 		align-items: center;
 		justify-content: space-between;
 		padding: 10px 5px;
-		width: 86vw;
+		width: 100%;
 		height: 52px;
 		padding-left: 25px;
-		padding-right: 25px;
+		padding-right: 265px;
 		color: white;
 		font-size: 18px;
 		background: linear-gradient(45deg, #2ED590 , #1CB48B );
