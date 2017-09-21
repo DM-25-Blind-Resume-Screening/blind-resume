@@ -5,7 +5,7 @@
 		<app-home-banner></app-home-banner>
 		<app-why-we-exist></app-why-we-exist>
 		<app-footer></app-footer>
-
+		<app-info-block></app-info-block>
 	</div>
 </template>
 
@@ -15,13 +15,15 @@
 	import LandingPicture from './LandingElements/LandingPicture.vue';
 	import WhyWeExist from './LandingElements/WhyWeExist.vue';
 	import Footer from './LandingElements/Footer.vue';
+	import InfoBlock from './InfoBlock.vue'
 	export default {
 	    components: {
 	      appHomeBanner: HomeBanner,
 				appLandingPicture: LandingPicture,
 				appNavBar: NavBar,
 				appWhyWeExist: WhyWeExist,
-				appFooter: Footer
+				appFooter: Footer,
+				appInfoBlock: InfoBlock
 	    }
 }
 

@@ -11,12 +11,12 @@
     <md-dialog-title>Log in as</md-dialog-title>
     <!-- <md-dialog-content>Log in as</md-dialog-content> -->
       <md-dialog-actions>
-          <a href="http://localhost:3000/auth/2">
+          <a href="http://165.227.99.251:3001/auth/2">
             <md-button class="md-primary" @click="closeDialog('dialog1')">
             Employer
             </md-button>
           </a>
-          <a href="http://localhost:3000/auth/1">
+          <a href="http://165.227.99.251:3001/auth/1">
             <md-button class="md-primary" @click="closeDialog('dialog1')">
             Job-Seeker
             </md-button>

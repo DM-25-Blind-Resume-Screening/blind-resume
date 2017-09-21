@@ -9,7 +9,7 @@ const Auth0Strategy 	= require('passport-auth0'),
   		express     	 	= require('express'),
   		config 	    		= require('../config')
   		cors		       	= require('cors'),
-  		port 		       	= 3000,
+  		port 		       	= 3001,
   		app		 	       	= express();
 
 // Controllers
@@ -37,10 +37,10 @@ massive(config.massiveUrl)
 		db.init_tables.schema_create_seed().then(res => {
 			console.log('schema create tables')
 			// db.init_tables.schema_row_seed().then(res => {
-				// console.log('schema insert dummy rows');
-        // db.init_tables.schema_job_postings_seed().then(res => {
-          // console.log('inserted job postings')
-        // }).catch(err => console.log(err));
+			// 	console.log('schema insert dummy rows');
+   //      db.init_tables.schema_job_postings_seed().then(res => {
+   //        console.log('inserted job postings')
+   //      }).catch(err => console.log(err));
 			// }).catch(err => console.log(err));
 		}).catch(err => console.log(err));
 	}).catch(err => console.log(err));
@@ -54,7 +54,7 @@ passport.use('employee', new Auth0Strategy({
   domain: config.domain,
   clientID: config.clientId1,
   clientSecret: config.clientSecret1,
-  callbackURL: 'http://localhost:3000/auth/callback1'
+  callbackURL: config.callBackUrl1
 }, function(accessToken, refreshToken, extraParams, profile, done) {
   //GO TO DB TO FIND AND CREATE USER
   let db = app.get('db')
@@ -79,7 +79,7 @@ passport.use('employee', new Auth0Strategy({
 }));
 
 app.get('/auth/1', passport.authenticate('employee'))
-app.get('/auth/callback1', passport.authenticate('employee', {successRedirect: `http://localhost:8080/#/app/user/`}))
+app.get('/auth/callback1', passport.authenticate('employee', {successRedirect: `http://165.227.99.251:3001/#/app/user/`}))
 
 passport.serializeUser(function(profileToSession, done) {
 	// console.log('serialize-user-employee', profileToSession)
@@ -102,7 +102,7 @@ passport.use('employer',new Auth0Strategy({
   domain: config.domain,
   clientID: config.clientId2,
   clientSecret: config.clientSecret2,
-  callbackURL: 'http://localhost:3000/auth/callback2'
+  callbackURL: config.callBackUrl2
 }, function(accessToken, refreshToken, extraParams, profile, done) {
   //GO TO DB TO FIND AND CREATE USER
 	console.log('profile', profile)
@@ -126,7 +126,7 @@ passport.use('employer',new Auth0Strategy({
 }));
 
 app.get('/auth/2', passport.authenticate('employer'))
-app.get('/auth/callback2', passport.authenticate('employer', {successRedirect: 'http://localhost:8080/#/app/company/'}))
+app.get('/auth/callback2', passport.authenticate('employer', {successRedirect: 'http://165.227.99.251:3001/#/app/company/'}))
 
 passport.serializeUser(function(profileToSession, done) {
 	console.log('serialize-user', profileToSession)
@@ -145,7 +145,7 @@ app.get('/api/companyInfo', function(req,res){
 /////////////////////////////////////////////////////////
 app.get('/auth/logout', function (req, res) {
     req.logout();
-    res.redirect ('http://localhost:8080/') // change this to the sign in route
+    res.redirect ('http://165.227.99.251:3001') // change this to the sign in route
 })
 ///////////////////////////////////////////////////////////
 //				APPLICATION ENDPOINTS                         //
